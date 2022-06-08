@@ -5,6 +5,10 @@ import java.util.Scanner;
 
 public class Ex15 {
     public static void main(String[] args) {
+//        Questão 15 Altere o programa anterior para que ao final da rodada em vez de encerrar o programa, o usuário
+//        informe se deseja continuar o jogo ou Não. Caso o usuário deseje continuar jogando, o programa deve iniciar
+//        novamente para que uma nova partida comece.
+
         String player1,player2;
         String inutil1,inutil2;
         String jogar;

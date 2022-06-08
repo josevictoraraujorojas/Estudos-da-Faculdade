@@ -4,6 +4,14 @@ import java.util.Scanner;
 
 public class Ex8 {
     public static void main(String[] args) {
+//        Questão 9 Julgue o seguinte item, considerando a proposição P: ?Se o
+//        responsável pela indicação fizer sua parte e seus aliados trabalharem duro, vencerão.?.
+//        A negação da proposição P pode ser expressa por ?Se o responsável pela indicação não fizer sua parte ou seus
+//        aliados não trabalharem duro, não vencerão.?.
+//        (a) Certo
+//                (b) Errado
+//        Errado, pois, as duas opções tem que estar negando
+
         boolean responsavel;
         boolean aliados;
         Scanner ler = new Scanner(System.in);

@@ -3,6 +3,9 @@ package Lista02;
 import java.util.Scanner;
 
 public class Ex6 {
+//    Questão 6 Escreva um programa Java que leia dois números de ponto flutuante e teste se eles são iguais até três
+//    casas decimais.
+
     public static void main(String[] args) {
         float num1,num2;
         Scanner ler =new Scanner(System.in);

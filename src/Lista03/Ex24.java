@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class Ex24 {
     public static void main(String[] args) {
+//        Questão 24 Faca um programa em Java que leia um numero N, some todos os números múltiplos de 3 entre 1 e
+//        N, e mostre o resultado obtido. Utilize o laço for o comando continue.
+
         int i=1;
         int limite;
         int soma=0;

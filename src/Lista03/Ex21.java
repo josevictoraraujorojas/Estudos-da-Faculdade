@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class Ex21 {
     public static void main(String[] args) {
+//        Questão 21 Faça um programa em Java que imprima todos os números inteiros de 1 a N. N  ?e um numero que
+//        deve ser digitado pelo usuário. Utilize o laço for.
+
         int i;
         int limite;
         Scanner ler =new Scanner(System.in);

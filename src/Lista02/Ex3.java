@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Ex3 {
     public static void main(String[] args) {
+//        Questão 3 Dado 3 números, encontre o maior e o menor deles.
+
         int primeiro_numero;
         int segundo_numero;
         int terceiro_numero;

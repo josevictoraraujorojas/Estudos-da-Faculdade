@@ -4,6 +4,10 @@ import javax.swing.*;
 
 public class Ex20 {
     public static void main(String[] args) {
+//        Questão 20 Reescreva o programa da questão anterior para que o usuário possa calcular a soma da sequência de
+//        números quantas vezes ele quiser. Utilize o comando JOptionPane.showConfirmDialog para verificar se o usuário
+//        deseja calcular a soma de outra sequência ou não (pesquise sobre como funciona o comando).
+
         int inicio,fim,i,soma,auxiliar,reutilizar;
         do {
             soma = 0;

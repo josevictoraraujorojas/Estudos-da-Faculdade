@@ -2,6 +2,8 @@ package Lista03;
 
 public class Ex5 {
     public static void main(String[] args) {
+//        Questão 5 Explique duas maneiras de alterar o exercício anterior para somar apenas os números pares de 1 e 10.
+
         int i = 1;
         int soma = 0;
         while (i <= 10) {

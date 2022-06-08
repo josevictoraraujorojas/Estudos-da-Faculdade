@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class Ex10 {
     public static void main(String[] args) {
+//        Questão 10 Faça um programa em Java que imprima todos os números inteiros de 1 a N. N  ?e um número que
+//        deve ser digitado pelo usuário.
+
         int num;
         int limite;
         Scanner ler =new Scanner(System.in);

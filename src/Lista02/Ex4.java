@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Ex4 {
     public static void main(String[] args) {
+//        Questão 4 Dado 3 números, verifique a existência de um numero negativo.
+
         int primeiro_numero;
         int segundo_numero;
         int terceiro_numero;

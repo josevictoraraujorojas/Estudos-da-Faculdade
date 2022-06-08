@@ -4,6 +4,10 @@ import javax.swing.*;
 
 public class Ex26 {
     public static void main(String[] args) {
+//        Questão 26 Faça um programa em Java que leia um número N e outro X. Imprima todos os números entre N e
+//        X. Se algum dos números for 13, parar o laço e imprimir a mensagem ?Número 13 encontrado! "com o JOptionPane
+//        com a imagem de erro. Utilize o laço for o comando break.
+
         int i;
         int limite;
         i = Integer.parseInt(JOptionPane.showInputDialog("digite o primeiro numero"));

@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class Ex12 {
     public static void main(String[] args) {
+//        Questão 12 Faça um programa em Java que leia um número N, some todos os números múltiplos de 3 entre 1 e
+//        N, e mostre o resultado obtido.
+
         int num=0;
         int limite;
         int i=1;

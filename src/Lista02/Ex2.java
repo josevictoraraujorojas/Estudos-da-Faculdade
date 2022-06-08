@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Ex2 {
     public static void main(String[] args) {
+//        Questão 2 Dado um numero, verifique se esse é par ou ímpar.
+
         int numero;
         Scanner ler = new Scanner(System.in);
         System.out.println("digite um numero");

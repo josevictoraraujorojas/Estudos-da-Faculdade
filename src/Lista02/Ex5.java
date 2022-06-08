@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class Ex5 {
     public static void main(String[] args) {
+//        Questão 5 Escreva um programa Java que mantenha um numero do usuário e exiba o nome do dia da semana.
+//        Por exemplo, se o usuário digitar 5, o programa deve exibir ?sexta-feira?. Se o usuário digitar 10, o programa deve
+//        exibir ?número inválido?.
+
         int numero;
         Scanner ler = new Scanner(System.in);
         System.out.println("informe um numero");

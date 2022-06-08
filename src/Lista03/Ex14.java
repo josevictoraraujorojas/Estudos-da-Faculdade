@@ -5,6 +5,14 @@ import java.util.Scanner;
 
 public class Ex14 {
     public static void main(String[] args) {
+//        Questão 14 Faça um programa que simule um jogo de dados. O jogo precisa de dois participantes (peça o
+//        nome dos jogadores). A cada rodada, cada participante deve sortear um número para o seu dado (use a classe
+//                Random). Se o valor sorteado pelo jogador 1 for maior que o valor sorteado pelo jogador 2, o jogador 1 ganha 1 ponto.
+//                Se o valor sorteado pelo jogador 2 for maior que o valor sorteado pelo jogador 1, o jogador 2 ganha 1 um. Se o
+//        número sorteado nos dois dados forem iguais, ninguém pontua. O jogo acaba quando um jogador ganha
+//        pontuando 11 pontos. Ao final do jogo exiba uma mensagem de parabéns ao jogador que ganhou e informe a
+//        pontuação de cada jogador naquela rodada.
+
         String player1;
         String player2;
         String inutil1;

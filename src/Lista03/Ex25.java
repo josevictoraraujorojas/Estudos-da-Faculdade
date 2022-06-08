@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class Ex25 {
     public static void main(String[] args) {
+//        Questão 25 Faça um programa em Java que leia um número N, imprima todos os números pares entre 1 e N.
+//        Utilize o laco for e o comando continue.
+
         int i;
         int limite;
         Scanner ler =new Scanner(System.in);
