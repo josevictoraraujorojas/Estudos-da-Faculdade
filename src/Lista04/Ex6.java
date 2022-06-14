@@ -8,7 +8,7 @@ public class Ex6 {
     public static void main(String[] args) throws InterruptedException {
         //        Questão 6 Escreva um programa em Java que armazene 10 números aleatórios em um vetor.
 //        Informe ao usuárioque os números estão sendo atribuídos ao vetor e diga quais são esses números.
-//        Em seguida, informe as seguintes opções para o usuário escolher o que quer ver:
+//        Em seguida, informe as seguintes opções para o usuário escolher o que quer ver :
 
         Random aleatorio = new Random();
         Scanner ler = new Scanner(System.in);
