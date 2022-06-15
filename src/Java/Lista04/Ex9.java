@@ -4,30 +4,22 @@ import java.util.Random;
 
 public class Ex9 {
     public static void main(String[] args) {
-//        Questão 9Escreva um programa em Java que encontre o segundo menor valor em um vetor de 10 posilçoes.
+//        Questão 9 Escreva um programa em Java que encontre o segundo menor valor em um vetor de 10 posilçoes.
 
-        int[] numeros = new int[10];
-        Random aleatorio = new Random();
+        int[] c = {8, 5, 2, 9, 2, 3, 7, 6, 0, 0};
+        int menor1 = Integer.MAX_VALUE;
+        int menor2 = Integer.MAX_VALUE;
+        int i = 0;
 
-        for (int i = 0; i < 10; i++)
-        {
-            numeros[i] = aleatorio.nextInt(1, 10);
-        }
-
-        System.out.println("este é o vetor: " + "{" + numeros[0] + "," + numeros[1] + "," + numeros[2] + "," + numeros[3] + "," + numeros[4] + "," + numeros[5] + "," + numeros[6] + "," + numeros[7] + "," + numeros[8] + "," + numeros[9] + "}");
-
-        int menor = numeros[0];
-        int segundoMenor = numeros[1];
-
-        for (int i = 1; i < 10; i++)
-        {
-            if (menor > numeros[i])
-            {
-                menor = numeros[i];
-            } else if (segundoMenor > numeros[i] && numeros[i] > menor)
-            {
-                segundoMenor = numeros[i];
+        for (i = 0; i < c.length; i++){
+            if (c[i] < menor1){
+                menor2 = menor1;
+                menor1 = c[i];
+            } else if (c[i] < menor2 && c[i] > menor1) {
+                menor2 = c[i];
             }
         }
+        System.out.println("O menor número é: " + menor1);
+        System.out.println("O segundo menor número é: " + menor2);
     }
 }

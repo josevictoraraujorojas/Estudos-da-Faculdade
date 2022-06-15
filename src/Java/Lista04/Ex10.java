@@ -9,15 +9,15 @@ public class Ex10 {
         int countCrescente=0;
         int countDecrescente=0;
 
-        for (int i=0;i<10;i++){
+        for (int i=0;i<=9;i++){
             System.out.println("informe os numeros do vetor");
             nummeros[i]= ler.nextInt();
         }
 
-        int crescente=nummeros[0];
-        for (int i=1;i<=9;i++)
+
+        for (int i=0;i<9;i++)
         {
-            if (crescente<nummeros[i])
+            if (nummeros[i]<nummeros[i+1])
             {
                 ++countCrescente;
                 System.out.println(countCrescente);
@@ -25,9 +25,9 @@ public class Ex10 {
 
         }
         int decrescente=nummeros[0];
-        for (int i=9;i>=1;i--)
+        for (int i=0;i<9;i++)
         {
-            if (decrescente>nummeros[i]){
+            if (nummeros[i]>nummeros[i+1]){
                 ++countDecrescente;
                 System.out.println(countDecrescente);
             }
@@ -43,4 +43,5 @@ public class Ex10 {
             System.out.println("esse vetor esta bagunçado");
         }
     }
+
 }
