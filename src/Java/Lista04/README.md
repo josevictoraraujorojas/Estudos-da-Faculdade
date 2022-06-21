@@ -15,5 +15,5 @@ array_uni[i] = ler.nextInt();
 
 ####Podemos obter o tamanho do array com:
 
- array_uni.length;
+array_uni.length;
 
