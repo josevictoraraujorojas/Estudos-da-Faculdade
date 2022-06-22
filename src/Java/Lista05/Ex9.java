@@ -53,17 +53,13 @@ public class Ex9 {
     public static void imprimiAssentos (String[][] x) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 4; j++) {
-                System.out.printf("%s\t             ", x[i][j]);
+                System.out.printf("%s\t", x[i][j]);
             }
             System.out.println();
         }
     }
     public static boolean verificaAssento(int f,int c,String[][] x){
-        if (x[f][c].equals(".")){
-             return true;
-        }else {
-             return false;
-        }
+        return x[f][c].equals(".");
     }
 
     public static void inicializaReserva (String n ,int f,int c,String[][] x) {
