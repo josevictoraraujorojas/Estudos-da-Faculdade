@@ -31,7 +31,7 @@ public class Ex10 {
             System.out.println("Escolha a coluna "+player1);
             colunap1= ler.nextInt();
 
-            while (!jogadasDiferentes(linhap1, colunap1, velha)){
+            while (!jogadaDiferentes(linhap1, colunap1, velha)){
                 System.out.println("Joga ja feita escolha outra jogada");
                 System.out.println("Escolha a linha "+player1);
                 linhap1= ler.nextInt();
@@ -55,7 +55,7 @@ public class Ex10 {
             System.out.println("Escolha a coluna "+player2);
             colunap2= ler.nextInt();
 
-            while (!jogadasDiferentes(linhap2,colunap2,velha)){
+            while (!jogadaDiferentes(linhap2,colunap2,velha)){
                 System.out.println("Joga ja feita escolha outra jogada");
                 System.out.println("Escolha a linha "+player2);
                 linhap2= ler.nextInt();
@@ -183,7 +183,7 @@ public class Ex10 {
     public static void escolhebola (int f,int c,String[][] x) {
         x[f][c]="O";
     }
-    public static boolean jogadasDiferentes(int f,int c,String[][] x){
+    public static boolean jogadaDiferentes(int f,int c,String[][] x){
         return x[f][c].equals(".");
     }
     public static boolean verificavelha(String[][] x){
@@ -197,7 +197,4 @@ public class Ex10 {
         }
         return count == 9;
     }
-
-
-
 }
