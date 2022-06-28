@@ -93,10 +93,10 @@ public class Ex10 {
             if (count2 == 3) {
                 break;
             }
-            if (count3 == 1) {
+            if (count3 == 3) {
                 break;
             }
-            if (count4 == 1) {
+            if (count4 == 3) {
                 break;
             }
             if (count5 == 3) {
@@ -122,10 +122,10 @@ public class Ex10 {
                 }if (x[i][j].equals("O")) {
                     count2++;
                 }
-                if (x[0][j].equals("X") && x[1][j].equals("X") && x[2][j].equals("X")) {
+                if (x[j][i].equals("X")) {
                     count3++;
                 }
-                if (x[0][j].equals("O") && x[1][j].equals("O") && x[2][j].equals("O")) {
+                if (x[j][i].equals("O")) {
                     count4++;
                 }
                 if (i == j && x[i][j].equals("X") ) {
@@ -151,10 +151,10 @@ public class Ex10 {
         if (count2 == 3) {
             return true;
         }
-        if (count3 == 1) {
+        if (count3 == 3) {
             return true;
         }
-        if (count4 == 1) {
+        if (count4 == 3) {
             return true;
         }
         if (count5 == 3) {
