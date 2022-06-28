@@ -101,34 +101,49 @@ public class Ex8 {
     }
 
     public static void imprimeGrafico(int[] vetor, String[] produto){
-        char[][] grafico = new char[10][10];
-        for(int i=0; i<10; i++)
+        String[][] grafico = new String[10][10];
+        for(int i=9; i>=0; i--)
         {
-            System.out.print("|");
             for(int j =0; j<10;j++)
             {
-                if(j< vetor[i])
-                    System.out.print("* ");
-                else System.out.print("  ");
+                if(j< vetor[i]) {
+                    grafico[i][j]="* ";
+                } else grafico[i][j]="  ";
             }
-            System.out.println("|" + produto[i]);
         }
-
+        for (int i = 9; i>=0; i--) {
+            for (int j = 0; j < 10; j++)
+            {
+                System.out.printf("%s\t   ", grafico[j][i]);
+            }
+            System.out.println();
+        }
     }
 
     public static void imprimeGraficoFrequencia(int[] vetor){
-        char[][] grafico = new char[10][10];
-        for(int i=0; i<10; i++)
+        String[][] grafico = new String[10][10];
+        for(int i=9; i>=0; i--)
         {
-            System.out.print("|");
             for(int j =0; j<10;j++)
             {
-                if(j< vetor[i])
-                    System.out.print("* ");
-                else System.out.print("  ");
+                if(j< vetor[i]) {
+                    grafico[i][j]="* ";
+                } else grafico[i][j]="  ";
             }
-            System.out.println((i+1)+"|");
         }
+        for (int i = 9; i>=0; i--) {
+            for (int j = 0; j < 10; j++)
+            {
+                System.out.printf("%s\t", grafico[j][i]);
+            }
+            System.out.println();
+        }
+        System.out.println("---------------------------------------");
+        for (int j = 0; j < 10; j++){
+
+            System.out.print((j+1)+"   ");
+        }
+        System.out.println();
 
 
     }
@@ -141,6 +156,7 @@ public class Ex8 {
             }
             System.out.println();
         }
+
     }
 }
 
