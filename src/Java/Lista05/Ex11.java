@@ -1,15 +1,98 @@
 package Java.Lista05;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Ex11 {
     public static void main(String[] args) {
-        String[][] imagem = new String[199][199];
+        Scanner ler = new Scanner(System.in);
+        int respostaLinha;
+        int respostaColuna;
+        String resposta;
 
-        for (int i=0;i<imagem.length;i++){
-            Arrays.fill(imagem[i],".");
+        System.out.println("informe quantas linhas e colunas tem sua matriz,o numero de coluna tem que ser igual a o de linhas");
+        respostaLinha= ler.nextInt();
+        respostaColuna= ler.nextInt();
+        while (respostaColuna!=respostaLinha){
+            System.out.println("resposta invalida informe o mesmo tanto de coluna e linha");
+            respostaLinha= ler.nextInt();
+            respostaColuna= ler.nextInt();
         }
-        // +2,-2 ; +2,-2
+
+        String[][] imagem = new String[respostaLinha][respostaColuna];
+        for (int i=0;i<imagem.length;i++){
+            Arrays.fill(imagem[i]," ");
+        }
+        while (true) {
+
+            System.out.println("O que voce quer desenhar na sua matriz");
+            System.out.println("a) linha ");
+            System.out.println("b) coluna");
+            System.out.println("c) diagonal principal");
+            System.out.println("d) diagonal secundaria");
+            System.out.println("e) losango");
+            System.out.println("f) sair do programa");
+            System.out.println("informe sua resposta");
+            resposta= ler.next();
+
+            switch (resposta) {
+                case "a" -> {
+                    int linhaInicial;
+                    int linhaFinal;
+                    System.out.println("informe quantidade de linhas iniciais e a quantidades de linhas finais ira ocupar com '#' no seu vetor");
+                    linhaInicial = ler.nextInt();
+                    linhaFinal = ler.nextInt();
+                    linha("#", linhaInicial, linhaFinal, imagem);
+                    imprimiMatriz(imagem);
+                }
+                case "b" -> {
+                    int colunaInicial;
+                    int colunaFinal;
+                    System.out.println("informe quantidade de colunas iniciais e a quantidades de colunas finais ira ser ocupar com '#' no seu vetor");
+                    colunaInicial = ler.nextInt();
+                    colunaFinal = ler.nextInt();
+                    coluna("#", colunaInicial, colunaFinal, imagem);
+                    imprimiMatriz(imagem);
+                }
+                case "c" -> {
+                    int cordenadaDiagonalPrincipal;
+                    System.out.println("informe a cordenada da sua diagonal principal que ira ser ocupada com '#' ");
+                    System.out.println("para ela ficar centralizada na matriz inici com o valor 0");
+                    System.out.println("aumentando o valor a diagonal vai para a direita");
+                    System.out.println("diminuindo o valor ela vai para a esquerda");
+                    System.out.println("informe:");
+                    cordenadaDiagonalPrincipal = ler.nextInt();
+                    diagonalprincipal("#", cordenadaDiagonalPrincipal, imagem);
+                    imprimiMatriz(imagem);
+                }
+                case "d" -> {
+                    int cordenadaDiagonalSecundaria;
+                    System.out.println("informe a cordenada da sua diagonal secundaria que ira ser ocupada com '#' ");
+                    System.out.println("para ela ficar centralizada na matriz inici com o valor 1");
+                    System.out.println("aumentando o valor a diagonal vai para a esquerda");
+                    System.out.println("diminuindo o valor ela vai para a direita");
+                    System.out.println("informe:");
+                    cordenadaDiagonalSecundaria = ler.nextInt();
+                    diagonalsecundaria("#", cordenadaDiagonalSecundaria, imagem);
+                    imprimiMatriz(imagem);
+                }
+                case "e" -> {
+                    System.out.println("faremos uma losango perfeito com '#' ");
+                    if (imagem.length % 2 == 0) {
+                        losangoMatrizPar("#", imagem);
+                        imprimiMatriz(imagem);
+                    } else {
+                        losangoMatrizPrimo("#", imagem);
+                        imprimiMatriz(imagem);
+                    }
+                }
+                case "f" -> System.exit(0);
+                default -> System.out.println("Opção inválida!");
+            }
+
+        }
+
+
 
 
         //linha("#",4,4,imagem);
@@ -27,7 +110,7 @@ public class Ex11 {
 
 
 
-        imprimiMatriz(imagem);
+
 
 
     }
