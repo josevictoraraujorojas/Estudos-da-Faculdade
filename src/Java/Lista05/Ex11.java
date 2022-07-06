@@ -18,11 +18,12 @@ public class Ex11 {
             respostaLinha= ler.nextInt();
             respostaColuna= ler.nextInt();
         }
-
         String[][] imagem = new String[respostaLinha][respostaColuna];
+
         for (int i=0;i<imagem.length;i++){
             Arrays.fill(imagem[i]," ");
         }
+
         while (true) {
 
             System.out.println("O que voce quer desenhar na sua matriz");
@@ -31,7 +32,8 @@ public class Ex11 {
             System.out.println("c) diagonal principal");
             System.out.println("d) diagonal secundaria");
             System.out.println("e) losango");
-            System.out.println("f) sair do programa");
+            System.out.println("f) reinicia matriz");
+            System.out.println("g) sair do programa");
             System.out.println("informe sua resposta");
             resposta= ler.next();
 
@@ -86,7 +88,13 @@ public class Ex11 {
                         imprimiMatriz(imagem);
                     }
                 }
-                case "f" -> System.exit(0);
+                case "f" -> {
+                    for (int i=0;i<imagem.length;i++){
+                        Arrays.fill(imagem[i]," ");
+                    }
+                    imprimiMatriz(imagem);
+                }
+                case "g" -> System.exit(0);
                 default -> System.out.println("Opção inválida!");
             }
 
