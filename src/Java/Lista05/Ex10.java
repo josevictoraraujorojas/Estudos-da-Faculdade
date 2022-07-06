@@ -1,5 +1,6 @@
 package Java.Lista05;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Ex10 {
@@ -12,35 +13,37 @@ public class Ex10 {
         int colunap1;
         int linhap2;
         int colunap2;
-        int jogadas=1;
 
         System.out.println("informe seu nome P1");
         player1 = ler.next();
         System.out.println("informe seu nome P2");
         player2 = ler.next();
+
         for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                velha[i][j]=".";
-            }
+
+            Arrays.fill(velha[i],".");
         }
 
-        while (jogadas<9){
-            jogadas++;
-            System.out.println("Escolha a linha "+player1);
+        while (true){
+            System.out.println("Escolha a linha e a coluna "+player1);
             linhap1= ler.nextInt();
-            System.out.println("Escolha a coluna "+player1);
             colunap1= ler.nextInt();
+            linhap1-=1;
+            colunap1-=1;
 
-            while (!jogadaDiferentes(linhap1, colunap1, velha)){
+            while (!jogadasDiferentes(linhap1, colunap1, velha)){
                 System.out.println("Joga ja feita escolha outra jogada");
-                System.out.println("Escolha a linha "+player1);
+                System.out.println("Escolha a linha e a coluna "+player1);
                 linhap1= ler.nextInt();
-                System.out.println("Escolha a coluna "+player1);
                 colunap1= ler.nextInt();
+                linhap1-=1;
+                colunap1-=1;
             }
+
             escolheX(linhap1,colunap1,velha);
             imprimiVelha(velha);
-            if (verificavelha(velha)){
+
+            if (verificaVelha(velha)){
                 System.out.println("deu velha ninguem ganhou");
                 break;
             }
@@ -50,21 +53,25 @@ public class Ex10 {
             }
 
 
-            System.out.println("Escolha a linha "+player2);
+            System.out.println("Escolha a linha e a coluna "+player2);
             linhap2= ler.nextInt();
-            System.out.println("Escolha a coluna "+player2);
             colunap2= ler.nextInt();
+            linhap2-=1;
+            colunap2-=1;
 
-            while (!jogadaDiferentes(linhap2,colunap2,velha)){
+            while (!jogadasDiferentes(linhap2,colunap2,velha)){
                 System.out.println("Joga ja feita escolha outra jogada");
-                System.out.println("Escolha a linha "+player2);
+                System.out.println("Escolha a linha e a coluna "+player2);
                 linhap2= ler.nextInt();
-                System.out.println("Escolha a coluna "+player2);
                 colunap2= ler.nextInt();
+                linhap2-=1;
+                colunap2-=1;
             }
+
             escolhebola(linhap2,colunap2,velha);
             imprimiVelha(velha);
-            if (verificavelha(velha)){
+
+            if (verificaVelha(velha)){
                 System.out.println("deu velha ninguem ganhou");
                 break;
             }
@@ -85,30 +92,30 @@ public class Ex10 {
         int count7 = 0;
         int count8 = 0;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < x.length; i++) {
 
-            if (count1 == 3) {
+            if (count1 == x.length) {
                 break;
             }
-            if (count2 == 3) {
+            else if (count2 == x.length) {
                 break;
             }
-            if (count3 == 3) {
+            else if (count3 == x.length) {
                 break;
             }
-            if (count4 == 3) {
+            else if (count4 == x.length) {
                 break;
             }
-            if (count5 == 3) {
+            else if (count5 == x.length) {
                 break;
             }
-            if (count6 == 3) {
+            else if (count6 == x.length) {
                 break;
             }
-            if (count7 == 3) {
+            else if (count7 == x.length) {
                 break;
             }
-            if (count8 == 3) {
+            else if (count8 == x.length) {
                 break;
             }
 
@@ -116,81 +123,101 @@ public class Ex10 {
             count2 = 0;
             count3 = 0;
             count4 = 0;
-            for (int j = 0; j < 3; j++) {
-                if (x[i][j].equals("X")) {
+            for (int j = 0; j < x[0].length; j++) {
+                if (x[i][j].equals("X"))
+                {
                     count1++;
-                }if (x[i][j].equals("O")) {
+                }else if (x[i][j].equals("O"))
+                {
                     count2++;
                 }
-                if (x[j][i].equals("X")) {
+                else if (x[j][i].equals("X") )
+                {
                     count3++;
                 }
-                if (x[j][i].equals("O")) {
+                else if (x[j][i].equals("O") )
+                {
                     count4++;
                 }
-                if (i == j && x[i][j].equals("X") ) {
+                else if (i == j && x[i][j].equals("X") )
+                {
                     count5++;
                 }
-                if (i == j && x[i][j].equals("O")) {
+                else if (i == j && x[i][j].equals("O"))
+                {
                     count6++;
                 }
-                if (i+j == 2 && x[i][j].equals("X")){
+                else if (i+j == 2 && x[i][j].equals("X"))
+                {
                     count7++;
                 }
-                if (i+j == 2 && x[i][j].equals("O")){
+                else if (i+j == 2 && x[i][j].equals("O"))
+                {
                     count8++;
                 }
             }
         }
 
-
-
-        if (count1 == 3) {
+        if (count1 == x.length)
+        {
             return true;
         }
-        if (count2 == 3) {
+        else if (count2 == x.length)
+        {
             return true;
         }
-        if (count3 == 3) {
+        else if (count3 == x.length)
+        {
             return true;
         }
-        if (count4 == 3) {
+        else if (count4 == x.length)
+        {
             return true;
         }
-        if (count5 == 3) {
+        else if (count5 == x.length)
+        {
             return true;
         }
-        if (count6 == 3) {
+        else if (count6 == x.length)
+        {
             return true;
         }
-        if (count7 == 3) {
+        else if (count7 == x.length)
+        {
             return true;
         }
-        return count8 == 3;
+        return count8 == x.length;
     }
 
     public static void imprimiVelha (String[][] x) {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
+        for (int i = 0; i < x.length; i++) {
+            for (int j = 0; j < x[0].length; j++) {
                 System.out.printf("%s\t", x[i][j]);
             }
             System.out.println();
         }
     }
+
     public static void escolheX (int f,int c,String[][] x) {
         x[f][c]="X";
     }
+
     public static void escolhebola (int f,int c,String[][] x) {
         x[f][c]="O";
     }
-    public static boolean jogadaDiferentes(int f,int c,String[][] x){
+
+    public static boolean jogadasDiferentes(int f,int c,String[][] x){
         return x[f][c].equals(".");
     }
-    public static boolean verificavelha(String[][] x){
+
+    public static boolean verificaVelha(String[][] x){
         int count=0;
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (!(x[i][j].equals("."))){
+        for (int i = 0; i < x.length; i++)
+        {
+            for (int j = 0; j < x[0].length; j++)
+            {
+                if (!(x[i][j].equals(".")))
+                {
                     count++;
                 }
             }

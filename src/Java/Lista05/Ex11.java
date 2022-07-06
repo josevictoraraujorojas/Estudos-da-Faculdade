@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Ex11 {
     public static void main(String[] args) {
-        String[][] imagem = new String[6][6];
+        String[][] imagem = new String[199][199];
 
         for (int i=0;i<imagem.length;i++){
             Arrays.fill(imagem[i],".");
@@ -21,9 +21,9 @@ public class Ex11 {
         //aumentrando o valor a diagonal vai para a direita
         //diminuindo o valor a diagonal vai para a esquerda
         //a do centreo esta em 0
-       // diagonalprincipal("#",0,imagem);
-        losanguloMatrizPar("#",imagem);
-
+        //diagonalprincipal("#",0,imagem);
+        //losangoMatrizPar("#",imagem);
+        //losangoMatrizPrimo("#",imagem);
 
 
 
@@ -72,7 +72,7 @@ public class Ex11 {
             }
         }
     }
-    public static void losanguloMatrizPar(String valor ,String[][] w) {
+    public static void losangoMatrizPar(String valor ,String[][] w) {
         for (int i = 0; i < w.length; i++) {
             for (int j = 0; j < w[0].length; j++) {
                 //primeiro quadrante
@@ -85,6 +85,29 @@ public class Ex11 {
                 }
                 //terceiro quadrante
                 if (i>= (w.length/2) && j<(w.length/2) && j+(w.length/2)==i) {
+                    w[i][j] = valor;
+                }
+                //quarto quadrante
+                if (i>=(w.length/2) && j>=(w.length/2) && i+j == (w.length/2)+w.length-1){
+                    w[i][j] = valor;
+                }
+
+            }
+        }
+    }
+    public static void losangoMatrizPrimo(String valor ,String[][] w) {
+        for (int i = 0; i < w.length; i++) {
+            for (int j = 0; j < w[0].length; j++) {
+                //primeiro quadrante
+                if (i<= (w.length/2) && j<=(w.length/2) && i+j==(w.length/2)){
+                    w[i][j] = valor;
+                }
+                //segundo quadrante
+                if (i<= (w.length/2) && j>=(w.length/2) && i+(w.length/2)==j) {
+                    w[i][j] = valor;
+                }
+                //terceiro quadrante
+                if (i>= (w.length/2) && j<=(w.length/2) && j+(w.length/2)==i) {
                     w[i][j] = valor;
                 }
                 //quarto quadrante
