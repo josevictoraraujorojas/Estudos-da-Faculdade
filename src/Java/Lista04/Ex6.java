@@ -13,7 +13,6 @@ public class Ex6 {
         Random aleatorio = new Random();
         Scanner ler = new Scanner(System.in);
         int[] numeros = new int[10];
-        int[] duplicado = new int[10];
         String resposta;
         String novamente;
         int multiplo;
@@ -22,6 +21,7 @@ public class Ex6 {
             numeros[i] = aleatorio.nextInt(-10, 11);
             System.out.println(numeros[i]);
             TimeUnit.SECONDS.sleep(1);
+
         }
         do {
             System.out.println("este é o vetor: " + "{" + numeros[0] + "," + numeros[1] + "," + numeros[2] + "," + numeros[3] + "," + numeros[4] + "," + numeros[5] + "," + numeros[6] + "," + numeros[7] + "," + numeros[8] + "," + numeros[9] + "}");
@@ -58,7 +58,7 @@ public class Ex6 {
                     verificaMultiplo(numeros, multiplo);
                 }
                 case "maiormenor" -> verificaMaiorMenor(numeros);
-                case "duplicado" -> verificaDuplicado(numeros, duplicado);
+                case "duplicado" -> verificaDuplicado(numeros);
 
             }
 
@@ -147,10 +147,29 @@ public class Ex6 {
         System.out.println("quantidade de numeros primos no vetor: " + countPrimo);
     }
 
-    public static void verificaDuplicado(int[] x, int[] y) {
-        for (int i = 0; i < 10; i++) {
-            ++y[x[i]];
-            System.out.println("numero " + x[i] + " foi repetido " + y[i]);
+    public static void verificaDuplicado(int[] x) {
+        int[] fr = new int[20];
+        int visto = -1, i, j;
+        for (i = 0; i < x.length; i++){
+            int countNum = 0;
+            for(j = i+1; j < x.length; j++){
+                if (x[i] == x[j]){
+                    countNum++;
+                    fr[j] = visto; // se já leu, não lê de novo.
+                }
+            } if (fr[i] != visto){ // se aparece com número diferente de -1, é impresso
+                fr[i] = countNum;
+            }
         }
+        System.out.println("---------------------------------");
+        System.out.println("\tNúmero    ||\tQtdd vezes");
+        System.out.println("---------------------------------");
+        for (i = 0; i < x.length; i++){
+            if (fr[i] > 0){
+                System.out.println("\t" + x[i] + "\t\t   |\t   " + (fr[i]+1));
+            }
+        }
+        System.out.println("---------------------------------");
+
     }
 }

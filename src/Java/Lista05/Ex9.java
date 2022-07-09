@@ -1,5 +1,6 @@
 package Java.Lista05;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Ex9 {
@@ -9,50 +10,41 @@ public class Ex9 {
         String nome;
         int fila;
         int coluna;
+        int cheio =0;
 
 
         System.out.println("Bem vindo. No nosso cinema temos 3 fileiras com 4 colunas de assento");
         for (int i=0;i<3;i++){
-            for (int j=0;j<4;j++){
-                assentos[i][j]=".";
-            }
+            Arrays.fill(assentos[i],".");
         }
         imprimiAssentos(assentos);
 
-        for (int i=0;i<3;i++){
-            for (int j=0;j<4;j++){
-                System.out.println("Faça sua reserva");
-                System.out.print("informe seu nome:");
-                nome= ler.next();
-                System.out.print("informe a fila do seu assento:");
-                fila= ler.nextInt();
-                System.out.print("informe a coluna do seu assento:");
-                coluna= ler.nextInt();
-                fila-=1;
-                coluna-=1;
-                while (!verificaAssento(fila, coluna, assentos)){
-                    System.out.println("Esse assento ja esta ocupado informe novamente");
-                    System.out.print("informe seu nome:");
-                    nome= ler.next();
-                    System.out.print("informe a fila do seu assento:");
-                    fila= ler.nextInt();
-                    System.out.print("informe a coluna do seu assento:");
-                    coluna= ler.nextInt();
-                    fila-=1;
-                    coluna-=1;
-                }
-                inicializaReserva(nome,fila,coluna,assentos);
-                System.out.println("Mapa dos assentos");
-                imprimiAssentos(assentos);
+        do {
+            cheio++;
+            System.out.println("Faça sua reserva");
+            System.out.print("informe seu nome a fileira e a coluna:");
+            nome = ler.next();
+            fila = ler.nextInt();
+            coluna = ler.nextInt();
 
+            while (!verificaAssento(fila, coluna, assentos)) {
+                System.out.print("informe seu nome a fileira e a coluna:");
+                nome = ler.next();
+                fila = ler.nextInt();
+                coluna = ler.nextInt();
             }
-        }
+            inicializaReserva(nome, fila, coluna, assentos);
+            System.out.println("Mapa dos assentos");
+            imprimiAssentos(assentos);
 
+        }while (!(cheio==12||nome.equals("0")&&fila==0&&coluna==0));
+        System.out.println("fim do programa");
 
     }
+
     public static void imprimiAssentos (String[][] x) {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 4; j++) {
+        for (int i = 0; i < x.length; i++) {
+            for (int j = 0; j < x[0].length; j++) {
                 System.out.printf("%s\t", x[i][j]);
             }
             System.out.println();
@@ -66,3 +58,4 @@ public class Ex9 {
         x[f][c]=n;
     }
 }
+
