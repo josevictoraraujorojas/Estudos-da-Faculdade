@@ -1,12 +1,12 @@
 package Java.Lista04;
 
-import java.util.Random;
+
 
 public class Ex9 {
     public static void main(String[] args) {
 //        Questão 9 Escreva um programa em Java que encontre o segundo menor valor em um vetor de 10 posilçoes.
 
-        int[] c = {8, 5, 2, 9, 2, 3, 7, 6, 0, 0};
+        int[] c = {0, 5, 2, 3, 2, 0, 2, 2, 0, };
         int menor1 = Integer.MAX_VALUE;
         int menor2 = Integer.MAX_VALUE;
         int i = 0;
