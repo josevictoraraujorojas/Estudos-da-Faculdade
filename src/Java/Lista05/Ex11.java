@@ -21,24 +21,27 @@ public class Ex11 {
         String[][] imagem = new String[respostaLinha][respostaColuna];
 
         for (int i=0;i<imagem.length;i++){
-            Arrays.fill(imagem[i]," ");
+            Arrays.fill(imagem[i],".");
         }
 
         while (true) {
 
             System.out.println("O que voce quer desenhar na sua matriz");
-            System.out.println("a) linha ");
-            System.out.println("b) coluna");
-            System.out.println("c) diagonal principal");
-            System.out.println("d) diagonal secundaria");
-            System.out.println("e) losango");
-            System.out.println("f) reinicia matriz");
-            System.out.println("g) sair do programa");
+            System.out.println("1) linha ");
+            System.out.println("2) coluna");
+            System.out.println("3) diagonal principal");
+            System.out.println("4) diagonal secundaria");
+            System.out.println("5) losango");
+            System.out.println("6) linha centro");
+            System.out.println("7) coluna centro");
+            System.out.println("8) reinicia matriz");
+            System.out.println("9) fecha programa");
+
             System.out.println("informe sua resposta");
             resposta= ler.next();
 
             switch (resposta) {
-                case "a" -> {
+                case "1" -> {
                     int linhaInicial;
                     int linhaFinal;
                     System.out.println("informe quantidade de linhas iniciais e a quantidades de linhas finais ira ocupar com '#' no seu vetor");
@@ -47,7 +50,7 @@ public class Ex11 {
                     linha("#", linhaInicial, linhaFinal, imagem);
                     imprimiMatriz(imagem);
                 }
-                case "b" -> {
+                case "2" -> {
                     int colunaInicial;
                     int colunaFinal;
                     System.out.println("informe quantidade de colunas iniciais e a quantidades de colunas finais ira ser ocupar com '#' no seu vetor");
@@ -56,7 +59,7 @@ public class Ex11 {
                     coluna("#", colunaInicial, colunaFinal, imagem);
                     imprimiMatriz(imagem);
                 }
-                case "c" -> {
+                case "3" -> {
                     int cordenadaDiagonalPrincipal;
                     System.out.println("informe a cordenada da sua diagonal principal que ira ser ocupada com '#' ");
                     System.out.println("para ela ficar centralizada na matriz inici com o valor 0");
@@ -67,7 +70,7 @@ public class Ex11 {
                     diagonalprincipal("#", cordenadaDiagonalPrincipal, imagem);
                     imprimiMatriz(imagem);
                 }
-                case "d" -> {
+                case "4" -> {
                     int cordenadaDiagonalSecundaria;
                     System.out.println("informe a cordenada da sua diagonal secundaria que ira ser ocupada com '#' ");
                     System.out.println("para ela ficar centralizada na matriz inici com o valor 1");
@@ -78,51 +81,102 @@ public class Ex11 {
                     diagonalsecundaria("#", cordenadaDiagonalSecundaria, imagem);
                     imprimiMatriz(imagem);
                 }
-                case "e" -> {
+                case "5" -> {
                     System.out.println("faremos uma losango perfeito com '#' ");
                     if (imagem.length % 2 == 0) {
                         losangoMatrizPar("#", imagem);
                         imprimiMatriz(imagem);
                     } else {
-                        losangoMatrizPrimo("#", imagem);
+                        losangoMatrizImpar("#", imagem);
                         imprimiMatriz(imagem);
                     }
                 }
-                case "f" -> {
+                case "6" ->{
+                    System.out.println("faremos uma linha dividindo a matriz no meio '#' ");
+                    if (imagem.length % 2 == 0) {
+                        linhaCentroPar("#", imagem);
+                        imprimiMatriz(imagem);
+                    } else {
+                        linhaCentroImpar("#", imagem);
+                        imprimiMatriz(imagem);
+                    }
+
+                }
+                case "7" ->{
+                    System.out.println("faremos uma coluna dividindo a matriz no meio '#' ");
+                    if (imagem.length % 2 == 0) {
+                        colunaCentroPar("#", imagem);
+                        imprimiMatriz(imagem);
+                    } else {
+                        colunaCentroImpar("#", imagem);
+                        imprimiMatriz(imagem);
+                    }
+
+                }
+                case "8" -> {
+                    System.out.println("desenho apagado");
                     for (int i=0;i<imagem.length;i++){
-                        Arrays.fill(imagem[i]," ");
+                        Arrays.fill(imagem[i],".");
                     }
                     imprimiMatriz(imagem);
                 }
-                case "g" -> System.exit(0);
+                case "9" -> {
+                    System.out.println("Fechando programa");
+                    System.exit(0);
+                }
+
                 default -> System.out.println("Opção inválida!");
             }
 
         }
-
-
-
-
-        //linha("#",4,4,imagem);
-        //coluna("#",4,4,imagem);
-        //aumentando o valor modifica a diagonal para a esquerda
-        //diminuindo o valor modifica a diagonal para a direita
-        // a do centro ela esta em 1
-        //diagonalsecundaria("#",1,imagem);
-        //aumentrando o valor a diagonal vai para a direita
-        //diminuindo o valor a diagonal vai para a esquerda
-        //a do centreo esta em 0
-        //diagonalprincipal("#",0,imagem);
-        //losangoMatrizPar("#",imagem);
-        //losangoMatrizPrimo("#",imagem);
-
-
-
-
-
-
     }
 
+    public static void linhaCentroImpar(String valor ,String[][] w) {
+        for (int i = 0; i < w.length; i++) {
+            for (int j = 0; j < w[0].length; j++) {
+
+                if (i==w.length/2 && j>=0) {
+                    w[i][j] = valor;
+                }
+            }
+        }
+    }
+    public static void linhaCentroPar(String valor ,String[][] w) {
+        for (int i = 0; i < w.length; i++) {
+            for (int j = 0; j < w[0].length; j++) {
+
+                if (i==w.length/2 && j>=0) {
+                    w[i][j] = valor;
+                }
+                else if (i==w.length/2-1 && j>=0) {
+                    w[i][j] = valor;
+                }
+            }
+        }
+    }
+    public static void colunaCentroImpar(String valor ,String[][] w) {
+        for (int i = 0; i < w.length; i++) {
+            for (int j = 0; j < w[0].length; j++) {
+
+                if (j==w.length/2 && i>=0) {
+                    w[i][j] = valor;
+                }
+            }
+        }
+    }
+    public static void colunaCentroPar(String valor ,String[][] w) {
+        for (int i = 0; i < w.length; i++) {
+            for (int j = 0; j < w[0].length; j++) {
+
+                if (j==w.length/2 && i>=0) {
+                    w[i][j] = valor;
+                }
+                else if (j==w.length/2-1 && i>=0) {
+                    w[i][j] = valor;
+                }
+            }
+        }
+    }
     public static void linha(String valor ,int linhasInicial,int linhaFinal,String[][] w) {
         for (int i = 0; i < w.length; i++) {
             for (int j = 0; j < w[0].length; j++) {
@@ -133,6 +187,7 @@ public class Ex11 {
             }
         }
     }
+
     public static void coluna(String valor ,int colunaInicial,int colunaFinal,String[][] w) {
         for (int i = 0; i < w.length; i++) {
             for (int j = 0; j < w[0].length; j++) {
@@ -143,6 +198,7 @@ public class Ex11 {
             }
         }
     }
+
     public static void diagonalsecundaria(String valor ,int coluna,String[][] w) {
         for (int i = 0; i < w.length; i++) {
             for (int j = 0; j < w[0].length; j++) {
@@ -153,6 +209,7 @@ public class Ex11 {
             }
         }
     }
+
     public static void diagonalprincipal(String valor ,int coluna,String[][] w) {
         for (int i = 0; i < w.length; i++) {
             for (int j = 0; j < w[0].length; j++) {
@@ -163,6 +220,7 @@ public class Ex11 {
             }
         }
     }
+
     public static void losangoMatrizPar(String valor ,String[][] w) {
         for (int i = 0; i < w.length; i++) {
             for (int j = 0; j < w[0].length; j++) {
@@ -171,22 +229,23 @@ public class Ex11 {
                     w[i][j] = valor;
                 }
                 //segundo quadrante
-                if (i< (w.length/2) && j>=(w.length/2) && i+(w.length/2)==j) {
+                else if (i< (w.length/2) && j>=(w.length/2) && i+(w.length/2)==j) {
                     w[i][j] = valor;
                 }
                 //terceiro quadrante
-                if (i>= (w.length/2) && j<(w.length/2) && j+(w.length/2)==i) {
+                else if (i>= (w.length/2) && j<(w.length/2) && j+(w.length/2)==i) {
                     w[i][j] = valor;
                 }
                 //quarto quadrante
-                if (i>=(w.length/2) && j>=(w.length/2) && i+j == (w.length/2)+w.length-1){
+                else if (i>=(w.length/2) && j>=(w.length/2) && i+j == (w.length/2)+w.length-1){
                     w[i][j] = valor;
                 }
 
             }
         }
     }
-    public static void losangoMatrizPrimo(String valor ,String[][] w) {
+
+    public static void losangoMatrizImpar(String valor ,String[][] w) {
         for (int i = 0; i < w.length; i++) {
             for (int j = 0; j < w[0].length; j++) {
                 //primeiro quadrante
@@ -194,18 +253,17 @@ public class Ex11 {
                     w[i][j] = valor;
                 }
                 //segundo quadrante
-                if (i<= (w.length/2) && j>=(w.length/2) && i+(w.length/2)==j) {
+                else if (i<=(w.length/2) && j>=(w.length/2) && i+(w.length/2)==j) {
                     w[i][j] = valor;
                 }
                 //terceiro quadrante
-                if (i>= (w.length/2) && j<=(w.length/2) && j+(w.length/2)==i) {
+                else if (i>= (w.length/2) && j<=(w.length/2) && j+(w.length/2)==i) {
                     w[i][j] = valor;
                 }
                 //quarto quadrante
-                if (i>=(w.length/2) && j>=(w.length/2) && i+j == (w.length/2)+w.length-1){
+                else if (i>=(w.length/2) && j>=(w.length/2) && i+j == (w.length/2)+w.length-1){
                     w[i][j] = valor;
                 }
-
             }
         }
     }
@@ -214,7 +272,7 @@ public class Ex11 {
         for (int i = 0; i < x.length; i++) {
             for (int j = 0; j < x[0].length; j++) {
 
-                System.out.printf("%s", x[i][j]);
+                System.out.printf("%s\t", x[i][j]);
             }
             System.out.println();
         }
