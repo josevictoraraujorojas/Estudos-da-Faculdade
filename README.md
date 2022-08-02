@@ -1,8 +1,8 @@
-#Estudos-da-Faculdade
+Estudos-da-Faculdade
  
  Estudos da Faculdade-Sistemas de Informção
  
- #java
+ java
  
  lista 02: condicionais
 
