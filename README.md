@@ -10,7 +10,7 @@ Estudos-da-Faculdade
 
  lista 04: Arrays Unidimensionais
 
- lista 05: Arrays Multidimensionais
+ lista 05: Arrays Bidimensionais
 
 
 
