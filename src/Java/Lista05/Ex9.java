@@ -5,6 +5,13 @@ import java.util.Scanner;
 
 public class Ex9 {
     public static void main(String[] args) {
+//        Questão 9 Escreva um programa que simule reservas de assentos em um cinema.  Vamos considerar uma sala com 3  fileiras  de  4  lugares  cada.   Defina  uma  matriz  de  3  x  4  que  represente  a  sala.   O  programa  se  repete  até  que  o usuário digite 0 0 0 ou até que todos os assentos sejam ocupados.
+//
+//        Em  cada  execução  do  programa,  um  nome,  numero  de  fila  e  numero  de  assento  são  lidos.
+//        Se  o  assento  ainda estiver  disponível,  o  nome  será  armazenado  na  linha  e  coluna  correspondentes  da  matriz.
+//        Se  o  assento  já  estiver ocupado, o programa imprime “ocupado”.
+//        Após cada reserva de assento, todas as reservas são impressas na tela.
+
         String[][] assentos = new String[3][4];
         Scanner ler = new Scanner(System.in);
         String nome;
@@ -21,7 +28,7 @@ public class Ex9 {
 
         do {
             cheio++;
-            System.out.println("Fa�a sua reserva");
+            System.out.println("Fa�a sua reserva");
             System.out.print("informe seu nome a fileira e a coluna:");
             nome = ler.next();
             fila = ler.nextInt();

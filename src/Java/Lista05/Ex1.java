@@ -4,7 +4,10 @@ import java.util.Random;
 
 public class Ex1 {
     public static void main(String[] args) {
-        Random rand = new Random();
+//        Questão  1  Considerando  a  seguinte  declaração  Random rand = new Random();
+//        ,  qual  o  intervalo  de  valores de números aleatórios que podem ser gerados em cada item?
+
+                Random rand = new Random();
         // nao tera intervalo de valores, na lista falta ponto e virgula
 
         int random1 = rand.nextInt(47) + 1;

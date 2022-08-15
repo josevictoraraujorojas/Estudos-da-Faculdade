@@ -2,6 +2,14 @@ package Java.Lista05;
 
 public class Ex3 {
     public static void main(String[] args) {
+//        Questão  3  Declare as seguintes matrizes e escreva os laços de repetição for que podem manipulá-las:
+//        notas 20 x 5
+//        supermercado 30 x 2
+//        MatrizIdentidade 3 x 3
+//        NomesAlunos 25 x 1
+//        pesos 7 x 4
+//        MatrizVogaisCombinacoes 5 x 5
+//        sudoku 9 x 9
         int[][] notas =new int[20][5];
         for (int i=0;i<20;i++)
         {

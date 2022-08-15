@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class Ex10 {
     public static void main(String[] args) {
+//        Questão  10  Volte as suas respostas do exercício 5.  Desenvolva um jogo da velha completo.
+
         String[][] velha = new String[3][3];
         Scanner ler = new Scanner(System.in);
         String player1;
