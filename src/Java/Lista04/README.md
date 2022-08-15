@@ -1,4 +1,5 @@
 Array unidimencional
+
 Declaração de Array unidimencional:
 
 int [] array_uni = new int[5];
