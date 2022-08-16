@@ -1,29 +1,29 @@
-#For
-O for é uma estrutura de repetição na qual seu ciclo será executado por um tempo ou condição pré-determinados e em uma quantidade de vezes que determinamos.
+For
+O for Ã© uma estrutura de repetiÃ§Ã£o na qual seu ciclo serÃ¡ executado por um tempo ou condiÃ§Ã£o prÃ©-determinados e em uma quantidade de vezes que determinamos.
 
 O for possui a seguinte estrutura:
 
-for (<variável de controle>, <análise da variável de controle>, <incremento da variável de controle>) {
+for (<variÃ¡vel de controle>, <anÃ¡lise da variÃ¡vel de controle>, <incremento da variÃ¡vel de controle>) {
 
-// Código a ser executado
+// CÃ³digo a ser executado
 
 }
-#While
-O while também é uma estrutura de repetição, assim como o for. A diferença entre ambas é que, enquanto usamos o for quando geralmente conhecemos a quantidade de vezes que o trecho de código deverá ser repetido, nós utilizamos o while quando não sabemos exatamente quantas vezes o código será repetido.
+While
+O while tambÃ©m Ã© uma estrutura de repetiÃ§Ã£o, assim como o for. A diferenÃ§a entre ambas Ã© que, enquanto usamos o for quando geralmente conhecemos a quantidade de vezes que o trecho de cÃ³digo deverÃ¡ ser repetido, nÃ³s utilizamos o while quando nÃ£o sabemos exatamente quantas vezes o cÃ³digo serÃ¡ repetido.
 
 O while possui a seguinte estrutura:
 
-while (<condição>) {
+while (<condiÃ§Ã£o>) {
 
-// Trecho de código a ser repetido
+// Trecho de cÃ³digo a ser repetido
 
 }
-#Do while
-A diferença desse iterador para os outros, é que o bloco de instrução será executado no mínimo uma única vez. Como podemos ver no exemplo abaixo:
+Do while
+A diferenÃ§a desse iterador para os outros, Ã© que o bloco de instruÃ§Ã£o serÃ¡ executado no mÃ­nimo uma Ãºnica vez. Como podemos ver no exemplo abaixo:
 
 do{
 
-//instruções a serem executadas
+//instruÃ§Ãµes a serem executadas
 
 }while(True)
 
