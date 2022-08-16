@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 public class Ex6 {
     public static void main(String[] args) throws InterruptedException {
         //        Questão 6 Escreva um programa em Java que armazene 10 números aleatórios em um vetor.
-//        Informe ao usuárioque os números estão sendo atribuídos ao vetor e diga quais são esses números.
+//        Informe ao usuári o que os números estão sendo atribuídos ao vetor e diga quais são esses números.
 //        Em seguida, informe as seguintes opções para o usuário escolher o que quer ver :
 
         Random aleatorio = new Random();
@@ -28,17 +28,17 @@ public class Ex6 {
             TimeUnit.SECONDS.sleep(2);
             System.out.println("o que voce quer saber sobre o vetor");
             TimeUnit.SECONDS.sleep(2);
-            System.out.println("se voce quiser saber a quantidade dos numeros primos escreva 'primo'");
+            System.out.println("se voce quiser saber a quantidade dos numerous primos escreva 'primo'");
             TimeUnit.SECONDS.sleep(2);
-            System.out.println("se voce quiser saber a quantidade de numeros positivo e negativos do vetor ecreva 'positivonegativo'");
+            System.out.println("se voce quiser saber a quantidade de numeros positivo e negativos do vetor escreva 'positivonegativo'");
             TimeUnit.SECONDS.sleep(2);
-            System.out.println("se voce quiser saber a quantidade de numeros multiplos ecreva 'multiplo'");
+            System.out.println("se voce quiser saber a quantidade de numeros multiplos escreva 'multiplo'");
             TimeUnit.SECONDS.sleep(2);
-            System.out.println("se voce quiser saber o maior e o menor numero do vetor ecreva 'maiormenor'");
+            System.out.println("se voce quiser saber o maior e o menor numero do vetor escreva 'maiormenor'");
             TimeUnit.SECONDS.sleep(2);
-            System.out.println("se voce quiser saber a quantidade de numeros pares e impares do vetor ecreva 'parimpar'");
+            System.out.println("se voce quiser saber a quantidade de numeros pares e impares do vetor escreva 'parimpar'");
             TimeUnit.SECONDS.sleep(2);
-            System.out.println("se voce quiser saber os numeros duplicados do vetor ecreva 'duplicado'");
+            System.out.println("se voce quiser saber os numerous duplicados do vetor escreva 'duplicado'");
             TimeUnit.SECONDS.sleep(2);
             System.out.println("informe aqui:");
             resposta = ler.next();
@@ -62,13 +62,13 @@ public class Ex6 {
 
             }
 
-            System.out.println("voce quer saber mais cosisas sobre o vetor");
+            System.out.println("voce quer saber mais coisas sobre o vetor");
             TimeUnit.SECONDS.sleep(1);
             System.out.println("Voce quer saber mais sobre o vetor se sim digite 'sim' se nao digite 'nao'");
             novamente = ler.next();
             TimeUnit.SECONDS.sleep(1);
             while (!(novamente.equals("sim") || novamente.equals("nao"))) {
-                System.out.println("respota ivalida digite novamente:");
+                System.out.println("respota invalida digite novamente:");
                 novamente = ler.next();
                 TimeUnit.SECONDS.sleep(1);
             }
@@ -117,7 +117,7 @@ public class Ex6 {
             }
         }
         System.out.println("este é o maior numero do vetor: " + maior);
-        System.out.println("este é o menore numero do vetor: " + menor);
+        System.out.println("este é o menor numero do vetor: " + menor);
     }
 
     public static void verificaMultiplo(int[] x, int y) {
@@ -127,7 +127,7 @@ public class Ex6 {
                 countMultiplo++;
             }
         }
-        System.out.println("qauntidade de multiplos do numero " + y + " : " + countMultiplo);
+        System.out.println("quantidade de multiplos do numero " + y + " : " + countMultiplo);
     }
 
     public static void verificaPrimo(int[] x) {

@@ -12,7 +12,7 @@ public class Ex4 {
             soma+=i;
             i++;
             System.out.println("soma: "+soma);
-            System.out.println("repeticao: "+i);
+            System.out.println("repetição: "+i);
         }
         System.out.println("resultado "+soma);
     }

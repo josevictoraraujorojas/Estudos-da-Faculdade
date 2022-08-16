@@ -19,7 +19,7 @@ public class Ex13 {
         i = ler.nextInt();
         System.out.println("informe o segundo numero");
         num2 = ler.nextInt();
-        System.out.println("essa é a soma dos numeros multilos de 7 entre "+i+" e "+num2);
+        System.out.println("essa é a soma dos numeros multiplos de 7 entre "+i+" e "+num2);
         if (i > num2)
         {
             auxiliar = i;

@@ -18,7 +18,7 @@ public class Ex7 {
             x[i] = ler.next();
         }
 
-        System.out.println("Escreva 9 Strinds para o vetor y");
+        System.out.println("Escreva 9 Strings para o vetor y");
         for (int j = 0; j < 9; j++) {
             System.out.println("String " + (j + 1) + " do vetor y:");
             y[j] = ler.next();
@@ -27,7 +27,7 @@ public class Ex7 {
         for (int j = 0; j < 9; j++) {
             for (int i = 0; i < 4; i++) {
                 if (y[j].toLowerCase(Locale.ROOT).equals(x[i].toLowerCase(Locale.ROOT))) {
-                    System.out.println("A strings " + y[j].toLowerCase(Locale.ROOT) + " é comumnos nos dois vetores");
+                    System.out.println("A strings " + y[j].toLowerCase(Locale.ROOT) + " é comum nos nos dois vetores");
                 }
             }
         }

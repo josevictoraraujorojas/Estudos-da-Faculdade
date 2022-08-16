@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Ex5 {
     public static void main(String[] args) {
 //        Questão 5 Escreva um programa em Java que leia um vetor de 10 posições com números inteiros.
-//        Verifique sedentre os números digitados há um número primo.
+//        Verifique se dentre os números digitados há um número primo.
 
         Scanner ler = new Scanner(System.in);
         long[] numeros = new long[10];
