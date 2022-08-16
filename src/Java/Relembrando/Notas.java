@@ -11,47 +11,42 @@ public class Notas {
         double[] notas = {3.5,9.2,5.5,10.0,6.1,6.6,8.2,9.5,5.0,7.0};
 
 //        Imprimindo as notas
-        Arrays.sort(notas);
-        System.out.print("As notas são: ");
-        for (int i = 0; i < 10; i++)
-        {
-            System.out.printf(" %.2f ",notas[i]);
-        }
-        System.out.println();
+        impressaoNota(notas);
 
 //        Encontre a maior e a menor nota
-        System.out.println("a nota maior é: "+notas[notas.length-1]+", a menor nota é: "+notas[0]);
-
-//        Calcule a nota media
-        System.out.print("medias das notas: ");
-        media(notas);
-        System.out.println();
-
+        maioreMenorNota(notas);
+//
 //        Determine quantas notas estão abaixo da média
         notasAbaixo(notas);
 
+//        Calcule a nota media
+        media(notas);
+
 //        O professor resolveu dar um ponto extra para todos.
+        System.out.println("*Informações das notas com ponto extra* ");
+
 //        Modifique o conteúdo do array adicionando um ponto nas notas, sem exceder a nota maxima que é 10
-        System.out.print("Essas são as notas com adição do ponto extra: ");
         pontoExtra(notas);
 
+//        Encontre a maior e a menor nota depois dos pontos extras
+        maioreMenorNota(notas);
+
 //        Determine quantas notas estão abaixo da média depois da adição da nota extra
-        System.out.print("Notas abaixo da média depois da adição da nota extra");
         notasAbaixo(notas);
 
-//        Encontre a maior e a menor nota depois dos pontos extras
-        System.out.println("notas com ponto extra, "+"a nota maior é: "+notas[notas.length-1]+", a menor nota é: "+notas[0]);
-        System.out.print("media da notas depois do ponto extra: ");
-        media(notas);
-        System.out.println();
 //        Encontre a media das nota depois dos pontos extras
+        media(notas);
 
 
     }
 
     public static void media (double[] x)
     {
+
         double media=0;
+
+        System.out.print("Medias das notas: ");
+
         for (int i=0;i<10;i++)
         {
             media+=x[i];
@@ -59,6 +54,11 @@ public class Notas {
         media/=x.length;
 
         System.out.printf(" %.2f ",media);
+        System.out.println();
+    }
+    public static void maioreMenorNota (double[] x)
+    {
+        System.out.println("A nota maior é: "+x[x.length-1]+", a menor nota é: "+x[0]);
     }
 
     public static void notasAbaixo (double[] x)
@@ -72,11 +72,23 @@ public class Notas {
             }
         }
 
-        System.out.println("notas abaixo: " + countAbaixo);
+        System.out.println("Notas abaixo: " + countAbaixo);
+    }
+    public static void impressaoNota (double[] x)
+    {
+        Arrays.sort(x);
+        System.out.print("As notas são: ");
+        for (int i = 0; i < 10; i++)
+        {
+            System.out.printf(" %.2f ",x[i]);
+        }
+        System.out.println();
     }
 
     public static void pontoExtra (double[] x)
     {
+        System.out.print("As notas são: ");
+
         for (int i = 0; i < 10; i++)
         {
             if (x[i] <= 9)
@@ -87,8 +99,8 @@ public class Notas {
             {
                 x[i]=10.0;
             }
-            System.out.printf(" %.2f ",x[i]);
         }
-        System.out.println();
+        impressaoNota(x);
     }
 }
+
