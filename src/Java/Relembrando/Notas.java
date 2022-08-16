@@ -30,21 +30,21 @@ public class Notas {
 
     public static void menorMaior (double[] x)
     {
-        double menorvalor= Double.MAX_VALUE;
-        double maiorvalor=0;
+        double menorValor= Double.MAX_VALUE;
+        double maiorValor=0;
 
         for (int i=0;i<10;i++)
         {
-            if (menorvalor>x[i])
+            if (menorValor>x[i])
             {
-                menorvalor=x[i];
+                menorValor=x[i];
             }
-            else if (maiorvalor<x[i])
+            else if (maiorValor<x[i])
             {
-                maiorvalor=x[i];
+                maiorValor=x[i];
             }
         }
-        System.out.println("menor nota: "+menorvalor+", maior nota: "+maiorvalor);
+        System.out.println("menor nota: "+menorValor+", maior nota: "+maiorValor);
     }
 
     public static void media (double[] x)
