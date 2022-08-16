@@ -52,7 +52,6 @@ public class Notas {
         media/=x.length;
 
         System.out.printf("Medias das notas: %.2f\n",media);
-
     }
 
     public static void maioreMenorNota (double[] x)
