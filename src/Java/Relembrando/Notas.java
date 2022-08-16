@@ -1,6 +1,7 @@
 package Java.Relembrando;
 
 
+import java.util.Arrays;
 
 public class Notas {
     public static void main(String[] args) {
@@ -9,42 +10,43 @@ public class Notas {
 //        Declare um array para armazenar essas notas
         double[] notas = {3.5,9.2,5.5,10.0,6.1,6.6,8.2,9.5,5.0,7.0};
 
-//        Encontre a maior e a menor nota
+//        Imprimindo as notas
+        Arrays.sort(notas);
+        System.out.print("As notas são: ");
+        for (int i = 0; i < 10; i++)
+        {
+            System.out.printf(" %.2f ",notas[i]);
+        }
+        System.out.println();
 
-        menorMaior(notas);
+//        Encontre a maior e a menor nota
+        System.out.println("a nota maior é: "+notas[notas.length-1]+", a menor nota é: "+notas[0]);
 
 //        Calcule a nota media
+        System.out.print("medias das notas: ");
+        media(notas);
+        System.out.println();
 
-       media(notas);
-
-//        Determine quantas notas estÃ£o abaixo da mÃ©dia
-
+//        Determine quantas notas estão abaixo da média
         notasAbaixo(notas);
 
 //        O professor resolveu dar um ponto extra para todos.
-//        Modifique o conteÃºdo do array adicionando um ponto nas notas, sem exceder a nota maxima que Ã© 10
-
+//        Modifique o conteúdo do array adicionando um ponto nas notas, sem exceder a nota maxima que é 10
+        System.out.print("Essas são as notas com adição do ponto extra: ");
         pontoExtra(notas);
 
-    }
+//        Determine quantas notas estão abaixo da média depois da adição da nota extra
+        System.out.print("Notas abaixo da média depois da adição da nota extra");
+        notasAbaixo(notas);
 
-    public static void menorMaior (double[] x)
-    {
-        double menorValor= Double.MAX_VALUE;
-        double maiorValor=0;
+//        Encontre a maior e a menor nota depois dos pontos extras
+        System.out.println("notas com ponto extra, "+"a nota maior é: "+notas[notas.length-1]+", a menor nota é: "+notas[0]);
+        System.out.print("media da notas depois do ponto extra: ");
+        media(notas);
+        System.out.println();
+//        Encontre a media das nota depois dos pontos extras
 
-        for (int i=0;i<10;i++)
-        {
-            if (menorValor>x[i])
-            {
-                menorValor=x[i];
-            }
-            else if (maiorValor<x[i])
-            {
-                maiorValor=x[i];
-            }
-        }
-        System.out.println("menor nota: "+menorValor+", maior nota: "+maiorValor);
+
     }
 
     public static void media (double[] x)
@@ -56,7 +58,7 @@ public class Notas {
         }
         media/=x.length;
 
-        System.out.println("media das notas: "+media);
+        System.out.printf(" %.2f ",media);
     }
 
     public static void notasAbaixo (double[] x)
@@ -87,5 +89,6 @@ public class Notas {
             }
             System.out.printf(" %.2f ",x[i]);
         }
+        System.out.println();
     }
 }

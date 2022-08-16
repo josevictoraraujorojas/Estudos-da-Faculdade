@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Ex11 {
     public static void main(String[] args) {
 
-//        Questão 11 Você sabia que uma imagem ´e uma matriz de zeros e uns?  Assista o vídeo https://www.youtube.com/watch?v= para entender o conceito.
+//        Questão 11 Você sabia que uma imagem é uma matriz de zeros e uns?  Assista o vídeo https://www.youtube.com/watch?v= para entender o conceito.
 //        Crie um programa que a partir de uma função matemática preencha com 0 e 1 uma matriz para  formar  uma  imagem.
 //        Verifique  qual  o  tamanho  máximo  que é  possível  imprimir  na  tela  do  seu  computador (faça  testes).
 //        A  sugestão é  tentar  o  básico:  esfera,  x,  quadrado,  donut,  função  seno,  cosseno,  tangente...  Utilize  o Youtube a seu favor.

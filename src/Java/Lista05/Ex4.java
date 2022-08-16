@@ -19,7 +19,7 @@ public class Ex4 {
                 soma[i]+=matriz[i][j];
                 System.out.printf("%d\t ", matriz[i][j]);
             }
-            System.out.printf("\n");
+            System.out.print("\n");
         }
 
         System.out.println("--------------------------------------");

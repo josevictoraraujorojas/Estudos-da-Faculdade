@@ -8,13 +8,13 @@ public class Ex5 {
 //
 //        String[][] jogoVelha = new String[3][3];
 //
-//        Qual o tipo de dado que essa matriz deve armazenar?
+//        qual o tipo de dado que essa matriz deve armazenar?
 //
 //        String  O ou X
 //
 //        FormaFormaO que está armazenado na posição jogo  velha[1][0] e jogo  velha[2][2]?
 //
-//“   “   espaço vazio
+//        espaço vazio
 //
 //        Faça um programa que crie essa matriz, preencha os elementos da matriz como mostra na figura (elemento por elemento acessando o índice) e imprima a matriz com o comando System.out.print().
 
@@ -28,7 +28,7 @@ public class Ex5 {
                 }
                 System.out.printf("%d\t ", identidade[i][j]);
             }
-            System.out.printf("\n");
+            System.out.print("\n");
         }
     }
 }

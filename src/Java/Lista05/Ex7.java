@@ -6,7 +6,7 @@ import java.util.Random;
 public class Ex7 {
     public static void main(String[] args) {
 //        Questão 7 Escreva um programa Java para adicionar duas matrizes do mesmo tamanho (3x3).
-//        Preencha a matriz com números aleatórios e mostre para o usuário as duas matrizes e o resultado da soma.
+//        Preencha a matriz com números aleatórios e mostre para o usuário às duas matrizes e o resultado da soma.
 
         int[][] primeiraMatriz = new int[3][3];
         int[][] segundaMatriz = new int[3][3];

@@ -46,7 +46,7 @@ public class Ex10 {
             imprimiVelha(velha);
 
             if (verificaVelha(velha)){
-                System.out.println("deu velha ninguem ganhou");
+                System.out.println("deu velha ninguém ganhou");
                 break;
             }
             if (verifica(velha)){
@@ -74,7 +74,7 @@ public class Ex10 {
             imprimiVelha(velha);
 
             if (verificaVelha(velha)){
-                System.out.println("deu velha ninguem ganhou");
+                System.out.println("deu velha ninguém ganhou");
                 break;
             }
             if (verifica(velha)){
