@@ -14,7 +14,7 @@ Por fim, devemos dar um nome para o nosso Array para podermos manipular seus ele
 tipo[][] nome = new tipo[quantidade de linhas][quantidade de colunas];
 ```
 
-## Acessando o Array bidimencional
+### Acessando o Array bidimencional
 
 Podemos acessar todas as posições de um array usando 2 laços for e a propriedade
 length do array.
