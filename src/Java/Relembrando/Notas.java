@@ -3,12 +3,12 @@ import java.util.Arrays;
 public class Notas {
     public static void main(String[] args) {
 //        Dada as notas de 10 alunos: 3.5,9.2,5.5,10.0,6.1,6.6,8.2,9.5,5.0,7.0.
+        System.out.println("*Informações das notas sem o ponto extra* ");
 
 //        Declare um array para armazenar essas notas
         double[] notas = {3.5,9.2,5.5,10.0,6.1,6.6,8.2,9.5,5.0,7.0};
 
 //        Imprimindo as notas
-        System.out.println("*Informações das notas sem o ponto extra* ");
         impressaoNota(notas);
 
 //        Encontre a maior e a menor nota
@@ -58,16 +58,15 @@ public class Notas {
 
     public static void notasAbaixo (double[] x)
     {
-        int countAbaixo = 0;
+        int quantidadeAbaixo = 0;
         for (int i = 0; i < 10; i++)
         {
             if (x[i] < 6)
             {
-                countAbaixo++;
+                quantidadeAbaixo++;
             }
         }
-
-        System.out.println("Notas abaixo: " + countAbaixo);
+        System.out.println("Notas abaixo: " + quantidadeAbaixo);
     }
 
     public static void impressaoNota (double[] x)
@@ -97,4 +96,3 @@ public class Notas {
         impressaoNota(x);
     }
 }
-
