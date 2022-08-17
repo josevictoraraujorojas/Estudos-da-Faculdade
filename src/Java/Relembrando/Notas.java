@@ -1,8 +1,5 @@
 package Java.Relembrando;
-
-
 import java.util.Arrays;
-
 public class Notas {
     public static void main(String[] args) {
 //        Dada as notas de 10 alunos: 3.5,9.2,5.5,10.0,6.1,6.6,8.2,9.5,5.0,7.0.
