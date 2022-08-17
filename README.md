@@ -1,16 +1,16 @@
-Estudos-da-Faculdade
+# Estudos-da-Faculdade
  
- Estudos da Faculdade-Sistemas de Informção
+## Estudos da Faculdade-Sistemas de Informção
  
- java
+### java
  
- lista 02: condicionais
+- lista 02: condicionais
 
- lista 03: laço de repetição
+- lista 03: laço de repetição
 
- lista 04: Arrays Unidimensionais
+- lista 04: Arrays Unidimensionais
 
- lista 05: Arrays Bidimensionais
+- lista 05: Arrays Bidimensionais
 
 
 
