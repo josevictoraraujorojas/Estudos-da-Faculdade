@@ -1,6 +1,6 @@
 # Array bidimencional
 
-### Declaração de Array bidimencional
+### Declaração de Array bidimensional
 
 A declaração de Arrays segue a estrutura de declaração de variáveis, porém, é importante observar
 que um Array em Java, é um objeto. Logo, não podemos simplesmente declarar um Array, nós somos
@@ -14,15 +14,15 @@ Por fim, devemos dar um nome para o nosso Array para podermos manipular seus ele
 tipo[][] nome = new tipo[quantidade de linhas][quantidade de colunas];
 ```
 
-### Acessando o Array bidimencional
+### Acessando o Array bidimensional
 
 Podemos acessar todas as posições de um array usando 2 laços for e a propriedade
 length do array.
 
 ```
 for (int i = 0; i < nomeArray.length; i++) {
-Acessa as linhas do Array bidimencional
+Acessa as linhas do Array bidimensional
   for(int j = 0; i < nomearray[0].lenght; j++){
-Acessa as colunas do Array bidimencional
+Acessa as colunas do Array bidimensional
 }
 ```
