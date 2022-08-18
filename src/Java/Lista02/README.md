@@ -14,11 +14,11 @@ if (expressão booleana) {
 }
 ```
 
-# - else if
+- # else if
 
 Complementar ao if/else temos o operador else if. Esse recurso possibilita adicionar uma nova condição à estrutura de decisão para atender a lógica sendo implementada.
 
-### Sintaxe do if/else com else if:
+- ### Sintaxe do if/else com else if:
 
 ```
 if (expressão booleana 1) {
@@ -30,7 +30,7 @@ if (expressão booleana 1) {
 }
 ```
 
-# - Switch
+- # - Switch
 
 Pode haver um ou N números de valores case para uma expressão switch.
 
