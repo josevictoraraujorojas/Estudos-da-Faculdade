@@ -30,7 +30,7 @@ if (expressão booleana 1) {
 }
 ```
 
-- # - Switch
+- # Switch
 
 Pode haver um ou N números de valores case para uma expressão switch.
 
