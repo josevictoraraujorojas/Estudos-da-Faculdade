@@ -1,4 +1,4 @@
-# For
+- # For
 
 O for é uma estrutura de repetição na qual seu ciclo será executado por um tempo ou condição pré-determinados e em uma quantidade de vezes que determinamos.
 
@@ -12,7 +12,7 @@ for (<variável de controle>, <análise da variável de controle>, <incremento d
 }
 ```
 
-# While
+- # While
 
 O while também é uma estrutura de repetição, assim como o for. A diferença entre ambas é que, enquanto usamos o for quando geralmente conhecemos a quantidade de vezes que o trecho de código deverá ser repetido, nós utilizamos o while quando não sabemos exatamente quantas vezes o código será repetido.
 
@@ -25,7 +25,7 @@ while (<condição>) {
 }
 ```
  
- # Do while
+- # Do while
 
 A diferença desse iterador para os outros, é que o bloco de instrução será executado no mínimo uma única vez. Como podemos ver no exemplo abaixo:
 
