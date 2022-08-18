@@ -1,10 +1,10 @@
-# if/else
+# - if/else
 
 A estrutura condicional if/else permite ao programa avaliar uma expressão como sendo verdadeira ou falsa e, de acordo com o resultado dessa verificação, executar uma ou outra rotina.
 
 Na linguagem Java o tipo resultante dessa expressão deve ser sempre um boolean, pois diferentemente das demais, o Java não converte null ou inteiros como 0 e 1 para os valores true ou false.
 
-### Sintaxe do if/else:
+### - Sintaxe do if/else:
 
 ```
 if (expressão booleana) {
@@ -14,7 +14,7 @@ if (expressão booleana) {
 }
 ```
 
-# else if
+# - else if
 
 Complementar ao if/else temos o operador else if. Esse recurso possibilita adicionar uma nova condição à estrutura de decisão para atender a lógica sendo implementada.
 
@@ -30,7 +30,7 @@ if (expressão booleana 1) {
 }
 ```
 
-# Switch
+# - Switch
 
 Pode haver um ou N números de valores case para uma expressão switch.
 
