@@ -1,4 +1,4 @@
-#- if/else
+- # if/else
 
 A estrutura condicional if/else permite ao programa avaliar uma expressão como sendo verdadeira ou falsa e, de acordo com o resultado dessa verificação, executar uma ou outra rotina.
 
