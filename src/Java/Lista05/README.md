@@ -1,4 +1,4 @@
-# Array bidimencional
+# Array bidimensional
 
 ### Declaração de Array bidimensional
 
