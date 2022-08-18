@@ -1,6 +1,6 @@
-# Array unidimencional
+# Array unidimensional
 
-### Declaração de Array unidimencional
+### Declaração de Array unidimensional
 
 A declaração de Arrays segue a estrutura de declaração de variáveis, porém, é importante observar
 que um Array em Java, é um objeto. Logo, não podemos simplesmente declarar um Array, nós somos 
