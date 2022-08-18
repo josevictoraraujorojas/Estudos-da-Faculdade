@@ -4,13 +4,13 @@
  
 ### :coffee: java
  
-- lista 02: condicionais
+- lista :two:: condicionais
 
-- lista 03: laço de repetição
+- lista :three:: laço de repetição
 
-- lista 04: Arrays Unidimensionais
+- lista :four:: Arrays Unidimensionais
 
-- lista 05: Arrays Bidimensionais
+- lista :five:: Arrays Bidimensionais
 
 
 
