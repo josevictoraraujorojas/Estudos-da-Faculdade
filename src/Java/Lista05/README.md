@@ -1,5 +1,7 @@
 - # Array bidimensional
 
+<img src="https://www.linuxteaching.com/storage/img/images_2/use_of_twodimensional_array_in_php.png">
+
 ### Declaração de Array bidimensional
 
 A declaração de Arrays segue a estrutura de declaração de variáveis, porém, é importante observar
