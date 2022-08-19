@@ -1,4 +1,7 @@
-- # if/else
+# Condicional
+
+- ## if/else
+<img src="https://i.stack.imgur.com/vLqlg.png">
 
 A estrutura condicional if/else permite ao programa avaliar uma expressão como sendo verdadeira ou falsa e, de acordo com o resultado dessa verificação, executar uma ou outra rotina.
 
@@ -14,7 +17,9 @@ if (expressão booleana) {
 }
 ```
 
-- # else if
+- ## else if
+
+<img src="https://www.javatpoint.com/cpages/images/elseifladder.png">
 
 Complementar ao if/else temos o operador else if. Esse recurso possibilita adicionar uma nova condição à estrutura de decisão para atender a lógica sendo implementada.
 
@@ -30,7 +35,9 @@ if (expressão booleana 1) {
 }
 ```
 
-- # Switch
+- ## Switch
+
+<img src="https://i0.wp.com/programandosolucoes.dev.br/wp-content/uploads/2020/12/switch-case-1.png?w=560&ssl=1">
 
 Pode haver um ou N números de valores case para uma expressão switch.
 
