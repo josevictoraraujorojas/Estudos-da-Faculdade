@@ -1,5 +1,7 @@
 - # Array unidimensional
 
+<img src="https://www.criandobits.com.br/wp-content/uploads/2022/01/arrayUnidimensional.png">
+
 ### Declaração de Array unidimensional
 
 A declaração de Arrays segue a estrutura de declaração de variáveis, porém, é importante observar
