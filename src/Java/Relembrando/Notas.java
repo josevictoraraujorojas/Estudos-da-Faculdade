@@ -2,31 +2,31 @@ package Java.Relembrando;
 import java.util.Arrays;
 public class Notas {
     public static void main(String[] args) {
-//        criando o objeto da minha classe "notas" onde estão todos os meus métodos
-        Notas valores = new Notas();
+//        Declare um array para armazenar essas notas {3.5, 9.2, 5.5, 10.0, 6.1, 6.6, 8.2, 9.5, 5.0, 7.0}.
+
 
         System.out.println("*Informações das notas sem o ponto extra* ");
 
-        valores.impressaoNota(notas());
+        impressaoNota(notas());
 
-        valores.maiorMenorNota(notas());
+        maiorMenorNota(notas());
 //
-        valores.notasAbaixo(notas());
+        notasAbaixo(notas());
 
-        valores.media(notas());
+        media(notas());
 
 //        O professor resolveu dar um ponto extra para todos.
         System.out.println("\n*Informações das notas com ponto extra* ");
 
-        valores.impressaoNota(valores.pontoExtra(notas()));
+        impressaoNota(pontoExtra(notas()));
 
-        valores.pontoExtra(notas());
+        pontoExtra(notas());
 
-        valores.maiorMenorNota(valores.pontoExtra(notas()));
+        maiorMenorNota(pontoExtra(notas()));
 
-        valores.notasAbaixo(valores.pontoExtra(notas()));
+        notasAbaixo(pontoExtra(notas()));
 
-        valores.media(valores.pontoExtra(notas()));
+        media(pontoExtra(notas()));
 
     }
 
@@ -38,7 +38,7 @@ public class Notas {
     }
 
 //    Imprimi as notas
-    public void impressaoNota (double[] x)
+    public static void impressaoNota (double[] x)
     {
 
         System.out.print("As notas são: ");
@@ -50,13 +50,13 @@ public class Notas {
     }
 
 //    Encontra a maior e a menor nota
-    public void maiorMenorNota (double[] x)
+    public static void maiorMenorNota (double[] x)
     {
         System.out.println("A nota maior é: "+x[x.length-1]+", a menor nota é: "+x[0]);
     }
 
 //    Determina quantas notas estão abaixo da média
-    public void notasAbaixo (double[] x)
+    public static void notasAbaixo (double[] x)
     {
         int quantidadeAbaixo = 0;
         for (int i = 0; i < x.length; i++)
@@ -70,7 +70,7 @@ public class Notas {
     }
 
     //        Calcule a media das notas
-    public  void media (double[] x)
+    public static void media (double[] x)
     {
         double media=0;
 
@@ -84,7 +84,7 @@ public class Notas {
     }
 
     // Adiciona os Pontos extra
-    public double[] pontoExtra (double[] x)
+    public static double[] pontoExtra (double[] x)
     {
         for (int i = 0; i < x.length; i++)
         {
