@@ -10,7 +10,7 @@ public class Desafio {
 
         for (int i = 0; i < 10; i++)
         {
-            numeros[i] = aleatorio.nextInt(1, 10);
+//            numeros[i] = aleatorio.nextInt(1,10);
         }
 
         System.out.println("vetor original:  "+Arrays.toString(numeros));

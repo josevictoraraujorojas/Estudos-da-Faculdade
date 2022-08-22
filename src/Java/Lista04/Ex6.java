@@ -18,7 +18,7 @@ public class Ex6 {
         int multiplo;
 
         for (int i = 0; i < 10; i++) {
-            numeros[i] = aleatorio.nextInt(-10, 11);
+//            numeros[i] = aleatorio.nextInt(-10, 11);
             System.out.println(numeros[i]);
             TimeUnit.SECONDS.sleep(1);
 
