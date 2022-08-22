@@ -5,42 +5,30 @@ public class Notas {
 //        criando o objeto da minha classe "notas" onde estão todos os meus métodos
         Notas valores = new Notas();
 
-//        Dada as notas de 10 alunos: 3.5,9.2,5.5,10.0,6.1,6.6,8.2,9.5,5.0,7.0.
         System.out.println("*Informações das notas sem o ponto extra* ");
 
-
-//        Declare um array para armazenar essas notas
-
-//        Imprimindo as notas
         valores.impressaoNota();
 
-//        Encontre a maior e a menor nota
         valores.maiorMenorNota();
 //
-//        Determine quantas notas estão abaixo da média
         valores.notasAbaixo();
 
-//        Calcule a nota media
         valores.media();
 
 //        O professor resolveu dar um ponto extra para todos.
         System.out.println("\n*Informações das notas com ponto extra* ");
 
-//        Modifique o conteúdo do array adicionando um ponto nas notas, sem exceder a nota maxima que é 10
         valores.pontoExtra();
 
-//        Encontre a maior e a menor nota depois dos pontos extras
         valores.maiorMenorNota();
 
-//        Determine quantas notas estão abaixo da média depois da adição da nota extra
         valores.notasAbaixo();
 
-//        Encontre a media das nota depois dos pontos extras
         valores.media();
 
     }
 
-    //Criando o vetor para guardar as notas
+    //Cria o vetor para guardar as notas
     public static  double[]  notas (){
         double[] notas = {3.5,9.2,5.5,10.0,6.1,6.6,8.2,9.5,5.0,7.0};
         Arrays.sort(notas);
@@ -48,6 +36,7 @@ public class Notas {
 
     }
 
+//    Imprimi as notas
     public void impressaoNota ()
     {
         Arrays.sort(notas());
@@ -59,11 +48,13 @@ public class Notas {
         System.out.println();
     }
 
+//    Encontra a maior e a menor nota
     public void maiorMenorNota ()
     {
         System.out.println("A nota maior é: "+notas()[notas().length-1]+", a menor nota é: "+notas()[0]);
     }
 
+//    Determine quantas notas estão abaixo da média
     public void notasAbaixo ()
     {
         int quantidadeAbaixo = 0;
@@ -77,6 +68,7 @@ public class Notas {
         System.out.println("Notas abaixo: " + quantidadeAbaixo);
     }
 
+    //        Calcule a media das notas
     public  void media ()
     {
         double media=0;
@@ -90,6 +82,7 @@ public class Notas {
         System.out.printf("Medias das notas: %.2f\n",media);
     }
 
+    // Adiciona os Pontos extra
     public void pontoExtra ()
     {
         for (int i = 0; i < notas().length; i++)
