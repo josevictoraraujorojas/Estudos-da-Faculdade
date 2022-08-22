@@ -17,7 +17,7 @@ public class Notas {
 
 //        O professor resolveu dar um ponto extra para todos.
         System.out.println("\n*Informações das notas com ponto extra* ");
-        
+
         valores.impressaoNota(valores.pontoExtra(notas()));
 
         valores.pontoExtra(notas());
@@ -55,7 +55,7 @@ public class Notas {
         System.out.println("A nota maior é: "+x[x.length-1]+", a menor nota é: "+x[0]);
     }
 
-//    Determine quantas notas estão abaixo da média
+//    Determina quantas notas estão abaixo da média
     public void notasAbaixo (double[] x)
     {
         int quantidadeAbaixo = 0;
