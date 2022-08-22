@@ -9,7 +9,6 @@ public class Notas {
         System.out.println("*Informações das notas sem o ponto extra* ");
 
 //        Declare um array para armazenar essas notas
-        double[] notas = {3.5,9.2,5.5,10.0,6.1,6.6,8.2,9.5,5.0,7.0};
 
 //        Imprimindo as notas
         valores.impressaoNota(notas);
@@ -39,6 +38,9 @@ public class Notas {
         valores.media(notas);
 
     }
+
+    //Criando o vetor para guardar as notas
+     public static double[] notas = {3.5,9.2,5.5,10.0,6.1,6.6,8.2,9.5,5.0,7.0};
 
     public  void media (double[] x)
     {
