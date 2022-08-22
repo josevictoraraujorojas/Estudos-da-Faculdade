@@ -1,12 +1,6 @@
 package Java.Relembrando;
 import java.util.Arrays;
 public class Notas {
-
-    public static  double[]  notas (){
-        double[] notas = {3.5,9.2,5.5,10.0,6.1,6.6,8.2,9.5,5.0,7.0};
-        return  notas;
-
-    }
     public static void main(String[] args) {
 //        criando o objeto da minha classe "notas" onde estão todos os meus métodos
         Notas valores = new Notas();
@@ -47,18 +41,22 @@ public class Notas {
     }
 
     //Criando o vetor para guardar as notas
+    public static  double[]  notas (){
+        double[] notas = {3.5,9.2,5.5,10.0,6.1,6.6,8.2,9.5,5.0,7.0};
+        Arrays.sort(notas);
+        return  notas;
 
-    public  void media ()
+    }
+
+    public void impressaoNota ()
     {
-        double media=0;
-
-        for (int i=0;i<10;i++)
+        Arrays.sort(notas());
+        System.out.print("As notas são: ");
+        for (int i = 0; i < notas().length; i++)
         {
-            media+=notas()[i];
+            System.out.printf(" %.2f ",notas()[i]);
         }
-        media/=notas().length;
-
-        System.out.printf("Medias das notas: %.2f\n",media);
+        System.out.println();
     }
 
     public void maiorMenorNota ()
@@ -79,15 +77,17 @@ public class Notas {
         System.out.println("Notas abaixo: " + quantidadeAbaixo);
     }
 
-    public void impressaoNota ()
+    public  void media ()
     {
-        Arrays.sort(notas());
-        System.out.print("As notas são: ");
-        for (int i = 0; i < notas().length; i++)
+        double media=0;
+
+        for (int i=0;i<10;i++)
         {
-            System.out.printf(" %.2f ",notas()[i]);
+            media+=notas()[i];
         }
-        System.out.println();
+        media/=notas().length;
+
+        System.out.printf("Medias das notas: %.2f\n",media);
     }
 
     public void pontoExtra ()
@@ -104,6 +104,5 @@ public class Notas {
             }
         }
         impressaoNota();
-
     }
 }
