@@ -47,7 +47,7 @@ public class Ex1 {
         linha-=1;
         coluna-=1;
 
-        //verifica se a jogada do player pode ser feita
+        //verifica se a jogada do "player" pode ser feita
         while (!diferentesJogadas(linha, coluna, jogo))
         {
             System.out.println("Jogada ja feita escolha outra jogada");
