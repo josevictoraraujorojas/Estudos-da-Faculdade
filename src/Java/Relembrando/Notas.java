@@ -6,29 +6,29 @@ public class Notas {
         System.out.println("*Informações das notas sem o ponto extra* ");
 
 //        Cria o vetor para guardar as notas dentro do main
-        double[] a = notas();
+        double[] notas = notas();
 
-        impressaoNota(a);
+        impressaoNota(notas);
 
-        maiorMenorNota(a);
+        maiorMenorNota(notas);
 //
-        notasAbaixo(a);
+        notasAbaixo(notas);
 
-        media(a);
+        media(notas);
 
 //        O professor resolveu dar um ponto extra para todos.
         System.out.println("\n*Informações das notas com ponto extra* ");
 
-        pontoExtra(a);
+        pontoExtra(notas);
 
-        impressaoNota(a);
+        impressaoNota(notas);
 
 
-        maiorMenorNota(a);
+        maiorMenorNota(notas);
 
-        notasAbaixo(a);
+        notasAbaixo(notas);
 
-        media(a);
+        media(notas);
 
     }
 
