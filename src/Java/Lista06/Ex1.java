@@ -1,13 +1,12 @@
 package Java.Lista06;
-
 import java.util.Arrays;
 import java.util.Scanner;
-
 public class Ex1 {
     public static void main(String[] args) {
+        Scanner ler = new Scanner(System.in);
         int[] fimDoJogo= new int[1];
         String[][] jogo = new String[3][3];
-        Scanner ler = new Scanner(System.in);
+
         String x="X";
         String bola="O";
         String player1;
@@ -19,7 +18,6 @@ public class Ex1 {
         player2 = ler.next();
 
         for (int i = 0; i < 3; i++) {
-
             Arrays.fill(jogo[i],".");
         }
 
@@ -30,13 +28,11 @@ public class Ex1 {
             menu(jogo,player1,x,fimDoJogo);
             //player2
             menu(jogo,player2,bola,fimDoJogo);
-
         }
     }
 
 //    menu do jogo
     public static void menu(String[][] jogo,String player,String jogada,int[] y){
-
         Scanner ler = new Scanner(System.in);
         int linha;
         int coluna;
