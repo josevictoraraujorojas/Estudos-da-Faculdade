@@ -23,7 +23,6 @@ public class Notas {
 
         impressaoNota(notas);
 
-
         maiorMenorNota(notas);
 
         notasAbaixo(notas);
@@ -32,7 +31,7 @@ public class Notas {
 
     }
 
-    //Cria o vetor para guardar as notas
+    //Valor das notas
     public static  double[]  notas ()
     {
         double[] notas = {3.5,9.2,5.5,10.0,6.1,6.6,8.2,9.5,5.0,7.0};
@@ -44,7 +43,7 @@ public class Notas {
     public static void impressaoNota (double[] x)
     {
         System.out.print("As notas são: ");
-        for (int i = 0; i < notas().length; i++)
+        for (int i = 0; i < x.length; i++)
         {
             System.out.printf(" %.2f ",x[i]);
         }
