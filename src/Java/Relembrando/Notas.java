@@ -3,44 +3,46 @@ import java.util.Arrays;
 public class Notas {
     public static void main(String[] args) {
 //        Declare um array para armazenar essas notas {3.5, 9.2, 5.5, 10.0, 6.1, 6.6, 8.2, 9.5, 5.0, 7.0}.
-
-
         System.out.println("*Informações das notas sem o ponto extra* ");
 
-        impressaoNota(notas());
+//        Cria o vetor para guardar as notas dentro do main
+        double[] a = notas();
 
-        maiorMenorNota(notas());
+        impressaoNota(a);
+
+        maiorMenorNota(a);
 //
-        notasAbaixo(notas());
+        notasAbaixo(a);
 
-        media(notas());
+        media(a);
 
 //        O professor resolveu dar um ponto extra para todos.
         System.out.println("\n*Informações das notas com ponto extra* ");
 
-        impressaoNota(pontoExtra(notas()));
+        pontoExtra(a);
 
-        pontoExtra(notas());
+        impressaoNota(a);
 
-        maiorMenorNota(pontoExtra(notas()));
 
-        notasAbaixo(pontoExtra(notas()));
+        maiorMenorNota(a);
 
-        media(pontoExtra(notas()));
+        notasAbaixo(a);
+
+        media(a);
 
     }
 
     //Cria o vetor para guardar as notas
-    public static  double[]  notas (){
+    public static  double[]  notas ()
+    {
         double[] notas = {3.5,9.2,5.5,10.0,6.1,6.6,8.2,9.5,5.0,7.0};
         Arrays.sort(notas);
         return  notas;
     }
 
-//    Imprimi as notas
+    //    Imprimi as notas
     public static void impressaoNota (double[] x)
     {
-
         System.out.print("As notas são: ");
         for (int i = 0; i < notas().length; i++)
         {
@@ -49,13 +51,13 @@ public class Notas {
         System.out.println();
     }
 
-//    Encontra a maior e a menor nota
+    //    Encontra a maior e a menor nota
     public static void maiorMenorNota (double[] x)
     {
         System.out.println("A nota maior é: "+x[x.length-1]+", a menor nota é: "+x[0]);
     }
 
-//    Determina quantas notas estão abaixo da média
+    //    Determina quantas notas estão abaixo da média
     public static void notasAbaixo (double[] x)
     {
         int quantidadeAbaixo = 0;
@@ -84,7 +86,7 @@ public class Notas {
     }
 
     // Adiciona os Pontos extra
-    public static double[] pontoExtra (double[] x)
+    public static void pontoExtra (double[] x)
     {
         for (int i = 0; i < x.length; i++)
         {
@@ -97,6 +99,5 @@ public class Notas {
                 x[i]=10.0;
             }
         }
-        return x;
     }
 }
