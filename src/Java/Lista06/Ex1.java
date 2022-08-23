@@ -5,15 +5,13 @@ import java.util.Scanner;
 
 public class Ex1 {
     public static void main(String[] args) {
+        int[] fimDoJogo= new int[1];
         String[][] jogo = new String[3][3];
         Scanner ler = new Scanner(System.in);
-
+        String x="X";
+        String bola="O";
         String player1;
         String player2;
-        int linhap1;
-        int colunap1;
-        int linhap2;
-        int colunap2;
 
         System.out.println("informe seu nome P1");
         player1 = ler.next();
@@ -25,78 +23,59 @@ public class Ex1 {
             Arrays.fill(jogo[i],".");
         }
 
-        while (true)
+        //rodando o jogo
+        while (fimDoJogo[0]!=1)
         {
-            //jogada do player1
-            System.out.println("Escolha a linha e a coluna "+player1);
-            linhap1= ler.nextInt();
-            colunap1= ler.nextInt();
-            linhap1-=1;
-            colunap1-=1;
+            //player1
+            menu(jogo,player1,x,fimDoJogo);
+            //player2
+            menu(jogo,player2,bola,fimDoJogo);
 
-            //verifica se a jogada do player1 pode ser feita
-            while (!diferentesJogadas(linhap1, colunap1, jogo))
-            {
-                System.out.println("Jogada ja feita escolha outra jogada");
-                System.out.println("Escolha a linha e a coluna "+player1);
-                linhap1= ler.nextInt();
-                colunap1= ler.nextInt();
-                linhap1-=1;
-                colunap1-=1;
-            }
-
-            //faz a jogada do player1 e depois imprimi o jogo
-            xEscolha(linhap1,colunap1, jogo);
-            imprimi(jogo);
-
-            //verificação se o player1 ganhou o jogo ou se deu velha
-            if (Velha(jogo))
-            {
-                System.out.println("deu velha ninguém ganhou");
-                break;
-            }
-            if (linha(jogo)||coluna(jogo)||principalDiagonal(jogo)||secundaria(jogo))
-            {
-                System.out.println(player1+" ganhou !!!");
-                break;
-            }
-
-            //jogada do player2
-            System.out.println("Escolha a linha e a coluna "+player2);
-            linhap2= ler.nextInt();
-            colunap2= ler.nextInt();
-            linhap2-=1;
-            colunap2-=1;
-
-            //verifica se a jogada do player2 pode ser feita
-            while (!diferentesJogadas(linhap2,colunap2, jogo))
-            {
-                System.out.println("Jogada ja feita escolha outra jogada");
-                System.out.println("Escolha a linha e a coluna "+player2);
-                linhap2= ler.nextInt();
-                colunap2= ler.nextInt();
-                linhap2-=1;
-                colunap2-=1;
-            }
-
-            //faz a jogada do player2 e depois imprimi o jogo
-            bolaEscolha(linhap2,colunap2, jogo);
-            imprimi(jogo);
-
-            //verificação se o player2 ganhou o jogo ou se deu velha
-            if (Velha(jogo)){
-                System.out.println("deu velha ninguém ganhou");
-                break;
-            }
-            if (linha(jogo)||coluna(jogo)||principalDiagonal(jogo)||secundaria(jogo))
-            {
-                System.out.println(player2+" ganhou !!!");
-                break;
-            }
         }
     }
 
-//    Imprimi o jogo
+//    menu do jogo
+    public static void menu(String[][] jogo,String player,String jogada,int[] y){
+
+        Scanner ler = new Scanner(System.in);
+        int linha;
+        int coluna;
+
+        System.out.println("Escolha a linha e a coluna "+player);
+        linha= ler.nextInt();
+        coluna= ler.nextInt();
+        linha-=1;
+        coluna-=1;
+
+        //verifica se a jogada do player1 pode ser feita
+        while (!diferentesJogadas(linha, coluna, jogo))
+        {
+            System.out.println("Jogada ja feita escolha outra jogada");
+            System.out.println("Escolha a linha e a coluna "+player);
+            linha= ler.nextInt();
+            coluna= ler.nextInt();
+            linha-=1;
+            coluna-=1;
+        }
+
+        //faz a jogada do player e depois imprimi o jogo
+        escolha(jogada,linha,coluna, jogo);
+        imprimi(jogo);
+
+        //verificação se o "player" ganhou o jogo ou se deu velha
+        if (Velha(jogo))
+        {
+            System.out.println("deu velha ninguém ganhou");
+            y[0]=1;
+        }
+        if (linha(jogo)||coluna(jogo)||principalDiagonal(jogo)||secundaria(jogo))
+        {
+            System.out.println(player+" ganhou !!!");
+            y[0]=1;
+        }
+    }
+
+    //    Imprimi o jogo
     public static void imprimi(String[][] x) {
         for (int i = 0; i < x.length; i++) {
             for (int j = 0; j < x[0].length; j++) {
@@ -123,13 +102,8 @@ public class Ex1 {
     }
 
     //faz a jogada do x
-    public static void xEscolha(int f, int c, String[][] x) {
-        x[f][c] = "X";
-    }
-
-    //faz a jogada da bola
-    public static void bolaEscolha(int f, int c, String[][] x) {
-        x[f][c] = "O";
+    public static void escolha(String y, int f, int c, String[][] x) {
+        x[f][c] = y;
     }
 
     //verifica se as jogadas são diferente
