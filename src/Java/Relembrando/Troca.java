@@ -1,7 +1,4 @@
 package Java.Relembrando;
-
-import java.util.Arrays;
-
 public class Troca {
     public static void main(String[] args) {
         int[] numeros = atribuindoValores();
