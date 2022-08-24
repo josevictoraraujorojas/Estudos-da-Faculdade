@@ -6,33 +6,25 @@ import java.util.Random;
 public class teste {
     public static void main(String[] args) {
         String[][] tabuleiro = criandoTabuleiro();
-
-        Random aleatorio = new Random();
-
-        int linha = aleatorio.nextInt(1, 4);
+        int[] verificacao = new int[1];
 
 
-            int linha1= aleatorio.nextInt(0,5);
+        //
+        do {
+            //zera o tabuleiro caso ele passe de 9 "/"
+            tabuleiro = criandoTabuleiro();
 
-            if (linha == 1) {
-                tabuleiro[linha1][0] = "/";
-                tabuleiro[linha1][1] = "/";
-                tabuleiro[linha1][2] = "/";
+            for (int i = 0; i < 3; i++) {
+                criaBarcos(tabuleiro);
             }
-             else if (linha == 2) {
-                tabuleiro[linha1][1] = "/";
-                tabuleiro[linha1][2] = "/";
-                tabuleiro[linha1][3] = "/";
-            }
-            else if (linha == 3) {
-                tabuleiro[linha1][2] = "/";
-                tabuleiro[linha1][3] = "/";
-                tabuleiro[linha1][4] = "/";
-            }
+            tresNavios(tabuleiro,verificacao);
+
+        }while (verificacao[0]!=1);
         imprimi(tabuleiro);
-    }
 
-    public static boolean tresNavios (String[][] x){
+
+    }
+    public static void tresNavios (String[][] x,int[] y){
         int count1=0;
 
         for (int i = 0; i < 5; i++) {
@@ -40,10 +32,51 @@ public class teste {
                 if (x[i][j].equals("/")) {
                     count1++;
                 }
-
             }
         }
-        return count1 == 3;
+        if (count1 == 9){
+            y[0]=1;
+        }
+        }
+
+        //cria os navios com 3 indicies de distância, fiz isso analizando as combinações possiveis
+    public static void criaBarcos (String[][] x){
+        Random r = new Random();
+        int posssibilidadeLinha = r.nextInt( 1,7);
+        int linharandom= r.nextInt(5);
+        int colunarandom= r.nextInt(5);
+
+        for (int i = 0; i < 3; i++) {
+            //linha possibilidade 1
+            if (posssibilidadeLinha == 1 ) {
+                x[linharandom][i] = "/";
+            }
+            //coluna possibilidade 2
+            if (posssibilidadeLinha == 2) {
+                x[i][colunarandom] = "/";
+            }
+        }
+        for (int i = 1; i < 4; i++) {
+            //linha possibilidade 3
+            if (posssibilidadeLinha == 3) {
+                x[linharandom][i] = "/";
+            }
+            //coluna possibilidade 4
+            if (posssibilidadeLinha == 4) {
+                x[i][colunarandom] = "/";
+            }
+        }
+        for (int i = 2; i < 5; i++) {
+            //linha possibilidade 5
+            if (posssibilidadeLinha == 5) {
+                x[linharandom][i] = "/";
+            }
+            //coluna possibilidade 6
+            if (posssibilidadeLinha == 6) {
+                x[i][colunarandom] = "/";
+            }
+
+        }
     }
     public static String[][] criandoTabuleiro(){
         String[][] tabuleiro = new String[5][5];
