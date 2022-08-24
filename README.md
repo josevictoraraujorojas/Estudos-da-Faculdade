@@ -6,13 +6,15 @@
  
 ### :coffee: java
  
-- lista :two:: condicionais
+- Lista :two:: Condicionais
 
-- lista :three:: laço de repetição
+- Lista :three:: Laço de repetição
 
-- lista :four:: Arrays Unidimensionais
+- Lista :four:: Arrays Unidimensionais
 
-- lista :five:: Arrays Bidimensionais
+- Lista :five:: Arrays Bidimensionais
+
+- Lista :six:: Metodos
 
 
 
