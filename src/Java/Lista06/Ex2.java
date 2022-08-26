@@ -33,6 +33,7 @@ public class Ex2 {
             tresNavios(tabuleiro,verificacao);
 
         }while (verificacao[0]!=1);
+        imprimi(tabuleiro);
 
 
         //menu do jogo
@@ -85,7 +86,7 @@ public class Ex2 {
             Thread.sleep(1000);
             imprimi(jogo);
         }
-        System.out.println("Parabens capitão!!!! voce destruiu todos os navios");
+        System.out.println("Parabens capitão!!!! voce destruiu todos os navios em "+jogada+" jogadas");
     }
     public static boolean diferentesJogadas(int f, int c, String[][] x)
     {
@@ -138,6 +139,7 @@ public class Ex2 {
         x[f][c]=y[f][c];
     }
 
+    //certifica que terão 3 navios no jogo
     public static void tresNavios (String[][] x,int[] y)
     {
         int count1=0;
@@ -167,52 +169,30 @@ public class Ex2 {
         }
     }
 
-    //cria os navios com 3 indicies de distância, fiz isso analizando as combinações possiveis
+    //cria os navios com 3 indicies de distância, fiz isso eliminando o primeiro e o último indice
+    //assim atribuindo um valor aleatório depois pegando o número anterior e o da frente
     public static void criaBarcos (String[][] x,String y)
     {
         Random r = new Random();
-        int posssibilidadeLinha = r.nextInt( 1,7);
-        int linharandom= r.nextInt(5);
-        int colunarandom= r.nextInt(5);
-
-        for (int i = 0; i < 5; i++)
-        {
+        int posssibilidadeLinha = r.nextInt( 1,3);
             //linha possibilidade 1
-            if (posssibilidadeLinha == 1 && i<3)
+            if (posssibilidadeLinha == 1 )
             {
-                x[linharandom][i] = y;
+                int linharandom= r.nextInt(0,5);
+                int colunarandom= r.nextInt(1,4);
+                x[linharandom][colunarandom-1] = y;
+                x[linharandom][colunarandom] = y;
+                x[linharandom][colunarandom+1] = y;
             }
-
             //coluna possibilidade 2
-            if (posssibilidadeLinha == 2 && i<3)
+            if (posssibilidadeLinha == 2 )
             {
-                x[i][colunarandom] = y;
+                int linharandom= r.nextInt(1,4);
+                int colunarandom= r.nextInt(0,5);
+                x[linharandom-1][colunarandom] = y;
+                x[linharandom][colunarandom] = y;
+                x[linharandom+1][colunarandom] = y;
             }
-
-            //linha possibilidade 3
-            if (posssibilidadeLinha == 3 && i>0 && i<4)
-            {
-                x[linharandom][i] = y;
-            }
-
-            //coluna possibilidade 4
-            if (posssibilidadeLinha == 4 && i>0 && i<4)
-            {
-                x[i][colunarandom] = y;
-            }
-
-            //linha possibilidade 5
-            if (posssibilidadeLinha == 5 && i>1)
-            {
-                x[linharandom][i] = y;
-            }
-
-            //coluna possibilidade 6
-            if (posssibilidadeLinha == 6 && i>1)
-            {
-                x[i][colunarandom] = y;
-            }
-        }
     }
 
     //cria o tabuleiro
