@@ -14,6 +14,9 @@ public class teste {
         int coluna;
         int parteBarco =0;
         int jogada=0;
+        String primeiroBarco="_Î_";
+        String segundoBarco="-Y-";
+        String terceiroBarco="-T-";
 
 
         //o laço roda ate que se cria 9 "/"
@@ -22,10 +25,12 @@ public class teste {
             //zera o tabuleiro caso ele passe de 9 "/"
             tabuleiro = criandoTabuleiro();
 
-            for (int i = 0; i < 3; i++)
-            {
-                criaBarcos(tabuleiro);
-            }
+
+                criaBarcos(tabuleiro,primeiroBarco);
+                criaBarcos(tabuleiro,segundoBarco);
+                criaBarcos(tabuleiro,terceiroBarco);
+
+
             tresNavios(tabuleiro,verificacao);
 
         }while (verificacao[0]!=1);
@@ -65,7 +70,7 @@ public class teste {
                 Thread.sleep(1000);
                 System.out.println("total de partes destruída " + parteBarco);
                 Thread.sleep(1000);
-                mostrabarco(linha, coluna, jogo);
+                mostrabarco(linha, coluna, jogo,tabuleiro);
                 Thread.sleep(1000);
                 System.out.println("Total de barcos afundados: "+barcoDestruido(jogo));
                 Thread.sleep(1000);
@@ -87,21 +92,37 @@ public class teste {
     }
     public static boolean verificaParteDoBarco(int f, int c, String[][] x)
     {
-        return x[f][c].equals("_Î_");
+        return x[f][c].equals("_Î_") || x[f][c].equals("-Y-") ||x[f][c].equals("-T-")  ;
     }
     public static int barcoDestruido(String[][] x)
     {
-        int parteDoBarco=0;
+        int primeiroBarco=0;
+        int segundoBarco=0;
+        int terceiroBarco=0;
         int barco=0;
         for (int i = 0; i < 5 ; i++) {
-            parteDoBarco=0;
+             primeiroBarco=0;
+             segundoBarco=0;
+             terceiroBarco=0;
             for (int j = 0; j < 5 ; j++) {
                if (x[i][j].equals("_Î_")){
-                   parteDoBarco++;
+                   primeiroBarco++;
+               }else if (x[j][i].equals("_Î_")){
+                   primeiroBarco++;
+               }
+               if (x[i][j].equals("-Y-")){
+                   segundoBarco++;
+               }else if (x[j][i].equals("-Y-")){
+                   segundoBarco++;
+               }
+               if (x[i][j].equals("-T-")){
+                   terceiroBarco++;
+               }else if (x[j][i].equals("-T-")){
+                   terceiroBarco++;
                }
 
             }
-            if (parteDoBarco==3) {
+            if (primeiroBarco==3 || segundoBarco==3 || terceiroBarco==3) {
                 barco++;
             }
         }
@@ -111,14 +132,16 @@ public class teste {
     {
         x[f][c]=" * ";
     }
-    public static void mostrabarco (int f,int c,String[][] x)
+    public static void mostrabarco (int f,int c,String[][] x,String[][]y)
     {
-        x[f][c]="_Î_";
+        x[f][c]=y[f][c];
     }
 
     public static void tresNavios (String[][] x,int[] y)
     {
         int count1=0;
+        int count2=0;
+        int count3=0;
 
         for (int i = 0; i < 5; i++)
         {
@@ -128,15 +151,23 @@ public class teste {
                 {
                     count1++;
                 }
+                if (x[i][j].equals("-Y-"))
+                {
+                    count2++;
+                }
+                if (x[i][j].equals("-T-"))
+                {
+                    count3++;
+                }
             }
         }
-        if (count1 == 9){
+        if (count1 == 3 && count2 == 3 && count3 == 3){
             y[0]=1;
         }
         }
 
         //cria os navios com 3 indicies de distância, fiz isso analizando as combinações possiveis
-    public static void criaBarcos (String[][] x)
+    public static void criaBarcos (String[][] x,String y)
     {
         Random r = new Random();
         int posssibilidadeLinha = r.nextInt( 1,7);
@@ -148,37 +179,37 @@ public class teste {
             //linha possibilidade 1
             if (posssibilidadeLinha == 1 && i<3)
             {
-                x[linharandom][i] = "_Î_";
+                x[linharandom][i] = y;
             }
 
             //coluna possibilidade 2
             if (posssibilidadeLinha == 2 && i<3)
             {
-                x[i][colunarandom] = "_Î_";
+                x[i][colunarandom] = y;
             }
 
             //linha possibilidade 3
             if (posssibilidadeLinha == 3 && i>0 && i<4)
             {
-                x[linharandom][i] = "_Î_";
+                x[linharandom][i] = y;
             }
 
             //coluna possibilidade 4
             if (posssibilidadeLinha == 4 && i>0 && i<4)
             {
-                x[i][colunarandom] = "_Î_";
+                x[i][colunarandom] = y;
             }
 
             //linha possibilidade 5
             if (posssibilidadeLinha == 5 && i>1)
             {
-                x[linharandom][i] = "_Î_";
+                x[linharandom][i] = y;
             }
 
             //coluna possibilidade 6
             if (posssibilidadeLinha == 6 && i>1)
             {
-                x[i][colunarandom] = "_Î_";
+                x[i][colunarandom] = y;
             }
         }
     }
