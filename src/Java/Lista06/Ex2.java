@@ -6,22 +6,27 @@ public class Ex2 {
     public  static String[][] tabuleiro = criandoTabuleiro();
     public static String[][] jogo = criandoTabuleiro();
 
+    //garante jogadas diferente
     public static boolean diferentesJogadas(int f, int c)
     {
         return jogo[f][c].equals(" - ");
     }
+    //atribui o valor do barco
     public static void barcoMostra (int f,int c)
     {
         jogo[f][c]=tabuleiro[f][c];
     }
+    //atribui o valor bomba para o indicie
     public static void bombaMostra (int f,int c)
     {
         jogo[f][c]=" * ";
     }
+    //verifica se alguma parte foi encontrada
     public static boolean parteEncontrada(int f, int c)
     {
         return tabuleiro[f][c].equals("_Î_") || tabuleiro[f][c].equals("-Y-") ||tabuleiro[f][c].equals("-T-") ;
     }
+    //faz a contagem dos barcos destruídos
     public static int barcosDestruidos()
     {
         int[] contadorDeBarcos={0,0,0};
@@ -45,7 +50,7 @@ public class Ex2 {
         }
         return barco;
     }
-
+    //cria o tabuleiro do jogo
     public static String[][] criandoTabuleiro(){
         String[][] tabuleiro = new String[5][5];
         for (int i = 0; i < 5; i++) {
@@ -63,7 +68,7 @@ public class Ex2 {
             System.out.println();
         }
     }
-
+    //garante que os tres navio foram criado
     public static boolean garanteOsTresNavios()
     {
         int count1=0;
@@ -84,7 +89,8 @@ public class Ex2 {
         return count1 == 3 && count2 == 3 && count3 == 3;
     }
 
-    //cria os navios com 3 indicies de distância, foi feito pegando o número anterior e o próximo
+    //cria os navios com 3 indicies de distância, assim se escolhe o número e depois pega os 2 indicies na frente dele
+    //o primeiro número sempre esta entre 0 e 2
     public static void criaBarcos (String y)
     {
         Random r = new Random();
@@ -107,6 +113,7 @@ public class Ex2 {
                     tabuleiro[linharandom+i][colunarandom] = y;
             }
         }
+        //menu do jogo batalha naval
         public static void menu() throws InterruptedException {
             Scanner ler = new Scanner(System.in);
             int linha;
@@ -160,7 +167,7 @@ public class Ex2 {
                     coluna -= 1;
                 }
 
-
+                //verifica se alguma parte do barco foi encontrada
                 if (parteEncontrada(linha, coluna))
                 {
                     parteBarco++;
@@ -171,7 +178,9 @@ public class Ex2 {
                     Thread.sleep(1000);
                     System.out.println("Total de barcos afundados: "+barcosDestruidos());
                     Thread.sleep(1000);
-                } else
+                }
+                //se nenhuma parte foi encontrada ele considera como bomba
+                else
                 {
                     bombaMostra(linha, coluna);
                     Thread.sleep(1000);
@@ -181,6 +190,7 @@ public class Ex2 {
                 imprimi(jogo);
 
             }
+            //fim do jogo
             Thread.sleep(1000);
             System.out.println("Parabens capitão!!!! voce destruiu todos os navios");
         }
