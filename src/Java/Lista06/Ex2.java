@@ -35,18 +35,23 @@ public class Ex2 {
     }
 
     //cria o tabuleiro do jogo
-    public static String[][] criandoTabuleiro(){
+    public static String[][] criandoTabuleiro()
+    {
         String[][] tabuleiro = new String[jogoTamanho][jogoTamanho];
-        for (int i = 0; i < jogoTamanho; i++) {
+        for (int i = 0; i < jogoTamanho; i++)
+        {
             Arrays.fill(tabuleiro[i]," - ");
         }
         return tabuleiro;
     }
 
     //imprimi o tabuleiro
-    public static void imprimi(String[][] x) {
-        for (int i = 0; i < jogoTamanho; i++) {
-            for (int j = 0; j < jogoTamanho; j++) {
+    public static void imprimi(String[][] x)
+    {
+        for (int i = 0; i < jogoTamanho; i++)
+        {
+            for (int j = 0; j < jogoTamanho; j++)
+            {
                 System.out.printf("%s\t", x[i][j]);
             }
             System.out.println();
@@ -64,7 +69,8 @@ public class Ex2 {
         {
             for (int j = 0; j < jogoTamanho; j++)
             {
-                switch (tabuleiro[i][j]) {
+                switch (tabuleiro[i][j])
+                {
                     case "_Î_" -> count1++;
                     case "-Y-" -> count2++;
                     case "-T-" -> count3++;
@@ -79,20 +85,26 @@ public class Ex2 {
     {
         int[] contadorDeBarcos = new int[naviosQuantidade];
         int barco=0;
-        for (int i = 0; i < jogoTamanho; i++) {
+        for (int i = 0; i < jogoTamanho; i++)
+        {
             Arrays.fill(contadorDeBarcos,0);
-            for (int j = 0; j < jogoTamanho ; j++) {
-                if (jogo[i][j].equals("_Î_")||jogo[j][i].equals("_Î_")) {
+            for (int j = 0; j < jogoTamanho ; j++)
+            {
+                if (jogo[i][j].equals("_Î_")||jogo[j][i].equals("_Î_"))
+                {
                     contadorDeBarcos[0]++;
                 }
-                if (jogo[i][j].equals("-Y-")||jogo[j][i].equals("-Y-")){
+                if (jogo[i][j].equals("-Y-")||jogo[j][i].equals("-Y-"))
+                {
                     contadorDeBarcos[1]++;
                 }
-                if (jogo[i][j].equals("-T-")||jogo[j][i].equals("-T-")){
+                if (jogo[i][j].equals("-T-")||jogo[j][i].equals("-T-"))
+                {
                     contadorDeBarcos[2]++;
                 }
             }
-            if (contadorDeBarcos[0]==navioTamanho||contadorDeBarcos[1]==navioTamanho||contadorDeBarcos[2]==navioTamanho) {
+            if (contadorDeBarcos[0]==navioTamanho||contadorDeBarcos[1]==navioTamanho||contadorDeBarcos[2]==navioTamanho)
+            {
                 barco++;
             }
         }
@@ -109,14 +121,16 @@ public class Ex2 {
         int colunarandom;
         //linha
 
-            if (posssibilidade == 1) {
+            if (posssibilidade == 1)
+            {
                 linharandom = r.nextInt(0, jogoTamanho);
                 colunarandom = r.nextInt(0, navioTamanho);
                 for (int i = 0; i < navioTamanho; i++)
                 tabuleiro[linharandom][colunarandom + i] = y;
 
             }
-            if (posssibilidade == 2) {
+            if (posssibilidade == 2)
+            {
                 linharandom = r.nextInt(0, navioTamanho);
                 colunarandom = r.nextInt(0, jogoTamanho);
                 for (int i = 0; i < navioTamanho; i++)
@@ -167,7 +181,8 @@ public class Ex2 {
                 coluna -= 1;
 
                 //verifica se a jogada é diferente
-                while (!diferentesJogadas(linha, coluna)) {
+                while (!diferentesJogadas(linha, coluna))
+                {
                     System.out.println("Jogada ja feita escolha outra jogada");
                     System.out.println("Escolha a linha e a coluna ");
                     linha = ler.nextInt();
