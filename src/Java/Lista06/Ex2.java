@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class Ex2 {
 
      //determina o tamanho do jogo
-    public static int jogoTamanho=5;
+    public static int jogoTamanho=7;
     //determina o tamanho do navio
     public static int navioTamanho=3;
-    public static int naviosQuantidade=3;
+    public static int naviosQuantidade=6;
     //variável global do tabuleiro com todos os navios
-    public  static String[][] tabuleiro = criandoTabuleiro();
+    public  static String[][] hack = criandoTabuleiro();
     //variável global do tabuleiro do jogador
     public static String[][] jogo = criandoTabuleiro();
 
@@ -22,7 +22,7 @@ public class Ex2 {
     //atribui o valor do barco
     public static void barcoMostra (int f,int c)
     {
-        jogo[f][c]=tabuleiro[f][c];
+        jogo[f][c]=hack[f][c];
     }
     //atribui o valor bomba para o indicie
     public static void bombaMostra (int f,int c)
@@ -32,7 +32,7 @@ public class Ex2 {
     //verifica se alguma parte foi encontrada
     public static boolean parteEncontrada(int f, int c)
     {
-        return tabuleiro[f][c].equals("_Î_") || tabuleiro[f][c].equals("-Y-") ||tabuleiro[f][c].equals("-T-") ;
+        return hack[f][c].equals("_Î_") || hack[f][c].equals("-Y-") ||hack[f][c].equals("-T-") ;
     }
 
     //cria o tabuleiro do jogo
@@ -49,36 +49,35 @@ public class Ex2 {
     //imprimi o tabuleiro
     public static void imprimi(String[][] x)
     {
+        for (int i = 1; i <=jogoTamanho; i++)
+            System.out.printf("\t %d", i );
+        System.out.println();
         for (int i = 0; i < jogoTamanho; i++)
         {
+            System.out.print((i+1)+" | ");
             for (int j = 0; j < jogoTamanho; j++)
             {
                 System.out.printf("%s\t", x[i][j]);
             }
             System.out.println();
         }
+
     }
 
     //garante que os tres navio foram criado
     public static boolean garanteOsTresNavios()
     {
         int count1=0;
-        int count2=0;
-        int count3=0;
-
         for (int i = 0; i < jogoTamanho; i++)
         {
             for (int j = 0; j < jogoTamanho; j++)
             {
-                switch (tabuleiro[i][j])
-                {
-                    case "_Î_" -> count1++;
-                    case "-Y-" -> count2++;
-                    case "-T-" -> count3++;
+                if (hack [i][j].equals("*-*") ){
+                    count1++;
                 }
             }
         }
-        return count1 == navioTamanho && count2 == navioTamanho && count3 == navioTamanho;
+        return count1 == navioTamanho*naviosQuantidade;
     }
 
     //faz a contagem dos barcos destruídos
@@ -116,26 +115,26 @@ public class Ex2 {
     //o primeiro número sempre esta entre 0 e 2
     public static void criaBarcos (String y)
     {
-        Random r = new Random();
-        int posssibilidade = r.nextInt( 1,3);
-        int linharandom;
-        int colunarandom;
-        //linha
+        for (int i = 0; i < naviosQuantidade; i++) {
+            Random r = new Random();
+            int posssibilidade = r.nextInt(1, 3);
+            int linharandom;
+            int colunarandom;
+            //linha
 
-        if (posssibilidade == 1)
-        {
-            linharandom = r.nextInt(0, jogoTamanho);
-            colunarandom = r.nextInt(0, jogoTamanho-navioTamanho+1);
-            for (int i = 0; i < navioTamanho; i++)
-                tabuleiro[linharandom][colunarandom + i] = y;
+            if (posssibilidade == 1) {
+                linharandom = r.nextInt(0, jogoTamanho);
+                colunarandom = r.nextInt(0, jogoTamanho - navioTamanho + 1);
+                for (int j = 0; j < navioTamanho; j++)
+                    hack[linharandom][colunarandom + j] = y;
 
-        }
-        if (posssibilidade == 2)
-        {
-            linharandom = r.nextInt(0, jogoTamanho-navioTamanho+1);
-            colunarandom = r.nextInt(0, jogoTamanho);
-            for (int i = 0; i < navioTamanho; i++)
-                tabuleiro[linharandom+i][colunarandom] = y;
+            }
+            if (posssibilidade == 2) {
+                linharandom = r.nextInt(0, jogoTamanho - navioTamanho + 1);
+                colunarandom = r.nextInt(0, jogoTamanho);
+                for (int j = 0; j < navioTamanho; j++)
+                    hack[linharandom + j][colunarandom] = y;
+            }
         }
     }
 
@@ -146,21 +145,19 @@ public class Ex2 {
         int coluna;
         int parteBarco =0;
         int jogada=0;
-        String primeiroBarco="_Î_";
-        String segundoBarco="-Y-";
-        String terceiroBarco="-T-";
+
+        String Barco="-T-";
 
         //o laço roda ate que se cria os 3 navios
         do
         {
             //zera o tabuleiro caso ele perca um navio
-            tabuleiro = criandoTabuleiro();
-            criaBarcos(primeiroBarco);
-            criaBarcos(segundoBarco);
-            criaBarcos(terceiroBarco);
-            garanteOsTresNavios();
-        }while (!garanteOsTresNavios());
-        imprimi(tabuleiro);
+            hack = criandoTabuleiro();
+            criaBarcos(Barco);
+
+
+        }while (garanteOsTresNavios());
+        imprimi(hack);
 
         //menu do jogo
         System.out.println("Você está jogando batalha naval");
