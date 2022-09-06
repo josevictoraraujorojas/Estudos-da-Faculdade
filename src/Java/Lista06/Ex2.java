@@ -3,16 +3,17 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 public class Ex2 {
-
+    static Scanner ler = new Scanner(System.in);
      //determina o tamanho do jogo
-    public static int jogoTamanho=5;
+    public static int jogoTamanho=10;
     //determina o tamanho do navio
-    public static int naviosQuantidade =3;
+    public static int naviosQuantidade=3;
     public static int navioTamanho=3;
     //variável global do tabuleiro com todos os navios
     public  static String[][] hack = criandoTabuleiro();
     //variável global do tabuleiro do jogador
     public static String[][] jogo = criandoTabuleiro();
+    public static int[] tentativas = {2};
 
     //garante jogadas diferente
     public static boolean diferentesJogadas(int f, int c)
@@ -50,11 +51,11 @@ public class Ex2 {
     public static void imprimi(String[][] x)
     {
         for (int i = 1; i <=jogoTamanho; i++)
-            System.out.printf("\t%d ", i );
+            System.out.printf("\t%2d ", i );
         System.out.println();
         for (int i = 0; i < jogoTamanho; i++)
         {
-            System.out.print((i+1)+" | ");
+            System.out.printf("%3d |",(i+1));
             for (int j = 0; j < jogoTamanho; j++)
             {
                 System.out.printf("%s\t", x[i][j]);
@@ -107,11 +108,10 @@ public class Ex2 {
 
     //menu do jogo batalha naval
     public static void menu() throws InterruptedException {
-        Scanner ler = new Scanner(System.in);
-        int linha;
-        int coluna;
+        int linha = 0;
+        int coluna= 0;
         int parteBarco =0;
-        int jogada=0;
+        int[] jogada={0};
 
         String y = "T";
 
@@ -127,57 +127,102 @@ public class Ex2 {
         System.out.println("Você está jogando batalha naval");
         System.out.println("Neste jogo você tem que afundar tres navios");
         imprimi(jogo);
-
         //termina o jogo quando todas as partes dos barcos forem destruídas
-        while (parteBarco!=navioTamanho*naviosQuantidade)
+        while ( jogada[0]<tentativas[0])
         {
-            //faz a jogada
-            jogada++;
-            Thread.sleep(1000);
-            System.out.println("Jogada: " + jogada);
-            Thread.sleep(1000);
-            System.out.println("escolha uma coordenada para jogar a bomba");
-            linha = ler.nextInt();
-            coluna = ler.nextInt();
-            linha -= 1;
-            coluna -= 1;
-
-            //verifica se a jogada é diferente
-            while (!diferentesJogadas(linha, coluna))
-            {
-                System.out.println("Jogada ja feita escolha outra jogada");
-                System.out.println("Escolha a linha e a coluna ");
-                linha = ler.nextInt();
-                coluna = ler.nextInt();
-                linha -= 1;
-                coluna -= 1;
-            }
-
-            //verifica se alguma parte do barco foi encontrada
-            if (parteEncontrada(linha, coluna))
-            {
-                parteBarco++;
-                Thread.sleep(1000);
-                System.out.println("total de partes destruída " + parteBarco);
-                Thread.sleep(1000);
-                barcoMostra(linha, coluna);
-                Thread.sleep(1000);
-            }
-            //se nenhuma parte foi encontrada ele considera como bomba
-            else
-            {
-                bombaMostra(linha, coluna);
-                Thread.sleep(1000);
-                System.out.println("Nenhum barco encontrado");
-            }
-            Thread.sleep(1000);
-            imprimi(jogo);
+           combate(jogada,linha,coluna,parteBarco);
 
         }
         //fim do jogo
         Thread.sleep(1000);
         System.out.println("Parabens capitão!!!! voce destruiu todos os navios");
     }
+    public static void combate(int[] jogada,int x,int y,int parteBarco) throws InterruptedException {
+       String resposta;
+        //faz a jogada
+        System.out.println("você tem esta quantidade de tentativas para ganhar: "+tentativas[0]);
+        jogada[0]++;
+        Thread.sleep(1000);
+        System.out.println("Jogada: " + jogada[0]);
+        Thread.sleep(1000);
+        System.out.println("voce que ir a loja se sim digite sim");
+        resposta= ler.next();
+        if (resposta.equals("sim")){
+            loja();
+        }
+        System.out.println("escolha uma coordenada para jogar a bomba");
+        x = ler.nextInt();
+        y = ler.nextInt();
+        x -= 1;
+        y -= 1;
+
+        //verifica se a jogada é diferente
+        while (!diferentesJogadas(x, y))
+        {
+            System.out.println("Jogada ja feita escolha outra jogada");
+            System.out.println("Escolha a linha e a coluna ");
+            x = ler.nextInt();
+            y = ler.nextInt();
+            x -= 1;
+            y -= 1;
+        }
+
+        //verifica se alguma parte do barco foi encontrada
+        if (parteEncontrada(x, y))
+        {
+            parteBarco++;
+            Thread.sleep(1000);
+            System.out.println("total de partes destruída " + parteBarco);
+            Thread.sleep(1000);
+            barcoMostra(x,y);
+            Thread.sleep(1000);
+        }
+        //se nenhuma parte foi encontrada ele considera como bomba
+        else
+        {
+            bombaMostra(x,y);
+            Thread.sleep(1000);
+            System.out.println("Nenhum barco encontrado");
+        }
+        Thread.sleep(1000);
+        imprimi(jogo);
+    }
+    public static void loja () {
+        int resposta=0;
+        while (resposta!=1) {
+            System.out.println("esta é a loja");
+            System.out.println("1)dica -4 tentativas");
+            System.out.println("escolha");
+            resposta = ler.nextInt();
+            switch (resposta) {
+                case 1 -> {
+                    int linha;
+                    System.out.println("informe a linha que voce quer saber se tem barco");
+                    linha= ler.nextInt();
+                    dicas(linha);
+                    tentativas[0] -= 4;
+                }
+                default ->
+                    System.out.println("resposta invalida");
+            }
+        }
+    }
+    public static void dicas(int x) {
+       int count =0;
+        for (int i = 0; i < jogoTamanho ; i++) {
+                if (hack[x][i].equals("*")||hack[x][i].equals("T")){
+                    System.out.println("dica da linha");
+                    System.out.println("linha: "+x);
+                    System.out.println("coluna: "+(i+1));
+                    count++;
+                    break;
+                }
+            }
+        if (count==0){
+            System.out.println("nao tem barco nessa linha");
+        }
+    }
+
 
     public static void main(String[] args) throws InterruptedException {
         menu();
