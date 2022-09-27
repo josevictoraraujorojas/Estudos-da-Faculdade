@@ -14,6 +14,7 @@ public class Ex2 {
     //variável global do tabuleiro do jogador
     public static String[][] jogo = criandoTabuleiro();
     public static int[] tentativas = {2};
+    public static int parteBarco=0;
 
     //garante jogadas diferente
     public static boolean diferentesJogadas(int f, int c)
@@ -110,7 +111,7 @@ public class Ex2 {
     public static void menu() throws InterruptedException {
         int linha = 0;
         int coluna= 0;
-        int parteBarco =0;
+        int parteBarco=0;
         int[] jogada={0};
 
         String y = "T";
@@ -128,16 +129,15 @@ public class Ex2 {
         System.out.println("Neste jogo você tem que afundar tres navios");
         imprimi(jogo);
         //termina o jogo quando todas as partes dos barcos forem destruídas
-        while ( jogada[0]<tentativas[0])
+        while ( jogada[0]<tentativas[0]&&parteBarco!=navioTamanho*naviosQuantidade)
         {
-           combate(jogada,linha,coluna,parteBarco);
-
+           combate(jogada,linha,coluna);
         }
         //fim do jogo
         Thread.sleep(1000);
         System.out.println("Parabens capitão!!!! voce destruiu todos os navios");
     }
-    public static void combate(int[] jogada,int x,int y,int parteBarco) throws InterruptedException {
+    public static void combate(int[] jogada,int x,int y) throws InterruptedException {
        String resposta;
         //faz a jogada
         System.out.println("você tem esta quantidade de tentativas para ganhar: "+tentativas[0]);
