@@ -7,15 +7,27 @@ import java.util.Scanner;
 public class Desafio {
 
     public static void main(String[] args) throws FileNotFoundException {
-        String resposta="x";
+        byte resposta=0;
         Scanner ler = new Scanner(System.in);
-        while (!(resposta.equals("criptografia") || resposta.equals("descriptografia"))){
-            System.out.println("escolha entre criptografia e descriptografia");
-            resposta = ler.nextLine();
-        }
-        switch (resposta) {
-            case "criptografia" -> criptoGrafia();
-            case "descriptografia" -> descriptoGrafia();
+        while (resposta!=3) {
+            System.out.println("escolha entre criptografar(1) e descriptografar(2) ou sair(3)");
+            resposta = ler.nextByte();
+            switch (resposta) {
+                case 1 -> {
+
+                    criptoGrafia();
+                    System.out.println();
+                }
+
+                case 2 -> {
+                    descriptoGrafia();
+                    System.out.println();
+                }
+
+                case 3 -> System.out.println("saindo");
+
+                default -> System.out.println("resposta invalida");
+            }
         }
 
     }
@@ -24,10 +36,13 @@ public class Desafio {
         Scanner importar = new Scanner(new File("src/Java/ManipulandoArquivos/Criptografia.txt"));
         System.out.println("Seu texto esta sendo criptografado:");
         System.out.println("Criptografia pronta:");
+        int count = 0;
         while (importar.hasNextLine()){
-            StringBuilder palavra = new StringBuilder(importar.next().toUpperCase(Locale.ROOT));
+            count++;
+            StringBuilder palavra = new StringBuilder(importar.nextLine().toUpperCase(Locale.ROOT));
             criptoGrafando(palavra);
-            System.out.print("   ");
+            System.out.print(" ");
+            if (count%3==0) System.out.println();
         }
     }
 
@@ -35,10 +50,13 @@ public class Desafio {
         Scanner importar = new Scanner(new File("src/Java/ManipulandoArquivos/Descriptografia.txt"));
         System.out.println("Seu texto esta sendo descriptografado:");
         System.out.println("desCriptografia pronta:");
+        int count = 0;
         while (importar.hasNextLine()){
+            count++;
             StringBuilder palavra = new StringBuilder(importar.next());
             descriptoGrafando(palavra);
             System.out.print("   ");
+            if (count%3==0) System.out.println();
         }
     }
 
