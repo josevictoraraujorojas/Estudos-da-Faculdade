@@ -10,5 +10,6 @@ public class ItemPorItem {
         while (importar.hasNext()){
             System.out.println(importar.next());
         }
+        importar.close();
     }
 }
