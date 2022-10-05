@@ -1,26 +1,21 @@
 package Java.Excecao;
 
+import java.sql.Array;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Ex {
     public static void main(String[] args) {
         try {
-            int x= 5;
-            int y= 3;
-            int[] array = new int[x*y/5];
-            System.out.println(array[y]);
-            System.out.print("BOB");
-        }catch (ArrayIndexOutOfBoundsException ex){
-            System.out.print("Unicornio");
-        }finally {
-            System.out.print("flutuante");
+            int a=0;
+            int b=3;
+            int c=5;
+
+            a=a+b/3;
+            b=b/a;
+            System.out.println(b);
+        }catch (ArithmeticException e){
+            System.out.println("nao se pode dividir por zero");
         }
-
-        /*Qual a saida do codigo
-        a) Unicornio
-        b) bob
-        c) Unicornioflutuante
-        d) bobflutuante
-        e) flutuante
-        */
-
     }
 }
