@@ -15,7 +15,7 @@ public class Ex5 {
                 System.out.println("soma: "+soma);
             }
         }
-        System.out.println("resultado final " + soma);
+        System.out.println("saida final " + soma);
 
          i = 1;
          soma = 0;
@@ -28,6 +28,6 @@ public class Ex5 {
                 System.out.println("soma: "+soma);
             }
         }
-        System.out.println("resultado final " + soma);
+        System.out.println("saida final " + soma);
     }
 }

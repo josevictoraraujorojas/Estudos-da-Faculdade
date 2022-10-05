@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Ex2 {
     public static void main(String[] args) {
-//        Questão  2  Escreva  um  programa  em  Java  que  simule  o  lançamento  de  dois  dados  de  6  faces  até  que  o  resultado combinado seja 7.
-//        Informe a quantidade de vezes que os dados foram lançados até que o resultado seja 7
+//        Questão  2  Escreva  um  programa  em  Java  que  simule  o  lançamento  de  dois  dados  de  6  faces  até  que  o  saida combinado seja 7.
+//        Informe a quantidade de vezes que os dados foram lançados até que o saida seja 7
 
         Random aleatorio =new Random();
         int countAte7=0;

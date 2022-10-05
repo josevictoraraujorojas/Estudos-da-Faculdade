@@ -33,9 +33,9 @@ public class Ex13 {
             {
                 System.out.println(i+"+"+soma);
                 soma+=i;
-                System.out.println("resultado da soma: "+soma);
+                System.out.println("saida da soma: "+soma);
             }
         }
-        System.out.println("resultado final da soma: "+soma);
+        System.out.println("saida final da soma: "+soma);
     }
 }

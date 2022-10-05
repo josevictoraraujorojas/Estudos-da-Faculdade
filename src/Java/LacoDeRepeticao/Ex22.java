@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Ex22 {
 //    Questão 22 Faça um programa em Java que leia um número N, some todos os números inteiros de 1 a N, e mostre
-//    o resultado obtido. Utilize o laço for.
+//    o saida obtido. Utilize o laço for.
 
     public static void main(String[] args) {
         int limite;

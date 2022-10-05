@@ -6,7 +6,7 @@ import java.util.Random;
 public class Ex4 {
     public static void main(String[] args) {
         //Questão  4  Escreva  um  programa  em  java  que  armazene  números  aleatórios  entre  1  e  10  em  uma  matriz  3x10.
-        // Calcule  a  soma  das  linhas  da  matriz  e  armazene  o  resultado  em  um  vetor.
+        // Calcule  a  soma  das  linhas  da  matriz  e  armazene  o  saida  em  um  vetor.
         // Mostre  para  o  usuário  a  matriz  de números impressa, e abaixo dela uma linha simbolizando o traço feito quando vamos somar algo, e logo abaixo os valores das somas.
 
         int[][]matriz = new int[3][10];

@@ -7,24 +7,30 @@ import java.util.Scanner;
 
 public class Desafio
 {
+    public static StringBuilder entrada = new StringBuilder();
+    public static StringBuilder saida = new StringBuilder();
     public static void main(String[] args) throws IOException
     {
         byte resposta = 0;
         Scanner ler = new Scanner(System.in);
         while (resposta != 3)
         {
+            saida.delete(0, saida.length());
+            entrada.delete(0, entrada.length());
             System.out.println("escolha entre criptografar(1), descriptografar(2) ou sair(3)");
             resposta = ler.nextByte();
                 switch (resposta) {
                     case 1 -> {
                         inserindoFraseNoArquivo();
                         criptoGrafia();
+                        bancoDeDadosCriptografia();
                         System.out.println();
                     }
 
                     case 2 -> {
                         inserindoCodigoNoArquivo();
                         descriptoGrafia();
+                        bancoDeDadosDescriptografia();
                         System.out.println();
                     }
 
@@ -38,12 +44,11 @@ public class Desafio
     public static void inserindoFraseNoArquivo() throws IOException
     {
         Scanner ler = new Scanner(System.in);
-        StringBuilder frase = new StringBuilder();
-        System.out.println("escreva a frase para ser criptografada");
-        frase = new StringBuilder(ler.nextLine());
+        System.out.println("escreva a entrada para ser criptografada");
+        entrada = new StringBuilder(ler.nextLine());
         FileWriter arquivo = new FileWriter("src/Java/ManipulandoArquivos/Criptografia.txt",false);
         PrintWriter adiciona = new PrintWriter(arquivo);
-        adiciona.println(frase);
+        adiciona.println(entrada);
         adiciona.flush();
         adiciona.close();
     }
@@ -51,15 +56,31 @@ public class Desafio
     public static void inserindoCodigoNoArquivo() throws IOException
     {
         Scanner ler = new Scanner(System.in);
-        StringBuilder frase = new StringBuilder();
         System.out.println("escreva o codigo para ser descriptografado");
-        frase = new StringBuilder(ler.nextLine());
+        entrada = new StringBuilder(ler.nextLine());
         FileWriter arquivo = new FileWriter("src/Java/ManipulandoArquivos/Descriptografia.txt",false);
         PrintWriter adiciona = new PrintWriter(arquivo);
-        adiciona.println(frase);
+        adiciona.println(entrada);
         adiciona.flush();
         adiciona.close();
     }
+
+    public static void bancoDeDadosCriptografia() throws IOException {
+        FileWriter arquivo = new FileWriter("src/Java/ManipulandoArquivos/BancoDeDados.txt",true);
+        PrintWriter adiciona = new PrintWriter(arquivo);
+        adiciona.printf("\nCriptografia: %s\nResultadoCriptografia: %s \n", entrada, saida);
+        adiciona.flush();
+        adiciona.close();
+    }
+
+    public static void bancoDeDadosDescriptografia() throws IOException {
+        FileWriter arquivo = new FileWriter("src/Java/ManipulandoArquivos/BancoDeDados.txt",true);
+        PrintWriter adiciona = new PrintWriter(arquivo);
+        adiciona.printf("\nDescriptografia: %s\nResultadoDescriptografia: %s \n", entrada, saida);
+        adiciona.flush();
+        adiciona.close();
+    }
+
     public static void criptoGrafia() throws FileNotFoundException
     {
         Scanner importar = new Scanner(new File("src/Java/ManipulandoArquivos/Criptografia.txt"));
@@ -70,6 +91,7 @@ public class Desafio
             StringBuilder palavra = new StringBuilder(importar.next().toUpperCase(Locale.ROOT));
             criptoGrafando(palavra);
             System.out.print(" ");
+            saida.append(" ");
         }
         importar.close();
     }
@@ -86,7 +108,10 @@ public class Desafio
             StringBuilder palavra = new StringBuilder(importar.next());
             descriptoGrafando(palavra);
             System.out.print(" ");
-            if (count%6==0) System.out.println();
+            saida.append(" ");
+            if (count%6==0){
+                System.out.println();
+            }
         }
         importar.close();
     }
@@ -97,6 +122,7 @@ public class Desafio
         {
             int numero = palavra.codePointAt(i);
             System.out.print(numero);
+            saida.append(numero);
         }
     }
 
@@ -108,6 +134,7 @@ public class Desafio
             int numero= Integer.parseInt(palavra.substring(i-1,i+1));
             letra= (char) numero;
             System.out.print(letra);
+            saida.append(letra);
         }
     }
 }

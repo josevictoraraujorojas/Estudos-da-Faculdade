@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Ex11 {
     public static void main(String[] args) {
 //        Questão 11 Faça um programa em Java que leia um número N, some todos os números inteiros de 1 a N, e mostre
-//        o resultado obtido.
+//        o saida obtido.
 
         int limite;
         int i=1;

@@ -14,6 +14,6 @@ public class Ex4 {
             System.out.println("soma: "+soma);
             System.out.println("repetição: "+i);
         }
-        System.out.println("resultado "+soma);
+        System.out.println("saida "+soma);
     }
 }
