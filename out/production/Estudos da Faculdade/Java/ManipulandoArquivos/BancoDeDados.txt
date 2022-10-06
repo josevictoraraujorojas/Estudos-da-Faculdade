@@ -1,0 +1,10 @@
+Historico de respostas do programa:
+
+Criptografia: ola mundo
+ResultadoCriptografia: 797665 7785786879  
+
+Descriptografia: 797665 7785786879 
+ResultadoDescriptografia: OLA MUNDO  
+
+Criptografia: oi
+ResultadoCriptografia: 7973  
