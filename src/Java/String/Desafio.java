@@ -1,4 +1,4 @@
-package Java.Metodo;
+package Java.String;
 
 import java.util.Locale;
 

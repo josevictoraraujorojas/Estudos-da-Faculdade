@@ -40,7 +40,6 @@ public class Desafio
                 }
         }
     }
-
     public static void inserindoFraseNoArquivo() throws IOException
     {
         Scanner ler = new Scanner(System.in);
