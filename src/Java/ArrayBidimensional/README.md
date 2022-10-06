@@ -1,4 +1,4 @@
-- # Array bidimensional
+# Array bidimensional
 
 <img src="https://www.linuxteaching.com/storage/img/images_2/use_of_twodimensional_array_in_php.png">
 
