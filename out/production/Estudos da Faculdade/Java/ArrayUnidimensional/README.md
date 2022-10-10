@@ -1,4 +1,4 @@
-- # Array unidimensional
+# Array unidimensional
 
 <img src="https://www.criandobits.com.br/wp-content/uploads/2022/01/arrayUnidimensional.png">
 
