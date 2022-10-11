@@ -23,7 +23,7 @@ public class BuscaPastaNattane {
         File pasta = new File(caminhoPasta);
         String[] arquivo = pasta.list();
         int quantidadeDeArquivos=0;
-        for (String copia: arquivo) {
+        for (String copia: arquivo){
             if (copia.contains(tipoDeArquivo)){
                 System.out.println(copia);
                 quantidadeDeArquivos++;

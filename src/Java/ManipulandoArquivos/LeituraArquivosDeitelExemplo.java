@@ -26,11 +26,9 @@ import java.util.Scanner;
                     System.out.println("\n\n Directory contents:\n");
                     int[] count = new int[6];
                     for(String directoryName : directory){
-                        for (int i = 0; i <= count.length; i++) {
-                            if(directoryName.contains("("+(i+1)+")")){
+                        for (int i = 0; i <= count.length; i++)
+                            if(directoryName.contains("("+(i+1)+")"))
                                 count[i]++;
-                            }
-                        }
                     }
                     for (int i = 1; i <= count.length; i++) {
                         System.out.println("Quantidade de arquivos baixados "+(i+1)+" vezes: " +
