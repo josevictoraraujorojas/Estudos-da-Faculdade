@@ -1,7 +1,5 @@
 package Java.ManipulandoArquivos;
-
 import java.io.*;
-
 public class EscreverArquivo {
     public static void main(String[] args) {
         try {
