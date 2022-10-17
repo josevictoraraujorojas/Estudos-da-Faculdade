@@ -24,7 +24,6 @@ public class Ex02 {
        }catch (IOException e){
            e.printStackTrace();
        }
-
     }
 
     public static boolean verificacaoLogin(String login){
