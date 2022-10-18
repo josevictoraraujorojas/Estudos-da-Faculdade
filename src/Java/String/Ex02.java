@@ -1,10 +1,12 @@
-package Java.ManipulandoArquivos;
+package Java.String;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Ex02 {
     public static void main(String[] args) throws IOException {
@@ -17,6 +19,7 @@ public class Ex02 {
            String login = ler.nextLine();
            System.out.println("informe a sua senha:");
            String senha = ler.nextLine();
+
            while (login.equals(senha)) {
                System.out.println("Sua senha é a mesma que o seu login,tente novamente");
                System.out.println("Informe seu login:");
@@ -29,11 +32,18 @@ public class Ex02 {
                    System.out.println("Informe seu login:");
                    login = ler.nextLine();
                }
-               while (verificacaoSenha(senha)) {
+//               while (verificacaoSenha(senha)) {
+//                   System.out.println("Senha invalida");
+//                   System.out.println("Informe sua senha:");
+//                   senha = ler.nextLine();
+//               }
+           while (verificacaoSenha2(senha)) {
                    System.out.println("Senha invalida");
-                   System.out.println("Informe sua senha:");
+                  System.out.println("Informe sua senha:");
                    senha = ler.nextLine();
-               }
+              }
+
+
            armazenalogin.write(login+"\n");
            armazenaSenha.write(criptografia(senha)+"\n");
            armazenalogin.close();
@@ -65,6 +75,7 @@ public class Ex02 {
         }
         return verificacao;
     }
+
     public static boolean verificacaoSenha(String senha){
         boolean verificacao = false;
         int contadorDeNumeros=0;
@@ -97,9 +108,11 @@ public class Ex02 {
         }
         return verificacao;
     }
-    public static boolean verificacaoSenha2(String senha){
-        boolean temNumeroELetra=senha.matches("\\\\w\\\\d");
-    }
+   public static boolean verificacaoSenha2(String senha){
+       Pattern pattern = Pattern.compile("\\d{1,14}");
+       Matcher matcher = pattern.matcher(senha);
+       return matcher.find();
+   }
     public static StringBuilder criptografia(String senha){
         StringBuilder codificacao = new StringBuilder();
         for (int i = 0; i < senha.length() ; i++) {

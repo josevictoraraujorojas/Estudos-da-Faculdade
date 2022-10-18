@@ -1,4 +1,4 @@
-package Java.ManipulandoArquivos;
+package Java.String;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -12,10 +12,8 @@ public class Ex01 {
     public static void magicaNasPalavras(String nome){
         Random aleatorio = new Random();
         StringBuilder nomeBaguncado = new StringBuilder();
-        boolean escolha;
         for (char letra :nome.toCharArray()) {
-            escolha=aleatorio.nextBoolean();
-            if (escolha)
+            if (aleatorio.nextBoolean())
                nomeBaguncado.append(Character.toLowerCase(letra));
             else
                 nomeBaguncado.append(Character.toUpperCase(letra));
