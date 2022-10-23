@@ -37,7 +37,7 @@ public class Ex02 {
 //                   System.out.println("Informe sua senha:");
 //                   senha = ler.nextLine();
 //               }
-           while (verificacaoSenha2(senha)) {
+           while (!verificacaoSenha2(senha)) {
                    System.out.println("Senha invalida");
                   System.out.println("Informe sua senha:");
                    senha = ler.nextLine();
@@ -109,7 +109,7 @@ public class Ex02 {
         return verificacao;
     }
    public static boolean verificacaoSenha2(String senha){
-       Pattern pattern = Pattern.compile("\\d{1,14}");
+       Pattern pattern = Pattern.compile("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,16}$");
        Matcher matcher = pattern.matcher(senha);
        return matcher.find();
    }
