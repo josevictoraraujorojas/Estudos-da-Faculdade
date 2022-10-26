@@ -3,7 +3,6 @@ package Java.String;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Locale;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -37,7 +36,7 @@ public class Ex02 {
 //                   System.out.println("Informe sua senha:");
 //                   senha = ler.nextLine();
 //               }
-           while (!verificacaoSenha2(senha)) {
+           while (!verificacaoSenhaRegex(senha)) {
                    System.out.println("Senha invalida");
                   System.out.println("Informe sua senha:");
                    senha = ler.nextLine();
@@ -108,7 +107,7 @@ public class Ex02 {
         }
         return verificacao;
     }
-   public static boolean verificacaoSenha2(String senha){
+   public static boolean verificacaoSenhaRegex(String senha){
        Pattern pattern = Pattern.compile("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,16}$");
        Matcher matcher = pattern.matcher(senha);
        return matcher.find();
