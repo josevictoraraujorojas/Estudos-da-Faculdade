@@ -28,7 +28,7 @@ public class Ex02 {
            }
                while (verificacaoLogin(login)) {
                    System.out.println("login invalido");
-                   System.out.println("Informe seu login:");
+                   System.out.println("Informe seu login:"); 
                    login = ler.nextLine();
                }
 //               while (verificacaoSenha(senha)) {
