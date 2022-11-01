@@ -1,14 +1,14 @@
 package Java.String;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Ex02 {
     public static void main(String[] args) throws IOException {
+        BufferedWriter armazenaSenha = new BufferedWriter(new FileWriter("BancoDeDadosSenha.txt", true));
+        BufferedWriter armazenalogin = new BufferedWriter(new FileWriter("BancoDeDadosLogin.txt", true));
 
            Scanner ler = new Scanner(System.in);
 
@@ -18,52 +18,46 @@ public class Ex02 {
            String senha = ler.nextLine();
 
            do {
-               if (!validacaoDeUsuario(login)) {
+               if (!validacaoDeUsuario(login)||!verificaLoginDuplicada(login)) {
                    System.out.println("login invalido");
                    System.out.println("Informe seu login:");
                    login = ler.nextLine();
                }
 
-               else if (!validacaoDeSenha(senha)||senha.equals(login)||!verificacaoDeSequencia(senha)){
+               else if (!validacaoDeSenha(senha)||senha.equals(login)||!verificacaoDeSequencia(senha)||!verificaSenhaDuplicada(senha)){
                    System.out.println("Senha invalida");
                    System.out.println("Informe sua senha:");
                    senha = ler.nextLine();
                }
-               
-           }while (senha.equals(login)||!validacaoDeUsuario(senha)||!validacaoDeSenha(senha));
+
+           }while (senha.equals(login)||!validacaoDeUsuario(senha)||!validacaoDeSenha(senha)||!verificaSenhaDuplicada(senha)||!verificaLoginDuplicada(login));
+
 //           while (!validacaoDeSenhaRegex(senha)&&!verificacaoDeSequencia(senha)) {
 //                   System.out.println("Senha invalida");
 //                  System.out.println("Informe sua senha:");
 //                   senha = ler.nextLine();
 //              }
-        armazenaLoginESenha(senha,login);
+
+        armazenaLoginESenha(armazenaSenha,armazenalogin,login,senha);
     }
 
     public static boolean validacaoDeUsuario(String login){
-        boolean verificacao = true;
         for (char letra:login.toCharArray()) {
             if (!Character.isLetterOrDigit(letra)&&letra!='_')
             {
-                verificacao=false;
-                break;
-            }else if (Character.isSpaceChar(letra))
+                return false;
+            } else if (Character.isDigit(login.charAt(0)))
             {
-                verificacao =false;
-                break;
-            }else if (Character.isDigit(login.charAt(0)))
-            {
-                verificacao=false;
-                break;
+                return false;
             }else if (!(login.length()>=8&&login.length()<=16))
             {
-                verificacao =false;
+                return false;
             }
         }
-        return verificacao;
+        return true;
     }
 
     public static boolean validacaoDeSenha(String senha){
-        boolean verificacao = true;
         int contadorDeNumeros=0;
         int contadorDeLetrasMaiusculas=0;
         int contadorDeLetrasMinusculas=0;
@@ -79,20 +73,18 @@ public class Ex02 {
 
             if (Character.isSpaceChar(letra))
             {
-                verificacao =false;
-                break;
+                return false;
             }else if (!(senha.length()>=8&&senha.length()<=16))
             {
-                verificacao =false;
-                break;
+                return false;
             }
             else if (contadorDeLetrasMaiusculas == senha.length()||contadorDeLetrasMinusculas == senha.length())
-                verificacao =false;
+                return false;
 
             else if (contadorDeNumeros == senha.length())
-                verificacao = false;
+                return false;
         }
-        return verificacao;
+        return true;
     }
     public static boolean verificacaoDeSequencia(String senha){
         boolean retonar=true;
@@ -115,10 +107,28 @@ public class Ex02 {
        Matcher matcher = pattern.matcher(senha);
        return matcher.find();
    }
-   public static void armazenaLoginESenha(String login, String senha){
+   public static Boolean verificaSenhaDuplicada(String senha) throws IOException {
+       BufferedReader rd = new BufferedReader(new FileReader("BancoDeDadosSenha.txt"));
+       String linha;
+       while ( (linha=rd.readLine())!=null){
+           if (senha.equals(linha)){
+               return false;
+           }
+       }
+       return true;
+   }
+   public static Boolean verificaLoginDuplicada(String login) throws IOException {
+       BufferedReader rd = new BufferedReader(new FileReader("BancoDeDadosLogin.txt"));
+       String linha;
+       while ( (linha=rd.readLine())!=null){
+           if (login.equals(linha)){
+               return false;
+           }
+       }
+       return true;
+   }
+   public static void armazenaLoginESenha(BufferedWriter armazenaSenha, BufferedWriter armazenalogin,String login, String senha){
        try {
-           BufferedWriter armazenaSenha = new BufferedWriter(new FileWriter("BancoDeDadosSenha.txt", true));
-           BufferedWriter armazenalogin = new BufferedWriter(new FileWriter("BancoDeDadosLogin.txt", true));
            armazenalogin.write(login+"\n");
            armazenaSenha.write(criptografia(senha)+"\n");
            armazenalogin.close();
@@ -137,4 +147,12 @@ public class Ex02 {
 
         return codificacao;
     }
+//    public static StringBuilder descriptografia(String linha){
+//        StringBuilder descodificacao = new StringBuilder();
+//        for (int i = 0; i < linha.length() ; i++) {
+//            descodificacao.append();
+//        }
+//
+//        return descodificacao;
+//    }
 }
