@@ -127,6 +127,16 @@ public class Ex02 {
        }
        return true;
    }
+   public static Boolean verificaSenhaDuplicada(String senha) throws IOException {
+       BufferedReader rd = new BufferedReader(new FileReader("BancoDeDadosLogin.txt"));
+       String linha;
+       while ( (linha=rd.readLine())!=null){
+           if (login.equals(linha)){
+               return false;
+           }
+       }
+       return true;
+   }
    public static void armazenaLoginESenha(BufferedWriter armazenaSenha, BufferedWriter armazenalogin,String login, String senha){
        try {
            armazenalogin.write(login+"\n");
@@ -143,16 +153,17 @@ public class Ex02 {
         StringBuilder codificacao = new StringBuilder();
         for (int i = 0; i < senha.length() ; i++) {
             codificacao.append(senha.codePointAt(i));
+            codificacao.append(" ");
         }
 
         return codificacao;
     }
-//    public static StringBuilder descriptografia(String linha){
-//        StringBuilder descodificacao = new StringBuilder();
-//        for (int i = 0; i < linha.length() ; i++) {
-//            descodificacao.append();
-//        }
-//
-//        return descodificacao;
-//    }
+    public static StringBuilder descriptografia(String linha){
+        StringBuilder descodificacao = new StringBuilder();
+        for (int i = 0; i < linha.length() ; i++) {
+            descodificacao.append();
+        }
+
+        return descodificacao;
+    }
 }

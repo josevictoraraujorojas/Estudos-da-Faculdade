@@ -1,1 +1,10 @@
 Historico de respostas do programa:
+
+Criptografia: Jose
+ResultadoCriptografia: 74798369  
+
+Criptografia: jose
+ResultadoCriptografia: 74798369  
+
+Criptografia: JOSE
+ResultadoCriptografia: 74798369  
