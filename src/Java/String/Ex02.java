@@ -107,16 +107,7 @@ public class Ex02 {
        Matcher matcher = pattern.matcher(senha);
        return matcher.find();
    }
-   public static Boolean verificaSenhaDuplicada(String senha) throws IOException {
-       BufferedReader rd = new BufferedReader(new FileReader("BancoDeDadosSenha.txt"));
-       String linha;
-       while ( (linha=rd.readLine())!=null){
-           if (senha.equals(linha)){
-               return false;
-           }
-       }
-       return true;
-   }
+
    public static Boolean verificaLoginDuplicada(String login) throws IOException {
        BufferedReader rd = new BufferedReader(new FileReader("BancoDeDadosLogin.txt"));
        String linha;
@@ -128,10 +119,11 @@ public class Ex02 {
        return true;
    }
    public static Boolean verificaSenhaDuplicada(String senha) throws IOException {
-       BufferedReader rd = new BufferedReader(new FileReader("BancoDeDadosLogin.txt"));
+       BufferedReader rd = new BufferedReader(new FileReader("BancoDeDadosSenha.txt"));
        String linha;
+       String senhaCriptografada = String.valueOf(criptografia(senha));
        while ( (linha=rd.readLine())!=null){
-           if (login.equals(linha)){
+           if (senhaCriptografada.equals(linha)){
                return false;
            }
        }
@@ -157,13 +149,5 @@ public class Ex02 {
         }
 
         return codificacao;
-    }
-    public static StringBuilder descriptografia(String linha){
-        StringBuilder descodificacao = new StringBuilder();
-        for (int i = 0; i < linha.length() ; i++) {
-            descodificacao.append();
-        }
-
-        return descodificacao;
     }
 }
