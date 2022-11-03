@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 public class Ex02 {
     public static void main(String[] args) throws IOException {
+
         BufferedWriter armazenaSenha = new BufferedWriter(new FileWriter("BancoDeDadosSenha.txt", true));
         BufferedWriter armazenalogin = new BufferedWriter(new FileWriter("BancoDeDadosLogin.txt", true));
 
@@ -24,13 +25,13 @@ public class Ex02 {
                    login = ler.nextLine();
                }
 
-               else if (!validacaoDeSenha(senha)||senha.equals(login)||!verificacaoDeSequencia(senha)||!verificaSenhaDuplicada(senha)){
+               else if (!validacaoDeSenha(senha)||senha.equals(login)||!verificacaoDeSequencia(senha)){
                    System.out.println("Senha invalida");
                    System.out.println("Informe sua senha:");
                    senha = ler.nextLine();
                }
 
-           }while (senha.equals(login)||!validacaoDeUsuario(senha)||!validacaoDeSenha(senha)||!verificaSenhaDuplicada(senha)||!verificaLoginDuplicada(login));
+           }while (senha.equals(login)||!validacaoDeUsuario(senha)||!validacaoDeSenha(senha)||!verificaLoginDuplicada(login));
 
 //           while (!validacaoDeSenhaRegex(senha)&&!verificacaoDeSequencia(senha)) {
 //                   System.out.println("Senha invalida");
@@ -118,17 +119,7 @@ public class Ex02 {
        }
        return true;
    }
-   public static Boolean verificaSenhaDuplicada(String senha) throws IOException {
-       BufferedReader rd = new BufferedReader(new FileReader("BancoDeDadosSenha.txt"));
-       String linha;
-       String senhaCriptografada = String.valueOf(criptografia(senha));
-       while ( (linha=rd.readLine())!=null){
-           if (senhaCriptografada.equals(linha)){
-               return false;
-           }
-       }
-       return true;
-   }
+
    public static void armazenaLoginESenha(BufferedWriter armazenaSenha, BufferedWriter armazenalogin,String login, String senha){
        try {
            armazenalogin.write(login+"\n");
