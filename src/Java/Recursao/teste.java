@@ -8,7 +8,7 @@ public class teste {
     }
     public static int recursao(int n){
         if (n==1) {
-            return n;
+            return 0;
         }
         return  n*recursao(n-1);
     }
