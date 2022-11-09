@@ -2,8 +2,8 @@ package Java.Recursao;
 
 public class Palindromo {
     public static void main(String[] args) {
-        String palavra = "osso";
-        System.out.println(verificaPalindromo(palavra,palavra.length()));
+        String palavra = "roma é amor";
+        System.out.println(verificaPalindromo(palavra,palavra.length()-1));
 
     }
     public static boolean verificaPalindromo(String palavra, int n){
