@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Ex02 {
+public class SistemaDeCadastro {
     public static void main(String[] args) throws IOException {
 
         BufferedWriter armazenaSenha = new BufferedWriter(new FileWriter("BancoDeDadosSenha.txt", true));

@@ -3,7 +3,7 @@ package Java.String;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Ex01 {
+public class ModificaFrase {
     public static void main(String[] args) {
         Scanner ler = new Scanner(System.in);
         System.out.println("Informe seu nome:");
