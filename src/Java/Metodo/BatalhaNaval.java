@@ -2,7 +2,7 @@ package Java.Metodo;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
-public class Ex2 {
+public class BatalhaNaval {
     static Scanner ler = new Scanner(System.in);
      //determina o tamanho do jogo
     public static int jogoTamanho=10;

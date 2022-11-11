@@ -2,7 +2,7 @@ package Java.Condicionais;
 
 import java.util.Scanner;
 
-public class Ex8 {
+public class Ex9 {
     public static void main(String[] args) {
 //        Questão 9 Julgue o seguinte item, considerando a proposição P: ?Se o
 //        responsável pela indicação fizer sua parte e seus aliados trabalharem duro, vencerão.?.

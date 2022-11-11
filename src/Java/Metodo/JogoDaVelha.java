@@ -1,7 +1,7 @@
 package Java.Metodo;
 import java.util.Arrays;
 import java.util.Scanner;
-public class Ex1 {
+public class JogoDaVelha {
     public static void main(String[] args) {
         Scanner ler = new Scanner(System.in);
         int[] fimDoJogo= new int[1];
