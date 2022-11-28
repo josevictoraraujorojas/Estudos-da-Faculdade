@@ -3,23 +3,23 @@ package Java.SegundoPeriodo.Recursao;
 public class Palindromo {
     public static int contador =0;
     public static void main(String[] args) {
-        String palavra = "osso";
+        String palavra = "amor e roma";
 
-        System.out.printf("a palavra \"%s\" %s um palindromo",palavra,verificaPalindromo(palavra,palavra.length()-1)? "e":"nao e");
+        System.out.printf("a palavra \"%s\" %s um palindromo",palavra,verificaPalindromo(palavra,palavra.length()-1,0)? "e":"nao e");
     }
 
 
-    public static Boolean verificaPalindromo(String palavra, int n){
+    public static Boolean verificaPalindromo(String palavra, int fim, int inicio){
 
-        // 2>=0 (true) && 2>=1
-        if (n>=0&&n>=palavra.length()/2)
+
+        if (inicio<=fim)
         {
-            // a == a
-           if (palavra.charAt(n) == palavra.charAt(palavra.length() - 1 - n))
+
+           if (palavra.charAt(inicio) == palavra.charAt(fim))
            {
                contador++;
            }
-           verificaPalindromo( palavra, n-1);
+           verificaPalindromo( palavra, fim-1, inicio+1);
         }
 
         if (palavra.length()/2%2==0)
