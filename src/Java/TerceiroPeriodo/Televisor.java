@@ -5,30 +5,25 @@ public class Televisor {
  private int volume;
  private int canal;
  
- public void aumentarVolume()
- {
-	 if(this.volume<100) {
-	this.volume++;
-	 }
- }
+public int getVolume() {
+	return volume;
+}
+public void setVolume(int volume) {
+	if(volume > 0 && volume <= 100) {
+		this.volume = volume;
+		}else {
+			System.out.println("Volume invalido");
+		}
+}
+public int getCanal() {
+	return canal;
+}
+public void setCanal(int canal) {
+	if(canal > 0 && canal <= 100) {
+	this.canal = canal;
+	}else {
+		System.out.println("Canal invalido");
+	}
+}
  
- public void reduzirVolume() 
- {
-	 if(this.volume>0){
-	 this.volume--;
-	 }
- }
- 
- public void trocarCanal(int canal) 
- {
-	 if(this.canal<100 && this.canal>0) {
-	 this.canal=canal;
-	 }
- }
- 
- public String mostrar() 
- {
-	 return "\nVolume:"+volume+"\nCanal:"+canal+"\n";
- }
-
 }

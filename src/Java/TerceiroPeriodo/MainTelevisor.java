@@ -6,13 +6,10 @@ public class MainTelevisor {
 		
 		Televisor televisor = new Televisor();
 		
-		televisor.aumentarVolume();
-		televisor.trocarCanal(6);
-		System.out.print(televisor.mostrar());
-		
-		televisor.reduzirVolume();
-		televisor.trocarCanal(10);
-		System.out.print(televisor.mostrar());
+		televisor.setVolume(8);
+		televisor.setCanal(100);
+		System.out.print(televisor.getCanal()+" "+televisor.getVolume());
+	
 
 	}
 
