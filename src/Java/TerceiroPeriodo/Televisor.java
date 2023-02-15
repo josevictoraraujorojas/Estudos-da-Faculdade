@@ -2,8 +2,8 @@ package Java.TerceiroPeriodo;
 
 public class Televisor {
 	
- public int volume;
- public int canal;
+ private int volume;
+ private int canal;
  
  public void aumentarVolume()
  {
