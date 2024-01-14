@@ -68,7 +68,7 @@ mas você verá como pode dar argumentos (valores fornecidos ao método, que sã
 - Uma variável é chamada global se ela for declarada fora de qualquer método. Essa variável é visível em todos os métodos. Qualquer método pode alterá-la e ela existe durante a execução do programa.
 
 ## Escopo das variáveis
-- O escopo de uma variável determina de quais par tes do código ela pode ser acessada. 
+- O escopo de uma variável determina de quais partes do código ela pode ser acessada. 
 - A regra de escopo em geral é:
 
 As variáveis globais são visíveis em todos os métodos.
