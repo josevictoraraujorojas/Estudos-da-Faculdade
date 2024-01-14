@@ -2,7 +2,7 @@
 
 ## Método main
 
-O primeiro método que conhecemos em Java é o método que inicializa o programa, o métodomain( ):
+O primeiro método que conhecemos em Java é o método que inicializa o programa, o método main( ):
 
 ### Sobre o main
 
