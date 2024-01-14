@@ -190,7 +190,7 @@ A classe filha tem uma ou mais classes mães
 
 #### Upcast e Downcast
 
-- Upcast e uando a subclasse se transforma numa classe mae
+- Upcast e quando a subclasse se transforma numa classe mae
 - Downcas e quando uma classe mae se transforma numa filha ou subclasse
 
 #### Upcast
