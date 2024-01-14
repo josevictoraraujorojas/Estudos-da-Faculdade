@@ -6,9 +6,9 @@ import java.util.concurrent.TimeUnit;
 
 public class Ex6 {
     public static void main(String[] args) throws InterruptedException {
-        //        Questão 6 Escreva um programa em Java que armazene 10 números aleatórios em um vetor.
-//        Informe ao usuári o que os números estão sendo atribuídos ao vetor e diga quais são esses números.
-//        Em seguida, informe as seguintes opções para o usuário escolher o que quer ver :
+        //        QuestÃ£o 6 Escreva um programa em Java que armazene 10 nÃºmeros aleatÃ³rios em um vetor.
+//        Informe ao usuÃ¡ri o que os nÃºmeros estÃ£o sendo atribuÃ­dos ao vetor e diga quais sÃ£o esses nÃºmeros.
+//        Em seguida, informe as seguintes opÃ§Ãµes para o usuÃ¡rio escolher o que quer ver :
 
         Random aleatorio = new Random();
         Scanner ler = new Scanner(System.in);
@@ -18,13 +18,13 @@ public class Ex6 {
         int multiplo;
 
         for (int i = 0; i < 10; i++) {
-//            numeros[i] = aleatorio.nextInt(-10, 11);
+            numeros[i] = aleatorio.nextInt(-10, 11);
             System.out.println(numeros[i]);
             TimeUnit.SECONDS.sleep(1);
 
         }
         do {
-            System.out.println("este é o vetor: " + "{" + numeros[0] + "," + numeros[1] + "," + numeros[2] + "," + numeros[3] + "," + numeros[4] + "," + numeros[5] + "," + numeros[6] + "," + numeros[7] + "," + numeros[8] + "," + numeros[9] + "}");
+            System.out.println("este Ã© o vetor: " + "{" + numeros[0] + "," + numeros[1] + "," + numeros[2] + "," + numeros[3] + "," + numeros[4] + "," + numeros[5] + "," + numeros[6] + "," + numeros[7] + "," + numeros[8] + "," + numeros[9] + "}");
             TimeUnit.SECONDS.sleep(2);
             System.out.println("o que voce quer saber sobre o vetor");
             TimeUnit.SECONDS.sleep(2);
@@ -53,7 +53,7 @@ public class Ex6 {
                 case "positivonegativo" -> verificaPositivoNegativo(numeros);
                 case "parimpar" -> verificaParImpar(numeros);
                 case "multiplo" -> {
-                    System.out.println("informe os multiplos que você deseja encontrar");
+                    System.out.println("informe os multiplos que vocÃª deseja encontrar");
                     multiplo = ler.nextInt();
                     verificaMultiplo(numeros, multiplo);
                 }
@@ -116,8 +116,8 @@ public class Ex6 {
                 menor = x[i];
             }
         }
-        System.out.println("este é o maior numero do vetor: " + maior);
-        System.out.println("este é o menor numero do vetor: " + menor);
+        System.out.println("este Ã© o maior numero do vetor: " + maior);
+        System.out.println("este Ã© o menor numero do vetor: " + menor);
     }
 
     public static void verificaMultiplo(int[] x, int y) {
@@ -155,14 +155,14 @@ public class Ex6 {
             for(j = i+1; j < x.length; j++){
                 if (x[i] == x[j]){
                     countNum++;
-                    fr[j] = visto; // se já leu, não lê de novo.
+                    fr[j] = visto; // se jÃ¡ leu, nÃ£o lÃª de novo.
                 }
-            } if (fr[i] != visto){ // se aparece com número diferente de -1, é impresso
+            } if (fr[i] != visto){ // se aparece com nÃºmero diferente de -1, Ã© impresso
                 fr[i] = countNum;
             }
         }
         System.out.println("---------------------------------");
-        System.out.println("\tNúmero    ||\tQtdd vezes");
+        System.out.println("\tNÃºmero    ||\tQtdd vezes");
         System.out.println("---------------------------------");
         for (i = 0; i < x.length; i++){
             if (fr[i] > 0){
