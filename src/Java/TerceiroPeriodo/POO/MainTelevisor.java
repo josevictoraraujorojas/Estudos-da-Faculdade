@@ -1,4 +1,4 @@
-package Java.TerceiroPeriodo;
+package Java.TerceiroPeriodo.POO;
 
 public class MainTelevisor {
     public static void main(String[] args) {

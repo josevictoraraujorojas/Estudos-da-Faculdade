@@ -1,4 +1,4 @@
-package Java.TerceiroPeriodo;
+package Java.TerceiroPeriodo.POO;
 
 public class Televisor {
     public int volume;
