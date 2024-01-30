@@ -1,16 +1,15 @@
 package Java.TerceiroPeriodo;
 
 public class MainTelevisor {
+    public static void main(String[] args) {
+        Televisor t1= new Televisor();
+        t1.volume=10;
+        t1.canal=11;
+        System.out.println(t1.mostrar());
 
-	public static void main(String[] args) {
-		
-		Televisor televisor = new Televisor();
-		
-		televisor.setVolume(8);
-		televisor.setCanal(100);
-		System.out.print(televisor.getCanal()+" "+televisor.getVolume());
-	
+        t1.aumentarVolume();
+        t1.trocarCanal(4);
 
-	}
-
+        System.out.println(t1.mostrar());
+    }
 }
