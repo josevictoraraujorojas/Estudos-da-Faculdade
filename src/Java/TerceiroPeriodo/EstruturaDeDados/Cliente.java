@@ -1,5 +1,7 @@
 package Java.TerceiroPeriodo.EstruturaDeDados;
 
+import java.util.ArrayList;
+
 public class Cliente {
     String nome;
     short anoDeNascimento;
@@ -25,4 +27,6 @@ public class Cliente {
     public void consultaDados(){
         System.out.printf("Nome:%s\nAno de nascimento:%d\nRenda mensal:%f\n",this.nome,this.anoDeNascimento,this.rendaMensal);
     }
+
+
 }
