@@ -4,9 +4,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class AgendaDeEndereco {
-    String nome;
-    String enderco;
-    String telefone;
+    private String nome;
+    private String enderco;
+    private String telefone;
 
     public void insereDados(String nome, String enderco, String telefone){
         Pattern pattern = Pattern.compile("[0-9]{9}");

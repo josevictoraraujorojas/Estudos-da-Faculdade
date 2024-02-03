@@ -5,9 +5,9 @@ import java.util.regex.Pattern;
 
 public class CarroDeGaragem {
     String marca;
-    String modelo;
-    String cor;
-    String placa;
+    private String modelo;
+    private String cor;
+    private String placa;
 
     public void insereDados(String marca,String modelo,String cor,String placa){
         Pattern pattern = Pattern.compile("[A-Z]{3}[1-9][A-Z][1-9]{2}");
