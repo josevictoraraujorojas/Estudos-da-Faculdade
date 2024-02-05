@@ -1,12 +1,10 @@
-package Java.TerceiroPeriodo.EstruturaDeDados.Ex2;
+package Java.TerceiroPeriodo.EstruturaDeDados.Exs.Ex2;
 
-import Java.TerceiroPeriodo.EstruturaDeDados.Ex2.Aluno;
+import Java.TerceiroPeriodo.EstruturaDeDados.Exs.Ex2.Aluno;
 
 public class VetorAlunos {
 
     private Aluno[] alunos = new Aluno[10];
-
-    private int indice;
 
 
     public VetorAlunos(Aluno al1,Aluno al2,Aluno al3,Aluno al4,Aluno al5,Aluno al6,Aluno al7,Aluno al8) {
@@ -25,7 +23,7 @@ public class VetorAlunos {
     }
 
 
-    public void insereNoIndice(Aluno aluno, int posicao){
+    public void insereAluno(Aluno aluno,int indice){
         for (int i = 8; i >=indice; i--) {
 
             this.alunos[i+1]= this.alunos[i];
@@ -40,7 +38,7 @@ public class VetorAlunos {
             }
         }
     }
-    public void mostraVetor(){
+    public void mostraAlunos(){
         for (int i = 0; i < 10 ; i++) {
             if (this.alunos[i]!=null) {
                 System.out.printf("Indice:%d Nome:%s, Peso:%d, Data de nascimento: %s\n", i,this.alunos[i].getNome(), this.alunos[i].getPeso(), this.alunos[i].getDataNascimento());

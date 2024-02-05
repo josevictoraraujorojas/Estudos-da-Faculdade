@@ -1,4 +1,4 @@
-package Java.TerceiroPeriodo.EstruturaDeDados.Ex2;
+package Java.TerceiroPeriodo.EstruturaDeDados.Exs.Ex2;
 
 public class Aluno {
     public String nome;
