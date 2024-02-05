@@ -97,6 +97,12 @@ class Carro {
     }
 }
 ```
+### Visibilidade
+
+- +Public: acesso para todos
+- -Private: acesso somente da classe
+- #Protected: acesso da classe mae e da clase filha
+- Package ou "friendly": acesso para quem está no pacote, usado quando nao se define uma visibilidade
 
 #### Dois métodos especiais:
 
