@@ -1,14 +1,11 @@
 package Java.TerceiroPeriodo.EstruturaDeDados.Exs.Ex2;
 
-import Java.TerceiroPeriodo.EstruturaDeDados.Exs.Ex2.Aluno;
-
 public class VetorAlunos {
 
     private Aluno[] alunos = new Aluno[10];
 
 
     public VetorAlunos(Aluno al1,Aluno al2,Aluno al3,Aluno al4,Aluno al5,Aluno al6,Aluno al7,Aluno al8) {
-        this.alunos = alunos;
 
         this.alunos[0]=al1;
         this.alunos[1]=al2;

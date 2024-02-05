@@ -59,7 +59,7 @@ concatenação de Strings.
   Concatena strings da classe StringBuilder
 
 - insert():
-  Insere dados em um dado índice
+  Insere dados em um elemento índice
 
 - delete():
   deleta dados entre dados índices

@@ -37,7 +37,7 @@ public class BatalhaNaval {
         return hack[f][c].equals("T") || hack[f][c].equals("*") ;
     }
 
-    //cria o tabuleiro do jogo
+    //adiciona o tabuleiro do jogo
     public static String[][] criandoTabuleiro()
     {
         String[][] tabuleiro = new String[jogoTamanho][jogoTamanho];
@@ -82,7 +82,7 @@ public class BatalhaNaval {
         return count1 == navioTamanho*naviosQuantidade;
     }
 
-    //cria os navios com 3 indicies de distância, assim se escolhe o número e depois pega os 2 indicies na frente dele
+    //adiciona os navios com 3 indicies de distância, assim se escolhe o número e depois pega os 2 indicies na frente dele
     //o primeiro número sempre esta entre 0 e 4
     public static void criaBarcos(String[][] x,String y){
         Random r = new Random();
@@ -116,7 +116,7 @@ public class BatalhaNaval {
 
         String y = "T";
 
-        //o laço roda ate que se cria os 3 navios
+        //o laço roda ate que se adiciona os 3 navios
         do{
             hack=criandoTabuleiro();
             criaBarcos(hack,y);
