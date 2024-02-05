@@ -11,7 +11,7 @@ public class Televisor {
     public void aumentarVolume(){
         this.volume++;
     }
-    public void reduzirVolumeVolume(){
+    public void reduzirVolume(){
         this.volume--;
     }
     public void trocarCanal(int canal){
@@ -19,6 +19,6 @@ public class Televisor {
     }
     public String mostrar(){
 
-        return  "Canal:"+this.canal + "\n" +"Volume:" +this.volume;
+        return  "Canal:"+this.canal + " " +"Volume:" +this.volume;
     }
 }
