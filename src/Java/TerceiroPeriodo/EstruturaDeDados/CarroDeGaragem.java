@@ -9,7 +9,35 @@ public class CarroDeGaragem {
     private String cor;
     private String placa;
 
-    public void insereDados(String marca,String modelo,String cor,String placa){
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
         Pattern pattern = Pattern.compile("[A-Z]{3}[1-9][A-Z][1-9]{2}");
         Matcher matcher = pattern.matcher(placa);
         boolean verificaPlaca = matcher.matches();
@@ -18,12 +46,7 @@ public class CarroDeGaragem {
             System.out.println("valor da placa(LLLNLNN) e invalido tente novamente");
             return;
         }
-
-        this.marca=marca;
-        this.modelo=modelo;
-        this.cor=cor;
-        this.placa=placa;
-
+        this.placa = placa;
     }
 
     public void excluiDados(){

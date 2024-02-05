@@ -8,7 +8,27 @@ public class AgendaDeEndereco {
     private String enderco;
     private String telefone;
 
-    public void insereDados(String nome, String enderco, String telefone){
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEnderco() {
+        return enderco;
+    }
+
+    public void setEnderco(String enderco) {
+        this.enderco = enderco;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
         Pattern pattern = Pattern.compile("[0-9]{9}");
         Matcher matcher = pattern.matcher(telefone);
         boolean verificaTelefone = matcher.matches();
@@ -17,10 +37,7 @@ public class AgendaDeEndereco {
             System.out.println("valor do Telefone(NNNNNNNNN) invalido tente novamente");
             return;
         }
-
-        this.nome=nome;
-        this.enderco=enderco;
-        this.telefone=telefone;
+        this.telefone = telefone;
     }
     public void excluiDados(){
         this.nome=null;
