@@ -49,6 +49,7 @@ public class VetorDinamico {
     public String toString() {
         return "VetorDinamico{" +
                 "inicio=" + inicio +
+                ", ultimo=" + ultimo +
                 ", tamanho=" + tamanho +
                 '}';
     }

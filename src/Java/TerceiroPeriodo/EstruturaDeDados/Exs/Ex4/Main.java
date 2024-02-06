@@ -16,7 +16,7 @@ public class Main {
 
         System.out.println(vetor);
 
-        vetor.busca(1000);
+        vetor.busca(10);
 
         vetor.remove(1000);
         System.out.println(vetor);
