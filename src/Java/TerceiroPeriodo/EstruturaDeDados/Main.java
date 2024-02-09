@@ -12,7 +12,7 @@ public class Main {
         lista.insereInicio(23);
         lista.insereInicio(24);
         System.out.println(lista);
-        lista.insereNoMeio(2);
+        lista.removeMeio(20);
         System.out.println(lista);
 
 

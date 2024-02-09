@@ -21,52 +21,17 @@ public class ListaEstatica {
         this.ultimo = 0;
     }
     public void insereInicio (Object x) throws Exception {
-        if ( this . ultimo == this . item. length)
+        if (verificaListaCheia())
             throw new Exception ( "Erro : A lista esta cheia" ) ;
-        for (int i = ultimo-1; i >=0; i--) {
+        for (int i = tamanho()-1; i >=0; i--) {
 
             this.item[i + 1] = this.item[i];
         }
         this.item[0] = x;
         this.ultimo++;
     }
-    public void removeInicio () throws Exception {
-        if ( this . ultimo == 0)
-            throw new Exception ( "Erro : A lista esta vazia" ) ;
-
-        int elementoParAnterior=0;
-        int elementoImparAnterior=0;
-
-        if ((ultimo%2==0)) {
-            elementoParAnterior = (int) this.item[ultimo-1];
-        }else{
-            elementoImparAnterior = (int) this.item[ultimo-1];
-        }
-
-        this.item[ultimo-1]=null;
-        ultimo--;
-
-        for (int i = ultimo; i >0; i--) {
-            if (i%2==0) {
-                elementoParAnterior = (int) this.item[i - 1];
-                this.item[i - 1] = elementoImparAnterior;
-            }else {
-                elementoImparAnterior = (int) this.item[i - 1];
-                this.item[i - 1] = elementoParAnterior;
-            }
-        }
-    }
-
-    public void insereFinal (Object x) throws Exception {
-        if ( this . ultimo == this . item. length)
-            throw new Exception ( "Erro : A lista esta cheia" ) ;
-        else {
-            this.item[ this . ultimo ] = x;
-            this.ultimo = this.ultimo + 1;
-        }
-    }
-    private void insereNoMeio(int indice, Object x) throws Exception {
-        if ( this . ultimo == this . item. length)
+    private void InsereNoIndice(int indice, Object x) throws Exception {
+        if (verificaListaCheia())
             throw new Exception ( "Erro : A lista esta cheia" ) ;
         if (indice<=ultimo) {
             for (int i = ultimo; i >= indice; i--) {
@@ -77,53 +42,93 @@ public class ListaEstatica {
             this.ultimo++;
         }
     }
-
-    public void insereProximoIndice(int n1,int n2) throws Exception {
-        if ( this . ultimo == this . item. length)
-            throw new Exception ( "Erro : A lista esta cheia" ) ;
-        for (int i = 0; i < this.ultimo ; i++) {
-            if (this.item[i].equals(n1)) {
-                insereNoMeio(i+1,n2);
-                return;
-            }
-        }
-    }
-    public void insereNoMeio(Object x) throws Exception {
-        if ( this . ultimo == this . item. length)
-            throw new Exception ( "Erro : A lista esta cheia" ) ;
+    public void procuraIndiceIdealEInssere(Object x) throws Exception {
         int posicao=-1;
         if (!verificaListaDecrescente()){
             ordenaDecrescente();
         }
-            for (int i = 0; i < this.ultimo; i++) {
-                if ((int)this.item[i] <= (int)x ) {
-                    posicao=i;
-                    break;
-                }
+        for (int i = 0; i < tamanho(); i++) {
+            if ((int)this.item[i] <= (int)x ) {
+                posicao=i;
+                break;
             }
-            if (posicao==-1){
-                insereNoMeio(ultimo,x);
+        }
+        if (posicao==-1){
+            InsereNoIndice(this.ultimo,x);
+            return;
+        }
+        InsereNoIndice(posicao,x);
+    }
+    public void insereProximoIndice(int n1,int n2) throws Exception {
+        if (verificaListaCheia())
+            throw new Exception ( "Erro : A lista esta cheia" ) ;
+        for (int i = 0; i < tamanho() ; i++) {
+            if (this.item[i].equals(n1)) {
+                InsereNoIndice(i+1,n2);
                 return;
             }
-        insereNoMeio(posicao,x);
+        }
     }
 
+    public void insereFinal (Object x) throws Exception {
+        if (verificaListaCheia())
+            throw new Exception ( "Erro : A lista esta cheia" ) ;
+        else {
+            this.item[ this . ultimo ] = x;
+            this.ultimo = this.ultimo + 1;
+        }
+    }
+
+    public void removeInicio () throws Exception {
+        if (verificaListaVazia())
+            throw new Exception ( "Erro : A lista esta vazia" ) ;
+        ultimo--;
+        for (int i = 0; i <=tamanho(); i++) {
+
+                this.item[i] = this.item[i+1] ;
+
+        }
+    }
+
+    public void removeMeio(Object x) throws Exception {
+        if (verificaListaVazia())
+            throw new Exception("Erro : A lista esta vazia");
+
+        if (!verificaListaDecrescente())
+            ordenaDecrescente();
+
+        ultimo--;
+
+        int indiceRemocao=procuraElementoRapido(x);
+        for (int i = indiceRemocao; i <=ultimo; i++) {
+            this.item[i] = this.item[i+1] ;
+        }
+    }
+
+    public void removeFinal () throws Exception {
+        if (verificaListaVazia())
+            throw new Exception ( "Erro : A lista esta vazia" ) ;
+        ultimo--;
+        for (int i = ultimo; i <=ultimo; i++) {
+                this.item[i] = this.item[i+1] ;
+        }
+    }
     
     public boolean verificaListaDecrescente(){
         int count = 0;
-        for (int i = 0; i < this.ultimo-2 ; i++) {
+        for (int i = 0; i < tamanho()-2 ; i++) {
             if ((int)this.item[i]>(int) this.item[i+1]) {
                 count++;
             }
         }
         return count == this.ultimo - 1;
     }
-    public void ordenaDecrescente() {
 
+    public void ordenaDecrescente() {
         int elementoAnterior=0;
 
-        for (int j = 0; j < this.ultimo-1; j++) {
-            for (int i = 0; i < this.ultimo-1; i++) {
+        for (int j = 0; j < tamanho()-1; j++) {
+            for (int i = 0; i < tamanho()-1; i++) {
                 if ((int) item[i] < (int) this.item[i + 1]) {
                     elementoAnterior =(int)this.item[i];
                     this.item[i] = this.item[i+1];
@@ -133,27 +138,26 @@ public class ListaEstatica {
         }
     }
 
-    public void procuraElementoRapido(Object x){
+    public int procuraElementoRapido(Object x){
         if (!verificaListaDecrescente()){
             ordenaDecrescente();
         }
-            int metadeDoVetor = (this.ultimo-1)/ 2;
+            int metadeDoVetor = (tamanho()-1)/ 2;
             if ((int) x > (int) this.item[metadeDoVetor]) {
                 for (int i = metadeDoVetor; i >= 0; i--) {
                     if (this.item[i].equals(x)) {
-                        System.out.println(i);
+                        return i;
                     }
                 }
             } else {
-                for (int i = metadeDoVetor; i < this.ultimo; i++) {
+                for (int i = metadeDoVetor; i < tamanho(); i++) {
                     if ((int)this.item[i]==(int)x) {
-                        System.out.println(i);
+                        return i;
                     }
                 }
             }
+            return -1;
     }
-
-
 
     public int tamanho(){
         return ultimo;
@@ -161,8 +165,17 @@ public class ListaEstatica {
 
     public Boolean validaPos(int posicao){
 
-        return posicao< this.item.length;
+        return posicao<= this.item.length;
     }
+
+    public Boolean verificaListaVazia(){
+         return this . ultimo == 0;
+    }
+
+    public Boolean verificaListaCheia(){
+         return this . ultimo == this.item.length;
+    }
+
 
 
 }
