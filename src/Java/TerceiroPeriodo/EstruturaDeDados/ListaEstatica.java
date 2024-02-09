@@ -38,6 +38,30 @@ public class ListaEstatica {
         this.item[0] = x;
         this.ultimo++;
     }
+    public void removeInicio () throws Exception {
+        if ( this . ultimo == this . item. length)
+            throw new Exception ( "Erro : A lista esta cheia" ) ;
+        int auxiliar=0;
+        int auxiliar2=0;
+        if ((ultimo-1%2==0)) {
+            auxiliar = (int) this.item[ultimo-1];
+        }else{
+            auxiliar2 = (int) this.item[ultimo-1];
+        }
+        this.item[ultimo - 1] = this.item[ultimo];
+        this.item[ultimo]=null;
+        ultimo--;
+
+        for (int i = ultimo-1; i >0; i--) {
+            if (!(i%2==0)) {
+                auxiliar2 = (int) this.item[i - 1];
+                this.item[i - 1] = auxiliar;
+            }else {
+                auxiliar = (int) this.item[i - 1];
+                this.item[i - 1] = auxiliar2;
+            }
+        }
+    }
 
     public void insereFinal (Object x) throws Exception {
         if ( this . ultimo == this . item. length)
@@ -47,7 +71,7 @@ public class ListaEstatica {
             this . ultimo = this . ultimo + 1;
         }
     }
-    private void insereNoMeioIndice(int indice,Object x) throws Exception {
+    private void insereNoMeio(int indice, Object x) throws Exception {
         if ( this . ultimo == this . item. length)
             throw new Exception ( "Erro : A lista esta cheia" ) ;
         if (indice<ultimo) {
@@ -73,17 +97,19 @@ public class ListaEstatica {
                     break;
                 }
             }
-            insereNoMeioIndice(posicao,x);
+            insereNoMeio(posicao,x);
     }
     public void insereProximoIndice(int n1,int n2) throws Exception {
         Object[] vetor = getItem();
         for (int i = 0; i < getUltimo() ; i++) {
             if (vetor[i].equals(n1)) {
-                insereNoMeioIndice(i+1,n2);
+                insereNoMeio(i+1,n2);
                 return;
             }
         }
     }
+
+    
     public boolean verificaListaDecrescente(){
         Object[] vetor = getItem();
         int count = 0;

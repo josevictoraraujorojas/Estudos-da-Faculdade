@@ -8,10 +8,12 @@ public class Main {
         lista.insereInicio(10);
         lista.insereInicio(13);
         lista.insereInicio(20);
-        lista.insereInicio(15);
-        lista.insereInicio(10);
+
+
+
+
         System.out.println(lista);
-        lista.insereNoMeio(15);
+        lista.removeInicio();
         System.out.println(lista);
 
 
