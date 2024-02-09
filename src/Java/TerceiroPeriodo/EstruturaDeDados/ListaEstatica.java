@@ -42,26 +42,25 @@ public class ListaEstatica {
         if ( this . ultimo == 0)
             throw new Exception ( "Erro : A lista esta vazia" ) ;
 
-        int auxiliar=0;
-        int auxiliar2=0;
+        int elementoParAnterior=0;
+        int elementoImparAnterior=0;
 
         if ((ultimo%2==0)) {
-            auxiliar = (int) this.item[ultimo-1];
+            elementoParAnterior = (int) this.item[ultimo-1];
         }else{
-            auxiliar2 = (int) this.item[ultimo-1];
+            elementoImparAnterior = (int) this.item[ultimo-1];
         }
 
-        this.item[ultimo - 1] = this.item[ultimo];
-        this.item[ultimo]=null;
+        this.item[ultimo-1]=null;
         ultimo--;
 
         for (int i = ultimo; i >0; i--) {
             if ((i%2)!=0) {
-                auxiliar2 = (int) this.item[i - 1];
-                this.item[i - 1] = auxiliar;
+                elementoImparAnterior = (int) this.item[i - 1];
+                this.item[i - 1] = elementoParAnterior;
             }else {
-                auxiliar = (int) this.item[i - 1];
-                this.item[i - 1] = auxiliar2;
+                elementoParAnterior = (int) this.item[i - 1];
+                this.item[i - 1] = elementoImparAnterior;
             }
         }
     }

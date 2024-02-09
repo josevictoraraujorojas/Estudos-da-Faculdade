@@ -9,7 +9,6 @@ public class Main {
         lista.insereInicio(13);
         lista.insereInicio(20);
         lista.insereInicio(21);
-        lista.insereInicio(22);
 
         System.out.println(lista);
         lista.removeInicio();
