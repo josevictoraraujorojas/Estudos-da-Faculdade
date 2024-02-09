@@ -116,7 +116,8 @@ public class ListaEstatica {
     }
     public void ordenaDecrescente() {
 
-        int elementoAnterior;
+        int elementoAnterior=0;
+
         for (int j = 0; j < (this.ultimo - 1); j++) {
             for (int i = 0; i < this.ultimo - 1; i++) {
                 if ((int) item[i] < (int) this.item[i + 1]) {
@@ -127,12 +128,12 @@ public class ListaEstatica {
             }
         }
     }
+
     public void procuraElementoRapido(Object x){
         if (!verificaListaDecrescente()){
             ordenaDecrescente();
         }
-
-            int metadeDoVetor = this.ultimo/ 2;
+            int metadeDoVetor = (this.ultimo-1)/ 2;
             if ((int) x > (int) this.item[metadeDoVetor]) {
                 for (int i = metadeDoVetor; i >= 0; i--) {
                     if (this.item[i].equals(x)) {
@@ -141,7 +142,7 @@ public class ListaEstatica {
                 }
             } else {
                 for (int i = metadeDoVetor; i < this.ultimo; i++) {
-                    if (this.item[i].equals(x)) {
+                    if ((int)this.item[i]==(int)x) {
                         System.out.println(i);
                     }
                 }
