@@ -15,14 +15,6 @@ public class ListaEstatica {
                 '}';
     }
 
-    public Object[] getItem() {
-        return item;
-    }
-
-    public int getUltimo() {
-        return ultimo;
-    }
-
     public ListaEstatica(int maxTam) {
         this.item = new Object[maxTam];
         this.primeiro = 0;
@@ -55,12 +47,12 @@ public class ListaEstatica {
         ultimo--;
 
         for (int i = ultimo; i >0; i--) {
-            if ((i%2)!=0) {
-                elementoImparAnterior = (int) this.item[i - 1];
-                this.item[i - 1] = elementoParAnterior;
-            }else {
+            if (i%2==0) {
                 elementoParAnterior = (int) this.item[i - 1];
                 this.item[i - 1] = elementoImparAnterior;
+            }else {
+                elementoImparAnterior = (int) this.item[i - 1];
+                this.item[i - 1] = elementoParAnterior;
             }
         }
     }
@@ -123,14 +115,14 @@ public class ListaEstatica {
         return count == this.ultimo - 1;
     }
     public void ordenaDecrescente() {
-        Object[] vetor = getItem();
-        int auxiliar;
-        for (int j = 0; j < getUltimo() - 1; j++) {
-            for (int i = 0; i < getUltimo() - 1; i++) {
-                if ((int) vetor[i] < (int) vetor[i + 1]) {
-                    auxiliar=(int)vetor[i];
-                    vetor[i] = vetor[i+1];
-                    vetor[i+1]=auxiliar;
+
+        int elementoAnterior;
+        for (int j = 0; j < (this.ultimo - 1); j++) {
+            for (int i = 0; i < this.ultimo - 1; i++) {
+                if ((int) item[i] < (int) this.item[i + 1]) {
+                    elementoAnterior =(int)this.item[i];
+                    this.item[i] = this.item[i+1];
+                    this.item[i+1]= elementoAnterior;
                 }
             }
         }
@@ -139,30 +131,32 @@ public class ListaEstatica {
         if (!verificaListaDecrescente()){
             ordenaDecrescente();
         }
-            Object[] vetor = getItem();
-            int metadedovetor = getUltimo() / 2;
-            if ((int) x > (int) vetor[metadedovetor]) {
-                for (int i = getUltimo() / 2; i >= 0; i--) {
-                    if (vetor[i].equals(x)) {
+
+            int metadeDoVetor = this.ultimo/ 2;
+            if ((int) x > (int) this.item[metadeDoVetor]) {
+                for (int i = metadeDoVetor; i >= 0; i--) {
+                    if (this.item[i].equals(x)) {
                         System.out.println(i);
                     }
                 }
             } else {
-                for (int i = getUltimo() / 2; i < getUltimo(); i++) {
-                    if (vetor[i].equals(x)) {
+                for (int i = metadeDoVetor; i < this.ultimo; i++) {
+                    if (this.item[i].equals(x)) {
                         System.out.println(i);
                     }
                 }
             }
     }
 
+
+
     public int tamanho(){
-        return getUltimo();
+        return ultimo;
     }
 
     public Boolean validaPos(int posicao){
-        Object[] vetor = getItem();
-        return posicao< vetor.length;
+
+        return posicao< this.item.length;
     }
 
 
