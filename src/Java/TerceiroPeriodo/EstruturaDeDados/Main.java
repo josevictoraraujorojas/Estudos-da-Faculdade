@@ -14,7 +14,9 @@ public class Main {
         System.out.println(lista);
         lista.removeMeio(20);
         System.out.println(lista);
-
+        lista.procuraIndiceIdealEInssere(20);
+        System.out.println(lista);
+        System.out.println(lista.procuraElementoRapido(20));
 
 
 
