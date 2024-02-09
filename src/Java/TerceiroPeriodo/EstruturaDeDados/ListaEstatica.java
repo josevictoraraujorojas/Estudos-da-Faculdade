@@ -68,8 +68,8 @@ public class ListaEstatica {
     private void insereNoMeio(int indice, Object x) throws Exception {
         if ( this . ultimo == this . item. length)
             throw new Exception ( "Erro : A lista esta cheia" ) ;
-        if (indice<ultimo) {
-            for (int i = ultimo-2; i >= indice; i--) {
+        if (indice<=ultimo) {
+            for (int i = ultimo; i >= indice; i--) {
 
                 this.item[i + 1] = this.item[i];
             }
@@ -78,21 +78,6 @@ public class ListaEstatica {
         }
     }
 
-    public void insereNoMeio(Object x) throws Exception {
-        if ( this . ultimo == this . item. length)
-            throw new Exception ( "Erro : A lista esta cheia" ) ;
-        int posicao=0;
-        if (!verificaListaDecrescente()){
-            ordenaDecrescente();
-        }
-            for (int i = 0; i < this.ultimo; i++) {
-                if ((int)this.item[i] < (int)x ) {
-                    posicao=i;
-                    break;
-                }
-            }
-            insereNoMeio(posicao,x);
-    }
     public void insereProximoIndice(int n1,int n2) throws Exception {
         if ( this . ultimo == this . item. length)
             throw new Exception ( "Erro : A lista esta cheia" ) ;
@@ -102,6 +87,25 @@ public class ListaEstatica {
                 return;
             }
         }
+    }
+    public void insereNoMeio(Object x) throws Exception {
+        if ( this . ultimo == this . item. length)
+            throw new Exception ( "Erro : A lista esta cheia" ) ;
+        int posicao=-1;
+        if (!verificaListaDecrescente()){
+            ordenaDecrescente();
+        }
+            for (int i = 0; i < this.ultimo; i++) {
+                if ((int)this.item[i] <= (int)x ) {
+                    posicao=i;
+                    break;
+                }
+            }
+            if (posicao==-1){
+                insereNoMeio(ultimo,x);
+                return;
+            }
+        insereNoMeio(posicao,x);
     }
 
     
@@ -118,8 +122,8 @@ public class ListaEstatica {
 
         int elementoAnterior=0;
 
-        for (int j = 0; j < (this.ultimo - 1); j++) {
-            for (int i = 0; i < this.ultimo - 1; i++) {
+        for (int j = 0; j < this.ultimo-1; j++) {
+            for (int i = 0; i < this.ultimo-1; i++) {
                 if ((int) item[i] < (int) this.item[i + 1]) {
                     elementoAnterior =(int)this.item[i];
                     this.item[i] = this.item[i+1];

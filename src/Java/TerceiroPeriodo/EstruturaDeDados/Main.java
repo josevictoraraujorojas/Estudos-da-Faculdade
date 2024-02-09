@@ -11,13 +11,8 @@ public class Main {
         lista.insereInicio(22);
         lista.insereInicio(23);
         lista.insereInicio(24);
-        lista.insereInicio(25);
-        lista.insereInicio(26);
-        lista.insereInicio(27);
-
         System.out.println(lista);
-        System.out.println(lista);
-        lista.procuraElementoRapido(10);
+        lista.insereNoMeio(2);
         System.out.println(lista);
 
 
