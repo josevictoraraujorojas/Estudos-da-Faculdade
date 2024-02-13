@@ -6,6 +6,12 @@ public class ListaEstatica {
     private  Object item[];
     private int primeiro,ultimo;
 
+    public ListaEstatica(int maxTam) {
+        this.item = new Object[maxTam];
+        this.primeiro = 0;
+        this.ultimo = 0;
+    }
+
     @Override
     public String toString() {
         return "ListaEstatica{" +
@@ -13,12 +19,6 @@ public class ListaEstatica {
                 ", primeiro=" + primeiro +
                 ", ultimo=" + ultimo +
                 '}';
-    }
-
-    public ListaEstatica(int maxTam) {
-        this.item = new Object[maxTam];
-        this.primeiro = 0;
-        this.ultimo = 0;
     }
     public void insereInicio (Object x) throws Exception {
         if (verificaListaCheia())
@@ -164,7 +164,6 @@ public class ListaEstatica {
     }
 
     public Boolean validaPos(int posicao){
-
         return posicao<= this.item.length;
     }
 

@@ -7,18 +7,13 @@ public class Main {
         vetor.adiciona(2);
         vetor.adiciona(3);
         vetor.adiciona(4);
-        vetor.adiciona(5);
-        vetor.adiciona(1000);
-        vetor.adiciona(7);
-        vetor.adiciona(8);
-        vetor.adiciona(9);
-        vetor.adiciona(10);
+
 
         System.out.println(vetor);
 
-        vetor.busca(10);
+        vetor.busca(2);
 
-        vetor.remove(1000);
+        vetor.remove(3);
         System.out.println(vetor);
 
 

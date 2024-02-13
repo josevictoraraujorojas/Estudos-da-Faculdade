@@ -16,27 +16,24 @@ public class VetorDinamico {
     }
 
     public void busca(int valor){
-        StringBuilder builder = new StringBuilder();
         No atual = this.inicio;
-        builder.append(atual.getElemento()+","+atual.getProximo());
+        int count=0;
         for (int i = 0; i <tamanho ; i++) {
             if (atual.getElemento()==valor){
-                System.out.println(atual.getElemento());
+                System.out.println(atual.getElemento()+" indice:"+count);
                 return;
             }
+            count++;
             atual=atual.getProximo();
         }
 
         System.out.println("valor inesxistente");
     }
     public void remove( int valor){
-        StringBuilder builder = new StringBuilder();
         No atual = this.inicio;
-        builder.append(atual.getElemento()+","+atual.getProximo());
         for (int i = 0; i <tamanho ; i++) {
-            if (atual.getElemento()==valor){
-                atual.setProximo(null);
-                atual.setElemento(0);
+            if (atual.getProximo().getElemento()==valor){
+                atual.setProximo(atual.getProximo().getProximo());
                 return;
             }
             atual=atual.getProximo();
