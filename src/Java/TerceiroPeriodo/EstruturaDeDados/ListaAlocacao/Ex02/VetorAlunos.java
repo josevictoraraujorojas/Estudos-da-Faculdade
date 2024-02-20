@@ -1,4 +1,4 @@
-package Java.TerceiroPeriodo.EstruturaDeDados.Exs.Ex2;
+package Java.TerceiroPeriodo.EstruturaDeDados.ListaAlocacao.Ex02;
 
 public class VetorAlunos {
 
@@ -21,12 +21,12 @@ public class VetorAlunos {
     }
 
 
-    public void insereAluno(Aluno aluno,int indice){
-        for (int i = 8; i >=indice; i--) {
+    public void insereAluno(Aluno aluno){
+        for (int i = 8; i >=4; i--) {
 
             this.alunos[i+1]= this.alunos[i];
         }
-        this.alunos[indice] = aluno;
+        this.alunos[4] = aluno;
     }
 
     public void encontraAluno(String nome ){
