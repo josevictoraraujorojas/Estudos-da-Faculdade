@@ -1,4 +1,4 @@
-package Java.TerceiroPeriodo.EstruturaDeDados.Exs.Ex4;
+package Java.TerceiroPeriodo.EstruturaDeDados;
 
 public class No {
     private int elemento;

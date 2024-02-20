@@ -9,186 +9,9 @@ public class ListaEstatica {
     public ListaEstatica(int maxTam) {
         this.item = new Object[maxTam];
         this.primeiro = 0;
-        this.ultimo = 0;
+        this.ultimo = this.primeiro;
     }
 
-    @Override
-    public String toString() {
-        return "ListaEstatica{" +
-                "item=" + Arrays.toString(item)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                +
-                ", primeiro=" + primeiro +
-                ", ultimo=" + ultimo +
-                '}';
-    }
     public void insereInicio (Object x) throws Exception {
         if (verificaListaCheia())
             throw new Exception ( "Erro : A lista esta cheia" ) ;
@@ -196,7 +19,7 @@ public class ListaEstatica {
 
             this.item[i + 1] = this.item[i];
         }
-        this.item[0] = x;
+        this.item[primeiro] = x;
         this.ultimo++;
     }
     private void InsereNoIndice(int indice, Object x) throws Exception {
@@ -212,7 +35,7 @@ public class ListaEstatica {
         }
     }
     public void procuraIndiceIdealEInssere(Object x) throws Exception {
-        int posicao=-1;
+        int posicao=ultimo;
         if (!verificaListaDecrescente()){
             ordenaDecrescente();
         }
@@ -221,10 +44,6 @@ public class ListaEstatica {
                 posicao=i;
                 break;
             }
-        }
-        if (posicao==-1){
-            InsereNoIndice(this.ultimo,x);
-            return;
         }
         InsereNoIndice(posicao,x);
     }
@@ -238,7 +57,6 @@ public class ListaEstatica {
             }
         }
     }
-
     public void insereFinal (Object x) throws Exception {
         if (verificaListaCheia())
             throw new Exception ( "Erro : A lista esta cheia" ) ;
@@ -248,19 +66,21 @@ public class ListaEstatica {
         }
     }
 
-    public void removeInicio () throws Exception {
+    public Object removeInicio () throws Exception {
         if (verificaListaVazia())
             throw new Exception ( "Erro : A lista esta vazia" ) ;
+        Object item = this.item[0];
         ultimo--;
         for (int i = 0; i <=tamanho(); i++) {
 
                 this.item[i] = this.item[i+1] ;
 
         }
+        return item;
     }
 
-    public void removeMeio(Object x) throws Exception {
-        if (verificaListaVazia())
+    public Object removeMeio(Object x) throws Exception {
+        if (verificaListaVazia()&&x==null)
             throw new Exception("Erro : A lista esta vazia");
 
         if (!verificaListaDecrescente())
@@ -269,20 +89,29 @@ public class ListaEstatica {
         ultimo--;
 
         int indiceRemocao=procuraElementoRapido(x);
+        if (indiceRemocao==-1){
+            return null;
+        }
+
+        Object item = this.item[indiceRemocao];
         for (int i = indiceRemocao; i <=ultimo; i++) {
             this.item[i] = this.item[i+1] ;
         }
+        return item;
     }
 
-    public void removeFinal () throws Exception {
+    public Object removeFinal () throws Exception {
         if (verificaListaVazia())
             throw new Exception ( "Erro : A lista esta vazia" ) ;
+        Object item = this.item[ultimo];
+
         ultimo--;
         for (int i = ultimo; i <=ultimo; i++) {
                 this.item[i] = this.item[i+1] ;
         }
+        return ultimo;
     }
-    
+
     public boolean verificaListaDecrescente(){
         int count = 0;
         for (int i = 0; i < tamanho()-2 ; i++) {
@@ -308,6 +137,9 @@ public class ListaEstatica {
     }
 
     public int procuraElementoRapido(Object x){
+        if (verificaListaVazia()&&x==null){
+            return -1;
+        }
         if (!verificaListaDecrescente()){
             ordenaDecrescente();
         }
@@ -336,14 +168,27 @@ public class ListaEstatica {
         return posicao<= this.item.length;
     }
 
+    @Override
+    public String toString() {
+        return "ListaEstatica{" +
+                "item=" + Arrays.toString(item)
+                +
+                ", primeiro=" + primeiro +
+                ", ultimo=" + ultimo +
+                '}';
+    }
+
     public Boolean verificaListaVazia(){
-         return this . ultimo == 0;
+         return this . ultimo == this.primeiro;
     }
 
     public Boolean verificaListaCheia(){
          return this . ultimo == this.item.length;
     }
 
+    public void destroiVetor(){
+        this.item=null;
+    }
 
 
 }

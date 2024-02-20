@@ -1,4 +1,6 @@
-package Java.TerceiroPeriodo.EstruturaDeDados.Exs.Ex4;
+package Java.TerceiroPeriodo.EstruturaDeDados;
+
+import Java.TerceiroPeriodo.EstruturaDeDados.No;
 
 public class VetorDinamico {
     private No inicio;

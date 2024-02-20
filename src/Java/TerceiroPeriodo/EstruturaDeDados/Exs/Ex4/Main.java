@@ -1,5 +1,7 @@
 package Java.TerceiroPeriodo.EstruturaDeDados.Exs.Ex4;
 
+import Java.TerceiroPeriodo.EstruturaDeDados.VetorDinamico;
+
 public class Main {
     public static void main(String[] args) {
         VetorDinamico vetor = new VetorDinamico();
