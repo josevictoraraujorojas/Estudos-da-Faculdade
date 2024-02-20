@@ -1,16 +1,18 @@
-package Java.TerceiroPeriodo.POO;
+package Java.TerceiroPeriodo.POO.Exercicio01;
 
 public class Pessoa {
     private String nome;
     private String corDoCabelo;
     private String biotipo;
     private int idade;
+    private Carro veiculo;
 
-    public Pessoa(String nome, String corDoCabelo, String biotipo, int idade) {
+    public Pessoa(String nome, String corDoCabelo, String biotipo, int idade, Carro veiculo) {
         this.nome = nome;
         this.corDoCabelo = corDoCabelo;
         this.biotipo = biotipo;
         this.idade = idade;
+        this.veiculo = veiculo;
     }
 
     public String getNome() {
@@ -47,11 +49,6 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return "Pessoa{" +
-                "nome='" + nome + '\'' +
-                ", corDoCabelo='" + corDoCabelo + '\'' +
-                ", biotipo='" + biotipo + '\'' +
-                ", idade=" + idade +
-                '}';
+        return String.format("Pessoa[nome:%s,cor do cabelo:%s,biotipo:%s,idade:%d,veiculo:%s]",nome,corDoCabelo,biotipo,idade,veiculo);
     }
 }

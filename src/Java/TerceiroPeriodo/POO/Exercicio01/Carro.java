@@ -1,4 +1,4 @@
-package Java.TerceiroPeriodo.POO;
+package Java.TerceiroPeriodo.POO.Exercicio01;
 
 public class Carro {
     private Pessoa dono;
@@ -7,6 +7,9 @@ public class Carro {
     private String placa;
     private int numPortas;
 
+    public Carro(){
+
+    }
 
     public Carro(Pessoa dono, String tipo, String cor, String placa, int numPortas) {
         this.dono = dono;
@@ -58,12 +61,6 @@ public class Carro {
 
     @Override
     public String toString() {
-        return "Carro{" +
-                "dono=" + dono +
-                ", tipo='" + tipo + '\'' +
-                ", cor='" + cor + '\'' +
-                ", placa='" + placa + '\'' +
-                ", numPortas=" + numPortas +
-                '}';
+        return String.format("\nCarro[dono:%s,tipo:%s,cor:%s,placa:%s,numero de portas:%d]\n",dono,tipo,cor,placa,numPortas);
     }
 }
