@@ -1,4 +1,7 @@
-package Java.TerceiroPeriodo.POO.Exercicio01;
+package Java.TerceiroPeriodo.POO.Carro;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Carro {
     private Pessoa dono;
@@ -6,6 +9,7 @@ public class Carro {
     private String cor;
     private String placa;
     private int numPortas;
+    private int cambio;
 
     public Carro(){
 
@@ -15,9 +19,24 @@ public class Carro {
         this.dono = dono;
         this.tipo = tipo;
         this.cor = cor;
-        this.placa = placa;
+        setPlaca(placa);
         this.numPortas = numPortas;
     }
+
+
+    public void ligar(){
+        System.out.println("Carro ligado");
+    }
+    public void desligar(){
+        System.out.println("Carro desligado");
+    }
+    public void acelerar(){
+        System.out.println("Carro acelerando");
+    }
+    public void frear(){
+        System.out.println("Carro freando");
+    }
+
 
     public Pessoa getDono() {
         return dono;
@@ -48,7 +67,13 @@ public class Carro {
     }
 
     public void setPlaca(String placa) {
-        this.placa = placa;
+        Pattern modeloPlaca = Pattern.compile("[A-Z]{3}-\\d[A-Z]\\d{2}");
+        Matcher verificaPlaca=  modeloPlaca.matcher(placa);
+        if (verificaPlaca.matches()) {
+            this.placa=placa;
+            return;
+        }
+        System.out.println("modelo de placa invalida tente este modelo(AAA-1A11)");
     }
 
     public int getNumPortas() {
@@ -57,6 +82,15 @@ public class Carro {
 
     public void setNumPortas(int numPortas) {
         this.numPortas = numPortas;
+    }
+
+    public int getCambio() {
+        System.out.println("Marcha:"+this.cambio);
+        return cambio;
+    }
+
+    public void setCambio(int cambio) {
+        this.cambio = cambio;
     }
 
     @Override

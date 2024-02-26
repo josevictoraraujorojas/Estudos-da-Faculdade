@@ -1,4 +1,4 @@
-package Java.TerceiroPeriodo.POO.Exercicio01;
+package Java.TerceiroPeriodo.POO.Carro;
 
 public class Pessoa {
     private String nome;
@@ -6,6 +6,7 @@ public class Pessoa {
     private String biotipo;
     private int idade;
     private Carro veiculo;
+    private int cambioMarcha;
 
     public Pessoa(String nome, String corDoCabelo, String biotipo, int idade, Carro veiculo) {
         this.nome = nome;
@@ -13,6 +14,40 @@ public class Pessoa {
         this.biotipo = biotipo;
         this.idade = idade;
         this.veiculo = veiculo;
+    }
+
+
+    void ligarCarro(){
+        veiculo.ligar();
+    }
+
+    void desligarCarro(){
+        veiculo.desligar();
+    }
+
+    void acelerarCarro(){
+        veiculo.acelerar();
+    }
+
+    void freaeCarro(){
+        veiculo.frear();
+    }
+
+
+    public Carro getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(Carro veiculo) {
+        this.veiculo = veiculo;
+    }
+
+    public int getCambioMarcha() {
+        return cambioMarcha;
+    }
+
+    public void setCambioMarcha(int marcha) {
+       veiculo.setCambio(marcha);
     }
 
     public String getNome() {
