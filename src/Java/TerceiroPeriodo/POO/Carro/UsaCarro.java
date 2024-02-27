@@ -16,8 +16,43 @@ public class UsaCarro {
                 , carro.getCor(), carro.getTipo(), carro.getPlaca(), carro.getNumPortas(), carro.getDono().getNome());
 
         pessoa.ligarCarro();
+        pessoa.setCambioMarcha(1);
+        pessoa.getVeiculo().getCambio();
         pessoa.acelerarCarro();
+
+        System.out.println();
+
+        pessoa.setCambioMarcha(2);
+        pessoa.getVeiculo().getCambio();
+        pessoa.acelerarCarro();
+
+        System.out.println();
+
+        pessoa.setCambioMarcha(3);
+        pessoa.getVeiculo().getCambio();
+        pessoa.acelerarCarro();
+
+        System.out.println();
+
+        pessoa.setCambioMarcha(2);
+        pessoa.getVeiculo().getCambio();
+        pessoa.acelerarCarro();
+
+        System.out.println();
+
+        pessoa.ligarCarro();
+        pessoa.setCambioMarcha(1);
+        pessoa.getVeiculo().getCambio();
+        pessoa.acelerarCarro();
+
+         System.out.println();
+
+        pessoa.ligarCarro();
+        pessoa.setCambioMarcha(0);
         pessoa.freaeCarro();
         pessoa.desligarCarro();
+
+
+
     }
 }
