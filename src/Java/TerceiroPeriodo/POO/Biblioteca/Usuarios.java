@@ -1,10 +1,14 @@
 package Java.TerceiroPeriodo.POO.Biblioteca;
 
 public class Usuarios {
-    String nome;
-    int idade;
-    String sexo;
-    String telefone;
+    private String nome;
+    private int idade;
+    private String sexo;
+    private String telefone;
+
+    public void lerLivro(){
+        System.out.println("O usuario esta lendo um livro");
+    }
 
     public String getNome() {
         return nome;

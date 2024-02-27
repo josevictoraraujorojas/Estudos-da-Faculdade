@@ -16,7 +16,8 @@ Exercício 5) Faça um método para buscar a posição e o valor do maior elemento da
 os quais deverão ser retornados por referência. O método deve retornar se a operação foi
 possível ou não.
 
-Exercício 6) Faça um método para trocar de posição dois elementos de uma lista. O
+Exercício 6) Faça um método para trocar de posição dois elementos de
+uma lista. O
 método deve retornar se a operação foi possível ou não.
 
 Exercício 7) Considere uma lista contendo números inteiros positivos. Faça um método

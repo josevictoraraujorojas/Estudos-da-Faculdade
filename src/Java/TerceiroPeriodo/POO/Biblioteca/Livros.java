@@ -1,14 +1,33 @@
 package Java.TerceiroPeriodo.POO.Biblioteca;
 
 public class Livros {
-    String titulo;
-    String autor;
-    String area;
-    String editora;
-    String ano;
-    String edicao;
-    int numeroDePaginas;
+    private String titulo;
+    private String autor;
+    private String area;
+    private String editora;
+    private String ano;
+    private String edicao;
+    private int numeroDePaginas;
+    private boolean emprestimo;
 
+    public Livros() {
+        this.emprestimo = false;
+    }
+
+    public void abrirLivro(){
+        System.out.println("Livro aberto");
+    }
+    public void fecharLivro(){
+        System.out.println("Livro fechado");
+    }
+
+    public boolean isEmprestimo() {
+        return emprestimo;
+    }
+
+    public void setEmprestimo(boolean emprestimo) {
+        this.emprestimo = emprestimo;
+    }
 
     public String getTitulo() {
         return titulo;
