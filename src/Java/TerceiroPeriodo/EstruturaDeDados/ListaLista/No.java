@@ -1,4 +1,4 @@
-package Java.TerceiroPeriodo.EstruturaDeDados.ListaLista.Ex01;
+package Java.TerceiroPeriodo.EstruturaDeDados.ListaLista;
 
 public class No {
     Object elemento;
