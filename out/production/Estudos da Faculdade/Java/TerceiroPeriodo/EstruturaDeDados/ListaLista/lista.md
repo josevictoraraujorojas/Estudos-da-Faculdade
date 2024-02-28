@@ -1,5 +1,8 @@
 Exercício 0) Qual o número médio de nós acessados ao procurar determinado elemento
 numa lista desordenada? E numa lista ordenada?
+melhor caso = 1
+pior caso = n
+meio do caso = n/2
 
 Exercício 1) Escreva um método que crie uma lista encadeada a partir de um vetor.
 

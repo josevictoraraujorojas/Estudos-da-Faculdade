@@ -17,6 +17,9 @@ public class Main {
         System.out.println(lista.somaElementos());
         System.out.println(lista.trocaDoisElementos(12,0));
         System.out.println(lista);
+        ListaEncadeada string = new ListaEncadeada("danielly");
+        System.out.println(string);
+        System.out.println(string.converteListaParaString(string));
 
     }
 }

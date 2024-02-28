@@ -25,6 +25,31 @@ public class ListaEncadeada {
             this.tamanho++;
         }
     }
+    //ex36 a)
+    public ListaEncadeada(String string) {
+        inicio = new No();
+        this.ultimo = inicio;
+        this.tamanho = 0;
+
+        for (int i = 0; i < string.length() ; i++) {
+            No novo = new No();
+            novo.elemento=string.charAt(i);
+            this.ultimo.proximo=novo;
+            this.ultimo=this.ultimo.proximo;
+            this.tamanho++;
+        }
+    }
+    public String  converteListaParaString(ListaEncadeada lista){
+        String str="";
+        No atual = this.inicio.proximo;
+        for (int i = 0; i < tamanho ; i++) {
+            str+=atual.elemento;
+            atual=atual.proximo;
+        }
+        return str;
+    }
+
+
     public void adicionaElementoInicio(Object elemento){
         No novo = new No();
         novo.elemento=elemento;
@@ -73,7 +98,7 @@ public class ListaEncadeada {
 
         ultimo=anterior;
     }
-    //ex07
+    //ex09
     public boolean verificaListaCrescente(){
         No atual = this.inicio.proximo;
         for (int i = 0; i < this.tamanho ; i++) {
@@ -85,16 +110,7 @@ public class ListaEncadeada {
         }
         return true;
     }
-    public int somaElementos(){
-        No atual = this.inicio.proximo;
-        int soma = 0;
-        for (int i = 0; i < tamanho ; i++) {
-           soma+=(int)atual.elemento;
-            atual=atual.proximo;
-        }
-        return soma;
-    }
-    //ex07
+    //ex09
     public boolean verificaListaDecrescente(){
         No atual = inicio.proximo;
         for (int i = 0; i < this.tamanho ; i++) {
@@ -106,6 +122,7 @@ public class ListaEncadeada {
         }
         return true;
     }
+    //Ex07
     public ListaEncadeada listaElemntosPares(){
         ListaEncadeada listaPar = new ListaEncadeada();
         No atual = inicio.proximo;
@@ -121,6 +138,16 @@ public class ListaEncadeada {
         }
         return listaPar;
     }
+    //Ex31
+    public int somaElementos(){
+        No atual = this.inicio.proximo;
+        int soma = 0;
+        for (int i = 0; i < tamanho ; i++) {
+            soma+=(int)atual.elemento;
+            atual=atual.proximo;
+        }
+        return soma;
+    }
     //Ex06
     public boolean trocaDoisElementos(Object x,Object y){
         No atual = this.inicio.proximo;
@@ -128,8 +155,8 @@ public class ListaEncadeada {
         No primeiraTroca = new No();
         primeiraTroca.elemento=x;
         No segundaTroca = new No();
-        int troca =0;
         segundaTroca.elemento=y;
+        int troca =0;
         for (int i = 0; i < this.tamanho ; i++) {
             if (atual.elemento==y){
                 anterior.proximo=primeiraTroca;
@@ -145,7 +172,6 @@ public class ListaEncadeada {
         }
         return troca==2;
     }
-
 
     public boolean vazio(){
         return tamanho==0;
