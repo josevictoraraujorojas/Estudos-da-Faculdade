@@ -17,8 +17,7 @@ os quais deverão ser retornados por referência. O método deve retornar se a oper
 possível ou não.
 
 Exercício 6) Faça um método para trocar de posição dois elementos de
-uma lista. O
-método deve retornar se a operação foi possível ou não.
+uma lista. O método deve retornar se a operação foi possível ou não.
 
 Exercício 7) Considere uma lista contendo números inteiros positivos. Faça um método
 que retorne uma nova lista contendo apenas os números pares da lista.
