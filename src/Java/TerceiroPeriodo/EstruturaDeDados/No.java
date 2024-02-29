@@ -13,6 +13,9 @@ public class No {
         this.elemento = dado;
         this.proximo = null;
     }
+    public No() {
+        this.proximo = null;
+    }
 
     public int getElemento() {
         return elemento;
@@ -33,8 +36,6 @@ public class No {
     @Override
     public String toString() {
         return "No{" +
-                "elemento=" + elemento +
-                ", proximo=" + proximo +
-                '}';
+                "elemento=" + elemento;
     }
 }
