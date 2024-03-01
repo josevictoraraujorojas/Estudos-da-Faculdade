@@ -39,6 +39,7 @@ public class ListaEncadeada {
             this.tamanho++;
         }
     }
+    //Ex06 b)
     public String  converteListaParaString(ListaEncadeada lista){
         String str="";
         No atual = this.inicio.proximo;
@@ -48,6 +49,44 @@ public class ListaEncadeada {
         }
         return str;
     }
+
+    //Ex07 c)
+
+    public  int caracterDiferente(ListaEncadeada l1, ListaEncadeada l2){
+        No atualL1=l1.inicio.proximo;
+        No atualL2=l2.inicio.proximo;
+
+        for (int i = 0; i < l1.tamanho ; i++) {
+            if (atualL1.elemento!=atualL2.elemento){
+                return i;
+            }
+            atualL1 = atualL1.proximo;
+            atualL2 = atualL2.proximo;
+        }
+        return -1;
+    }
+    //Ex07 d)
+    public  ListaEncadeada substring( char inicio, char ultimo){
+        No atual=this.inicio.proximo;
+        String substring="";
+        boolean percorrreSubstring = false;
+
+        for (int i = 0; i < this.tamanho ; i++) {
+            if (atual.elemento.equals(inicio)){
+                percorrreSubstring=true;
+            }
+            if (percorrreSubstring){
+                substring+=atual.elemento;
+            }
+            if (atual.elemento.equals(ultimo)){
+                break;
+            }
+            atual=atual.proximo;
+        }
+        ListaEncadeada listaSubstring = new ListaEncadeada(substring);
+        return listaSubstring;
+    }
+
 
 
     public void adicionaElementoInicio(Object elemento){

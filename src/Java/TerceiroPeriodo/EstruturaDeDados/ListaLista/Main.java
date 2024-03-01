@@ -18,8 +18,10 @@ public class Main {
         System.out.println(lista.trocaDoisElementos(12,0));
         System.out.println(lista);
         ListaEncadeada string = new ListaEncadeada("danielly");
+        ListaEncadeada string1 = new ListaEncadeada("olamundoeusoujose");
         System.out.println(string);
         System.out.println(string.converteListaParaString(string));
-
+        System.out.println(string1.caracterDiferente(string1,string));
+        System.out.println(string1.substring('o','e'));
     }
 }
