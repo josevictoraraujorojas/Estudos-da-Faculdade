@@ -86,6 +86,16 @@ public class ListaEncadeada {
         ListaEncadeada listaSubstring = new ListaEncadeada(substring);
         return listaSubstring;
     }
+    public int analizaTamanhode2Listas(ListaEncadeada l1,ListaEncadeada l2){
+        if (l1.tamanho== l2.tamanho){
+            return 0;
+        } else if (l1.tamanho>l2.tamanho){
+            return 1;
+        } else {
+            return -1;
+        }
+    }
+
 
 
 
