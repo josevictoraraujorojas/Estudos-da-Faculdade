@@ -1,4 +1,4 @@
-package Java.TerceiroPeriodo.POO.Composicao;
+package Java.TerceiroPeriodo.POO.AgregacaoComposicao;
 
 public class Main {
     public static void main(String[] args) {

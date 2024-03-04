@@ -1,4 +1,4 @@
-package Java.TerceiroPeriodo.POO.Composicao;
+package Java.TerceiroPeriodo.POO.AgregacaoComposicao;
 
 public class Direcao {
     private String cor;
