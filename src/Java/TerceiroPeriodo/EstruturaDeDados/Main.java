@@ -26,6 +26,7 @@ public class Main {
         circular.adicionaInicio(16);
         circular.adicionaInicio(17);
         circular.adicionaInicio(18);
+        circular.adicionaInicio(19);
         circular.imprimi();
 
     }

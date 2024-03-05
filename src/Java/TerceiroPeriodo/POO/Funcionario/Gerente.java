@@ -3,6 +3,11 @@ package Java.TerceiroPeriodo.POO.Funcionario;
 public class Gerente extends Funcionario {
     int sala;
 
+
+    public Gerente() {
+        super("nenhum",0);
+    }
+
     public Gerente(String nome, double salario, int sala) {
         super(nome, salario);
         this.sala=sala;

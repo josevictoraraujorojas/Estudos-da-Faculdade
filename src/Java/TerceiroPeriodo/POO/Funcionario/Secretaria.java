@@ -3,7 +3,9 @@ package Java.TerceiroPeriodo.POO.Funcionario;
 public class Secretaria extends Funcionario{
    private String ramal;
 
-
+    public Secretaria() {
+        super("nenhum",0);
+    }
 
     public Secretaria(String nome, double salario, String ramal) {
         super(nome, salario);
