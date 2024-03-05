@@ -1,6 +1,6 @@
 package Java.TerceiroPeriodo.POO.Biblioteca;
 
-public class Livros {
+public class Livros extends Obra{
     private String titulo;
     private String autor;
     private String area;

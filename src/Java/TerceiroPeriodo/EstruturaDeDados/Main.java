@@ -17,17 +17,16 @@ public class Main {
         lista.procuraIndiceIdealEInssere(20);
         System.out.println(lista);
         System.out.println(lista.procuraElementoRapido(20));*/
-
-        ListaCircular circular = new ListaCircular();
-        circular.adicionaInicio(12);
-        circular.adicionaInicio(13);
-        circular.adicionaInicio(14);
-        circular.adicionaInicio(15);
-        circular.adicionaInicio(16);
-        circular.adicionaInicio(17);
-        circular.adicionaInicio(18);
-        circular.adicionaInicio(19);
-        circular.imprimi();
-
+        ListaCircular lista = new ListaCircular();
+        lista.insercaoNoInicio(1);
+        lista.insercaoNoFim(2);
+        lista.insercaoNoFim(3);
+        lista.insercaoNoFim(4);
+        lista.insercaoNoFim(5);
+        lista.insercaoNoFim(6);
+        lista.imprimi();
+        System.out.println(lista.quantidadeElementos());
+        System.out.println(lista.validaposicao(6));
+        System.out.println(lista.menorElemeno());
     }
 }
