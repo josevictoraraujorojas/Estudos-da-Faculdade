@@ -212,6 +212,55 @@ public class ListaCircular {
             }while (atual != lista.proximo);
         }
     }
+    public void insereAposUmValor(Object elemento,Object posicao) throws Exception {
+        if (vazia()) {
+            throw new Exception("erro lista vazia");
+        } else {
+            Nodo novo = new Nodo();
+            novo.item=elemento;
+            Nodo atual = lista.proximo;
+            Nodo anterior = lista;
+            do {
+                if(anterior.item==posicao){
+                    anterior.proximo=novo;
+                    novo.proximo=atual;
+                    return;
+                }
+                anterior=atual;
+                atual = atual.proximo;
+            } while (atual != lista.proximo);
+        }
+    }
+    public void ConcatenaDuasLista(ListaCircular segundaLista) throws Exception {
+        if (segundaLista.vazia()) {
+            throw new Exception("erro lista vazia");
+        }if (vazia()) {
+            throw new Exception("erro lista vazia");
+        }
+        Nodo auxiliar = new Nodo();
+        auxiliar = segundaLista.lista.proximo;
+        segundaLista.lista.proximo=this.lista.proximo;
+        lista.proximo=auxiliar;
+    }
+    public void ConcatenaDuasListaOrdenadas(ListaCircular segundaLista) throws Exception {
+        if (segundaLista.vazia()) {
+            throw new Exception("erro lista vazia");
+        }else if (vazia()) {
+            throw new Exception("erro lista vazia");
+        }
+        Nodo auxiliar = new Nodo();
+        if ((int)this.lista.proximo.item>(int)segundaLista.lista.proximo.item){
+            auxiliar = segundaLista.lista.proximo;
+            segundaLista.lista.proximo=this.lista.proximo;
+            lista.proximo=auxiliar;
+        }else {
+            auxiliar = lista.proximo;
+            this.lista.proximo=segundaLista.lista.proximo;
+            segundaLista.lista.proximo=auxiliar;
+            lista=segundaLista.lista;
+        }
+    }
+
 
 
     public boolean vazia(){

@@ -24,9 +24,12 @@ public class Main {
         lista.insercaoNoFim(4);
         lista.insercaoNoFim(5);
         lista.insercaoNoFim(6);
+        ListaCircular lista2 = new ListaCircular();
+        lista2.insercaoNoInicio(7);
+        lista2.insercaoNoFim(8);
+        lista2.insercaoNoFim(9);
+        lista.ConcatenaDuasListaOrdenadas(lista2);
         lista.imprimi();
-        System.out.println(lista.quantidadeElementos());
-        System.out.println(lista.validaposicao(6));
-        System.out.println(lista.menorElemeno());
+
     }
 }
