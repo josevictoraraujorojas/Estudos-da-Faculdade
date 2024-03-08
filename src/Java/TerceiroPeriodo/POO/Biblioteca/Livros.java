@@ -1,17 +1,16 @@
 package Java.TerceiroPeriodo.POO.Biblioteca;
 
 public class Livros extends Obra{
-    private String titulo;
-    private String autor;
-    private String area;
-    private String editora;
-    private String ano;
+
     private String edicao;
     private int numeroDePaginas;
     private boolean emprestimo;
 
-    public Livros() {
-        this.emprestimo = false;
+    public Livros(String titulo, String autor, String area, String editora, String ano, String edicao, int numeroDePaginas, boolean emprestimo) {
+        super(titulo, autor, area, editora, ano);
+        this.edicao = edicao;
+        this.numeroDePaginas = numeroDePaginas;
+        this.emprestimo = emprestimo;
     }
 
     public void abrirLivro(){
@@ -19,54 +18,6 @@ public class Livros extends Obra{
     }
     public void fecharLivro(){
         System.out.println("Livro fechado");
-    }
-
-    public boolean isEmprestimo() {
-        return emprestimo;
-    }
-
-    public void setEmprestimo(boolean emprestimo) {
-        this.emprestimo = emprestimo;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getAutor() {
-        return autor;
-    }
-
-    public void setAutor(String autor) {
-        this.autor = autor;
-    }
-
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
-    }
-
-    public String getEditora() {
-        return editora;
-    }
-
-    public void setEditora(String editora) {
-        this.editora = editora;
-    }
-
-    public String getAno() {
-        return ano;
-    }
-
-    public void setAno(String ano) {
-        this.ano = ano;
     }
 
     public String getEdicao() {
@@ -85,4 +36,20 @@ public class Livros extends Obra{
         this.numeroDePaginas = numeroDePaginas;
     }
 
+    public boolean isEmprestimo() {
+        return emprestimo;
+    }
+
+    public void setEmprestimo(boolean emprestimo) {
+        this.emprestimo = emprestimo;
+    }
+
+    @Override
+    public String toString() {
+        return "Livros{" +
+                "edicao='" + edicao + '\'' +
+                ", numeroDePaginas=" + numeroDePaginas +
+                ", emprestimo=" + emprestimo +
+                "} " + super.toString();
+    }
 }

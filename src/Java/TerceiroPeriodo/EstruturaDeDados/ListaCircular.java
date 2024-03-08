@@ -28,6 +28,7 @@ public class ListaCircular {
         }
 
     }
+
     public void insercaoNoFim(Object elemento){
         Nodo novo = new Nodo();
         novo.item=elemento;
@@ -42,6 +43,7 @@ public class ListaCircular {
         }
 
     }
+
     public void insercaoNomeio(Object elemento){
         Nodo novo = new Nodo();
         novo.item=elemento;
@@ -87,6 +89,7 @@ public class ListaCircular {
         }
         return elemento;
     }
+
     public Object removeFinal() throws Exception {
         if (vazia()){
             throw new Exception("Lista vazia");
@@ -108,6 +111,7 @@ public class ListaCircular {
         }
         return elemento;
     }
+
     public Object removeMeio(Object chave) throws Exception {
         Object item = null;
         if ( vazia() ) throw new Exception("Erro : Lista vazia");
@@ -146,6 +150,7 @@ public class ListaCircular {
         return null;
 
     }
+
     public Object ValidaPosicao(Object elemento) throws Exception {
         if (vazia()) throw new Exception("Erro : Lista vazia");
         Nodo auxiliar = lista.proximo;
@@ -156,6 +161,7 @@ public class ListaCircular {
         } while (auxiliar != lista.proximo);
         return null;
     }
+
     public int quantidadeElementos(){
         int count=0;
         if (vazia()){
@@ -169,6 +175,7 @@ public class ListaCircular {
         }
         return count;
     }
+
     public boolean validaposicao(int posicao) {
         int count = 0;
         if (vazia()) {
@@ -185,6 +192,7 @@ public class ListaCircular {
         }
         return false;
     }
+
     public Object menorElemeno() {
         Object menorElemento=null;
         if (vazia()) {
@@ -201,17 +209,7 @@ public class ListaCircular {
         }
         return menorElemento;
     }
-    public void imprimi(){
-        if (vazia()){
-            System.out.println("erro vazia");
-        }else {
-            Nodo atual = lista.proximo;
-            do {
-                System.out.println("atual:"+atual.item + "|" +"Proximo:"+atual.proximo.item);
-                atual = atual.proximo;
-            }while (atual != lista.proximo);
-        }
-    }
+
     public void insereAposUmValor(Object elemento,Object posicao) throws Exception {
         if (vazia()) {
             throw new Exception("erro lista vazia");
@@ -231,6 +229,7 @@ public class ListaCircular {
             } while (atual != lista.proximo);
         }
     }
+
     public void ConcatenaDuasLista(ListaCircular segundaLista) throws Exception {
         if (segundaLista.vazia()) {
             throw new Exception("erro lista vazia");
@@ -242,6 +241,7 @@ public class ListaCircular {
         segundaLista.lista.proximo=this.lista.proximo;
         lista.proximo=auxiliar;
     }
+
     public void ConcatenaDuasListaOrdenadas(ListaCircular segundaLista) throws Exception {
         if (segundaLista.vazia()) {
             throw new Exception("erro lista vazia");
@@ -261,7 +261,17 @@ public class ListaCircular {
         }
     }
 
-
+    public void imprimi(){
+        if (vazia()){
+            System.out.println("erro vazia");
+        }else {
+            Nodo atual = lista.proximo;
+            do {
+                System.out.println("atual:"+atual.item + "|" +"Proximo:"+atual.proximo.item);
+                atual = atual.proximo;
+            }while (atual != lista.proximo);
+        }
+    }
 
     public boolean vazia(){
         return lista.proximo==null;

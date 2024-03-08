@@ -6,6 +6,13 @@ public class Usuarios {
     private String sexo;
     private String telefone;
 
+    public Usuarios(String nome, int idade, String sexo, String telefone) {
+        this.nome = nome;
+        this.idade = idade;
+        this.sexo = sexo;
+        this.telefone = telefone;
+    }
+
     public void lerLivro(){
         System.out.println("O usuario esta lendo um livro");
     }
