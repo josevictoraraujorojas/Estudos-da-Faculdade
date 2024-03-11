@@ -6,7 +6,7 @@ public class Funcionario extends Usuarios{
     private String cargo;
 
     public Funcionario(String nome, int idade, String sexo, String telefone, String id, String departamento, String cargo) {
-        super(nome, idade, sexo, telefone);
+        super(nome, telefone, sexo, idade);
         this.id = id;
         this.departamento = departamento;
         this.cargo = cargo;

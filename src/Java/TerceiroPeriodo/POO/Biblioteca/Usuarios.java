@@ -6,7 +6,7 @@ public class Usuarios {
     private String sexo;
     private String telefone;
 
-    public Usuarios(String nome, int idade, String sexo, String telefone) {
+    public Usuarios(String nome, String sexo, String telefone, int idade) {
         this.nome = nome;
         this.idade = idade;
         this.sexo = sexo;

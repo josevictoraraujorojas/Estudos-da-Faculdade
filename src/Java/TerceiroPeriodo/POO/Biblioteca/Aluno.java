@@ -8,7 +8,7 @@ public class Aluno extends Usuarios{
     private int periodo;
 
     public Aluno(String nome, int idade, String sexo, String telefone, String matricula, String curso, int periodo) {
-        super(nome, idade, sexo, telefone);
+        super(nome, telefone, sexo, idade);
         this.matricula = matricula;
         this.cursoMatriculado = curso;
         this.periodo = periodo;

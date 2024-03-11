@@ -6,7 +6,7 @@ public class Professor extends Usuarios{
     private String cursoMinistrado;
 
     public Professor(String nome, int idade, String sexo, String telefone, String id, String formacaoAcademica, String cursoMinistrado) {
-        super(nome, idade, sexo, telefone);
+        super(nome, telefone, sexo, idade);
         this.id = id;
         this.formacaoAcademica = formacaoAcademica;
         this.cursoMinistrado = cursoMinistrado;

@@ -7,6 +7,13 @@ public class Emprestimos {
     private Usuarios usuario;
 
 
+    public Emprestimos(String dataDoEmprestimo, String horaDoEmprestimo, Livros livro, Usuarios usuario) {
+        this.dataDoEmprestimo = dataDoEmprestimo;
+        this.horaDoEmprestimo = horaDoEmprestimo;
+        this.livro = livro;
+        this.usuario = usuario;
+    }
+
     public void devolverLivro(){
         this.livro.setEmprestimo(true);
         System.out.println("O livro foi devolvido");
