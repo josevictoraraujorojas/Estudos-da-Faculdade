@@ -61,6 +61,24 @@ public class ListaEncadeada {
         }
     }
 
+    //Ex05
+    public boolean buscaMaiorValor(){
+        if (vazio()){
+            return false;
+        }
+        No atual = inicio.proximo;
+        int maiorElemento=(int)atual.elemento;
+        int posicao=0;
+        for (int i = 0; i < tamanho ; i++) {
+            if (atual.proximo!=null&&maiorElemento<(int)atual.proximo.elemento){
+                maiorElemento=(int)atual.proximo.elemento;
+                posicao=i+1;
+            }
+            atual=atual.proximo;
+        }
+        System.out.println(maiorElemento+" "+posicao);
+        return true;
+    }
 
 
     //Ex06
@@ -105,6 +123,17 @@ public class ListaEncadeada {
         return listaPar;
     }
 
+    //Ex08
+    public int mediaDaLista(){
+        No atual = inicio.proximo;
+        int media=0;
+        for (int i = 0; i < tamanho ; i++) {
+            media+=(int)atual.elemento;
+            atual=atual.proximo;
+        }
+        return media/tamanho;
+    }
+
     //ex09
     public boolean verificaListaCrescente(){
         No atual = this.inicio.proximo;
@@ -129,6 +158,39 @@ public class ListaEncadeada {
         }
         return true;
     }
+
+    //Ex10
+
+    public ListaEncadeada copiaDaLista(){
+        No atual = inicio.proximo;
+        ListaEncadeada copia = new ListaEncadeada();
+        for (int i = 0; i < this.tamanho; i++) {
+            copia.adicionaElementoInicio(atual.elemento);
+            atual=atual.proximo;
+        }
+        return copia;
+    }
+
+    //Ex11
+    public ListaEncadeada copiaDaListaSemRepetticao(){
+        No anterio = inicio;
+        No atual = inicio.proximo;
+        Object elemento;
+        ListaEncadeada copia = new ListaEncadeada();
+        for (int i = 0; i < this.tamanho; i++) {
+            if (atual.elemento!=anterio.elemento) {
+                copia.adicionaElementoInicio(atual.elemento);
+                anterio=atual;
+            }
+            atual=atual.proximo;
+        }
+        return copia;
+    }
+
+    //Ex012
+
+
+
 
     //ex19
     public void removeOcorrencia(Object elemnto){

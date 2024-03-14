@@ -48,4 +48,14 @@ public class Usuarios {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+    @Override
+    public String toString() {
+        return "Usuarios{" +
+                "nome='" + nome + '\'' +
+                ", idade=" + idade +
+                ", sexo='" + sexo + '\'' +
+                ", telefone='" + telefone + '\'' +
+                '}';
+    }
 }

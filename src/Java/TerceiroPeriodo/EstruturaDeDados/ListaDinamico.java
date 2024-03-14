@@ -1,8 +1,6 @@
 package Java.TerceiroPeriodo.EstruturaDeDados;
 
-import Java.TerceiroPeriodo.EstruturaDeDados.No;
-
-public class VetorDinamico {
+public class ListaDinamico {
     private No inicio;
     private No ultimo;
     private int tamanho;

@@ -6,11 +6,11 @@ public class Livros extends Obra{
     private int numeroDePaginas;
     private boolean emprestimo;
 
-    public Livros(String titulo, String autor, String area, String editora, String ano, String edicao, int numeroDePaginas, boolean emprestimo) {
+    public Livros(String titulo, String autor, String area, String editora, String ano, String edicao, int numeroDePaginas) {
         super(titulo, autor, area, editora, ano);
         this.edicao = edicao;
         this.numeroDePaginas = numeroDePaginas;
-        this.emprestimo = emprestimo;
+        this.emprestimo = true;
     }
 
     public void abrirLivro(){

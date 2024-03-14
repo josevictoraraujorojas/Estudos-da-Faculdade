@@ -4,37 +4,37 @@ melhor caso = 1
 pior caso = n
 meio do caso = n/2
 
-Exercício 1) Escreva um método que crie uma lista encadeada a partir de um vetor.
+Exercício 1) Escreva um método que crie uma lista encadeada a partir de um vetor. V
 
 
-Exercício 2) Escreva um método que copie uma lista encadeada para um vetor.
+Exercício 2) Escreva um método que copie uma lista encadeada para um vetor. V
 
 Exercício 3) Faça um método para concatenar duas listas em uma terceira lista que
-deverá ser retornada pelo método. Não use funções já implementadas.
+deverá ser retornada pelo método. Não use funções já implementadas. V
 
 Exercício 4) Faça um método para remover os n primeiros elementos de uma lista. O
-método deve retornar se a operação foi possível ou não.
+método deve retornar se a operação foi possível ou não. V
 
 Exercício 5) Faça um método para buscar a posição e o valor do maior elemento da lista,
 os quais deverão ser retornados por referência. O método deve retornar se a operação foi
-possível ou não.
+possível ou não. V
 
 Exercício 6) Faça um método para trocar de posição dois elementos de
-uma lista. O método deve retornar se a operação foi possível ou não.
+uma lista. O método deve retornar se a operação foi possível ou não. V
 
 Exercício 7) Considere uma lista contendo números inteiros positivos. Faça um método
-que retorne uma nova lista contendo apenas os números pares da lista.
+que retorne uma nova lista contendo apenas os números pares da lista. V
 
 Exercício 8) Considere uma lista contendo números inteiros positivos. Faça um método
-que retorne a média da lista.
+que retorne a média da lista. V
 
 Exercício 9) Fazer um método para verificar se uma lista está ordenada ou não (a ordem
-pode ser crescente ou decrescente).
+pode ser crescente ou decrescente). V
 
-Exercício 10) Fazer um método que copia uma lista L1 em uma outra lista L2.
+Exercício 10) Fazer um método que copia uma lista L1 em uma outra lista L2. V
 
 Exercício 11) Fazer um método que copia uma lista L1 em outra L2, eliminando os
-elementos repetidos.
+elementos repetidos. V
 
 Exercício 12) Fazer um método para inverter uma lista L1 colocando o resultado em L2.
 

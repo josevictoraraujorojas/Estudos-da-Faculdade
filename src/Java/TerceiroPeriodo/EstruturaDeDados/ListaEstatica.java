@@ -11,7 +11,7 @@ public class ListaEstatica {
         this.primeiro = 0;
         this.ultimo = this.primeiro;
     }
-
+ 
     public void insereInicio (Object x) throws Exception {
         if (verificaListaCheia())
             throw new Exception ( "Erro : A lista esta cheia" ) ;

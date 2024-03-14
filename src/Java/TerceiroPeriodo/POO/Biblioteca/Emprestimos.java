@@ -11,6 +11,7 @@ public class Emprestimos {
         this.dataDoEmprestimo = dataDoEmprestimo;
         this.horaDoEmprestimo = horaDoEmprestimo;
         this.livro = livro;
+        livro.setEmprestimo(false);
         this.usuario = usuario;
     }
 
@@ -49,5 +50,15 @@ public class Emprestimos {
 
     public void setUsuario(Usuarios usuario) {
         this.usuario = usuario;
+    }
+
+    @Override
+    public String toString() {
+        return "Emprestimos{" +
+                "dataDoEmprestimo='" + dataDoEmprestimo + '\'' +
+                ", horaDoEmprestimo='" + horaDoEmprestimo + '\'' +
+                ", livro=" + livro +
+                ", usuario=" + usuario +
+                '}';
     }
 }

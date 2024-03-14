@@ -18,6 +18,8 @@ public class Teste {
         profSub= profSuper;
          */
         profSub= (ProfessorDE) profSuper;
+        System.out.println();
+        System.out.println();
 
 
     }

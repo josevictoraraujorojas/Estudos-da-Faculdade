@@ -34,6 +34,9 @@ public class Professor {
     public void setCargaHoraria(int cargaHoraria) {
         this.cargaHoraria = cargaHoraria;
     }
+    public double geetSalario(){
+        return 0;
+    }
 
     @Override
     public String toString() {
