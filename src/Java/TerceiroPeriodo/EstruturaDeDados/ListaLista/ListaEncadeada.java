@@ -247,7 +247,7 @@ public class ListaEncadeada {
         return str;
     }
 
-    //Ex67 c)
+    //Ex36 c)
 
     public  int caracterDiferente(ListaEncadeada l1, ListaEncadeada l2){
         No atualL1=l1.inicio.proximo;

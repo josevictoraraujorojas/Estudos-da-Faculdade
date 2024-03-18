@@ -32,4 +32,5 @@ public class Nodo2 {
     public void setProximo(Nodo2 proximo) {
         this.proximo = proximo;
     }
+
 }

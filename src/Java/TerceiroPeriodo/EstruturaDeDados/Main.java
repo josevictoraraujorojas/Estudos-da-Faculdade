@@ -17,19 +17,30 @@ public class Main {
         lista.procuraIndiceIdealEInssere(20);
         System.out.println(lista);
         System.out.println(lista.procuraElementoRapido(20));*/
-        ListaCircular lista = new ListaCircular();
-        lista.insercaoNoInicio(1);
-        lista.insercaoNoFim(2);
-        lista.insercaoNoFim(3);
-        lista.insercaoNoFim(4);
-        lista.insercaoNoFim(5);
-        lista.insercaoNoFim(6);
-        ListaCircular lista2 = new ListaCircular();
-        lista2.insercaoNoInicio(7);
-        lista2.insercaoNoFim(8);
-        lista2.insercaoNoFim(9);
-        lista.ConcatenaDuasListaOrdenadas(lista2);
+//        ListaCircular lista = new ListaCircular();
+//        lista.insercaoNoInicio(1);
+//        lista.insercaoNoFim(2);
+//        lista.insercaoNoFim(3);
+//        lista.insercaoNoFim(4);
+//        lista.insercaoNoFim(5);
+//        lista.insercaoNoFim(6);
+//        ListaCircular lista2 = new ListaCircular();
+//        lista2.insercaoNoInicio(7);
+//        lista2.insercaoNoFim(8);
+//        lista2.insercaoNoFim(9);
+//        lista.ConcatenaDuasListaOrdenadas(lista2);
+//        lista.imprimi();
+        ListaDuplamenteEncadeada lista = new ListaDuplamenteEncadeada();
+        lista.insereFinal(1);
+        lista.insereFinal(2);
+        lista.insereFinal(3);
+        lista.insereFinal(4);
         lista.imprimi();
+        lista.insereMeio(1);
+        lista.imprimi();
+        lista.insereFinal(7);
+        lista.imprimi();
+
 
     }
 }
