@@ -30,17 +30,26 @@ public class Main {
 //        lista2.insercaoNoFim(9);
 //        lista.ConcatenaDuasListaOrdenadas(lista2);
 //        lista.imprimi();
-        ListaDuplamenteEncadeada lista = new ListaDuplamenteEncadeada();
-        lista.insereFinal(1);
-        lista.insereFinal(2);
-        lista.insereFinal(3);
-        lista.insereFinal(4);
-        lista.imprimi();
-        lista.insereMeio(1);
-        lista.imprimi();
-        lista.insereFinal(7);
-        lista.imprimi();
+//        ListaDuplamenteEncadeada lista = new ListaDuplamenteEncadeada();
+//        lista.insereFinal(1);
+//        lista.insereFinal(2);
+//        lista.insereFinal(3);
+//        lista.insereFinal(4);
+//        lista.imprimi();
+//        lista.insereMeio(1);
+//        lista.imprimi();
+//        lista.insereFinal(7);
+//        lista.imprimi();
 
-
+        ListaCircularDuplamenteEncadeada lista = new ListaCircularDuplamenteEncadeada();
+        lista.insere(1);
+        lista.insere(2);
+        lista.insere(3);
+        lista.insere(4);
+        lista.imprimi();
+        System.out.println(lista.tamanho());
+        System.out.println(ListaCircularDuplamenteEncadeada.posicaoDoNodo(5,lista));
+        ListaCircularDuplamenteEncadeada.adicnaAposOElemento(4,10,lista);
+        lista.imprimi();
     }
 }

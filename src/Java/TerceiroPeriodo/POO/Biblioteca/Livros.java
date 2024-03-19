@@ -1,16 +1,24 @@
 package Java.TerceiroPeriodo.POO.Biblioteca;
 
-public class Livros extends Obra{
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+public class Livros extends Obra implements DAO, Serializable{
 
     private String edicao;
     private int numeroDePaginas;
     private boolean emprestimo;
+
 
     public Livros(String titulo, String autor, String area, String editora, String ano, String edicao, int numeroDePaginas) {
         super(titulo, autor, area, editora, ano);
         this.edicao = edicao;
         this.numeroDePaginas = numeroDePaginas;
         this.emprestimo = true;
+    }
+    public Livros(){
+
     }
 
     public void abrirLivro(){
@@ -51,5 +59,59 @@ public class Livros extends Obra{
                 ", numeroDePaginas=" + numeroDePaginas +
                 ", emprestimo=" + emprestimo +
                 "} " + super.toString();
+    }
+
+    @Override
+    public void gravar() throws Exception {
+        try {
+            FileOutputStream file = new FileOutputStream("D://Biblioteca/Livro"+getTitulo());
+            ObjectOutputStream escreve = new ObjectOutputStream(file);
+            escreve.writeObject(this);
+            escreve.flush();
+            escreve.close();
+
+
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
+    }
+
+    @Override
+    public boolean excluir() throws Exception {
+        try {
+            Files.delete(Path.of("D://Biblioteca/Livro" + getTitulo()));
+            return true;
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
+    }
+
+    @Override
+    public Object ler() throws Exception {
+        try {
+            FileInputStream file = new FileInputStream("D://Biblioteca/Livro"+getTitulo());
+            ObjectInputStream ler = new ObjectInputStream(file);
+            Livros livro = (Livros)ler.readObject();
+            ler.close();
+            return livro;
+
+
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
+    }
+
+    @Override
+    public void atualizar() throws Exception {
+        try {
+            FileOutputStream file = new FileOutputStream("D:\\Biblioteca/Livro"+getTitulo());
+            ObjectOutputStream escreve = new ObjectOutputStream(file);
+            escreve.writeObject(this);
+            escreve.flush();
+            escreve.close();
+
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
     }
 }

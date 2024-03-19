@@ -1,5 +1,12 @@
 package Java.TerceiroPeriodo.POO.Biblioteca;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 public class Funcionario extends Usuarios{
     private String id;
     private String departamento;
@@ -34,5 +41,68 @@ public class Funcionario extends Usuarios{
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
+    }
+
+    @Override
+    public void gravar() throws Exception {
+        try {
+            FileOutputStream file = new FileOutputStream("D://Biblioteca/Usuario"+getId());
+            ObjectOutputStream escreve = new ObjectOutputStream(file);
+            escreve.writeObject(this);
+            escreve.flush();
+            escreve.close();
+
+
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
+    }
+
+    @Override
+    public boolean excluir() throws Exception {
+        try {
+            Files.delete(Path.of("D://Biblioteca/UsuarioFuncionario" + getId()));
+            return true;
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
+    }
+
+    @Override
+    public Object ler() throws Exception {
+        try {
+            FileInputStream file = new FileInputStream("D://Biblioteca/UsuarioFuncionario"+getId());
+            ObjectInputStream ler = new ObjectInputStream(file);
+            Funcionario funcionario = (Funcionario) ler.readObject();
+            ler.close();
+            return funcionario;
+
+
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
+    }
+
+    @Override
+    public void atualizar() throws Exception {
+        try {
+            FileOutputStream file = new FileOutputStream("D:\\Biblioteca/UsuarioFuncionario"+getId());
+            ObjectOutputStream escreve = new ObjectOutputStream(file);
+            escreve.writeObject(this);
+            escreve.flush();
+            escreve.close();
+
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Funcionario{" +
+                "id='" + id + '\'' +
+                ", departamento='" + departamento + '\'' +
+                ", cargo='" + cargo + '\'' +
+                "} " + super.toString();
     }
 }

@@ -1,6 +1,14 @@
 package Java.TerceiroPeriodo.POO.Biblioteca;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 public class Professor extends Usuarios{
+
     private String id;
     private String formacaoAcademica;
     private String cursoMinistrado;
@@ -35,6 +43,61 @@ public class Professor extends Usuarios{
     public void setCursoMinistrado(String cursoMinistrado) {
         this.cursoMinistrado = cursoMinistrado;
     }
+
+    @Override
+    public void gravar() throws Exception {
+        try {
+            FileOutputStream file = new FileOutputStream("D://Biblioteca/UsuarioProfessor"+getId());
+            ObjectOutputStream escreve = new ObjectOutputStream(file);
+            escreve.writeObject(this);
+            escreve.flush();
+            escreve.close();
+
+
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
+    }
+
+    @Override
+    public boolean excluir() throws Exception {
+        try {
+            Files.delete(Path.of("D://Biblioteca/UsuarioProfessor" + getId()));
+            return true;
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
+    }
+
+    @Override
+    public Object ler() throws Exception {
+        try {
+            FileInputStream file = new FileInputStream("D://Biblioteca/UsuarioProfessor"+getId());
+            ObjectInputStream ler = new ObjectInputStream(file);
+            Professor professor = (Professor) ler.readObject();
+            ler.close();
+            return professor;
+
+
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
+    }
+
+    @Override
+    public void atualizar() throws Exception {
+        try {
+            FileOutputStream file = new FileOutputStream("D:\\Biblioteca/UsuarioProfessor"+getId());
+            ObjectOutputStream escreve = new ObjectOutputStream(file);
+            escreve.writeObject(this);
+            escreve.flush();
+            escreve.close();
+
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
+    }
+
 
     @Override
     public String toString() {

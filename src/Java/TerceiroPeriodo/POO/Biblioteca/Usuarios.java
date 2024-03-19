@@ -1,6 +1,8 @@
 package Java.TerceiroPeriodo.POO.Biblioteca;
 
-public class Usuarios {
+import java.io.Serializable;
+
+public abstract class Usuarios implements Serializable,DAO {
     private String nome;
     private int idade;
     private String sexo;

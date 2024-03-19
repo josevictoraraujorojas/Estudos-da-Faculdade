@@ -1,5 +1,12 @@
 package Java.TerceiroPeriodo.POO.Biblioteca;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 public class Aluno extends Usuarios{
     private String matricula;
 
@@ -39,6 +46,60 @@ public class Aluno extends Usuarios{
     }
 
     @Override
+    public void gravar() throws Exception {
+        try {
+            FileOutputStream file = new FileOutputStream("D://Biblioteca/UsuarioAluno"+getMatricula());
+            ObjectOutputStream escreve = new ObjectOutputStream(file);
+            escreve.writeObject(this);
+            escreve.flush();
+            escreve.close();
+
+
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
+    }
+
+    @Override
+    public boolean excluir() throws Exception {
+        try {
+            Files.delete(Path.of("D://Biblioteca/UsuarioAluno" + getMatricula()));
+            return true;
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
+    }
+
+    @Override
+    public Object ler() throws Exception {
+        try {
+            FileInputStream file = new FileInputStream("D://Biblioteca/UsuarioAluno"+getMatricula());
+            ObjectInputStream ler = new ObjectInputStream(file);
+            Aluno aluno = (Aluno) ler.readObject();
+            ler.close();
+            return aluno;
+
+
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
+    }
+
+    @Override
+    public void atualizar() throws Exception {
+        try {
+            FileOutputStream file = new FileOutputStream("D:\\Biblioteca/UsuarioAluno"+getMatricula());
+            ObjectOutputStream escreve = new ObjectOutputStream(file);
+            escreve.writeObject(this);
+            escreve.flush();
+            escreve.close();
+
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
+    }
+
+    @Override
     public String toString() {
         return "Aluno{" +
                 "matricula='" + matricula + '\'' +
@@ -46,4 +107,5 @@ public class Aluno extends Usuarios{
                 ", periodo=" + periodo +
                 "} " + super.toString();
     }
+
 }

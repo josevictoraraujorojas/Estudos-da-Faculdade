@@ -1,6 +1,10 @@
 package Java.TerceiroPeriodo.POO.Biblioteca;
 
-public class Emprestimos {
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+public class Emprestimos implements Serializable, DAO{
     private String dataDoEmprestimo;
     private String horaDoEmprestimo;
     private Livros livro;
@@ -50,6 +54,60 @@ public class Emprestimos {
 
     public void setUsuario(Usuarios usuario) {
         this.usuario = usuario;
+    }
+
+    @Override
+    public void gravar() throws Exception {
+        try {
+            FileOutputStream file = new FileOutputStream("D://Biblioteca/Emprestimo"+getDataDoEmprestimo());
+            ObjectOutputStream escreve = new ObjectOutputStream(file);
+            escreve.writeObject(this);
+            escreve.flush();
+            escreve.close();
+
+
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
+    }
+
+    @Override
+    public boolean excluir() throws Exception {
+        try {
+            Files.delete(Path.of("D://Biblioteca/Emprestimo" + getDataDoEmprestimo()));
+            return true;
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
+    }
+
+    @Override
+    public Object ler() throws Exception {
+        try {
+            FileInputStream file = new FileInputStream("D://Biblioteca/Emprestimo"+getDataDoEmprestimo());
+            ObjectInputStream ler = new ObjectInputStream(file);
+            Emprestimos emprestimos = (Emprestimos) ler.readObject();
+            ler.close();
+            return emprestimos;
+
+
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
+    }
+
+    @Override
+    public void atualizar() throws Exception {
+        try {
+            FileOutputStream file = new FileOutputStream("D:\\Biblioteca/Emprestimo"+getDataDoEmprestimo());
+            ObjectOutputStream escreve = new ObjectOutputStream(file);
+            escreve.writeObject(this);
+            escreve.flush();
+            escreve.close();
+
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
     }
 
     @Override

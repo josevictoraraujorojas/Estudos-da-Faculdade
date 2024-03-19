@@ -1,11 +1,13 @@
 package Java.TerceiroPeriodo.POO.Biblioteca;
 
-public class Obra {
-    private String titulo;
-    private String autor;
-    private String genero;
-    private String editora;
-    private String ano;
+import java.io.Serializable;
+
+public abstract class Obra implements Serializable {
+    protected String titulo;
+    protected String autor;
+    protected String genero;
+    protected String editora;
+    protected String ano;
 
     public Obra(String titulo, String autor, String area, String editora, String ano) {
         this.titulo = titulo;
@@ -13,6 +15,9 @@ public class Obra {
         this.genero = area;
         this.editora = editora;
         this.ano = ano;
+    }
+    public Obra(){
+
     }
 
     public String getTitulo() {
