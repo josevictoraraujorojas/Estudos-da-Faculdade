@@ -7,7 +7,7 @@ import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class Professor extends Usuarios{
+public class Professor extends Usuario {
 
     private String id;
     private String formacaoAcademica;

@@ -7,46 +7,48 @@ import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class Funcionario extends Usuario {
-    private String id;
-    private String departamento;
-    private String cargo;
+public class Estudande extends Usuario {
+    private String matricula;
 
-    public Funcionario(String nome, int idade, String sexo, String telefone, String id, String departamento, String cargo) {
+    private String cursoMatriculado;
+
+    private int periodo;
+
+    public Estudande(String nome, int idade, String sexo, String telefone, String matricula, String curso, int periodo) {
         super(nome, telefone, sexo, idade);
-        this.id = id;
-        this.departamento = departamento;
-        this.cargo = cargo;
+        this.matricula = matricula;
+        this.cursoMatriculado = curso;
+        this.periodo = periodo;
     }
 
-    public String getId() {
-        return id;
+    public String getMatricula() {
+        return matricula;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
-    public String getDepartamento() {
-        return departamento;
+    public String getCursoMatriculado() {
+        return cursoMatriculado;
     }
 
-    public void setDepartamento(String departamento) {
-        this.departamento = departamento;
+    public void setCursoMatriculado(String cursoMatriculado) {
+        this.cursoMatriculado = cursoMatriculado;
     }
 
-    public String getCargo() {
-        return cargo;
+    public int getPeriodo() {
+        return periodo;
     }
 
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
+    public void setPeriodo(int periodo) {
+        this.periodo = periodo;
     }
 
     @Override
     public void gravar() throws Exception {
         try {
-            FileOutputStream file = new FileOutputStream("D://Biblioteca/Usuario"+getId());
+            FileOutputStream file = new FileOutputStream("D://Biblioteca/UsuarioAluno"+getMatricula());
             ObjectOutputStream escreve = new ObjectOutputStream(file);
             escreve.writeObject(this);
             escreve.flush();
@@ -61,7 +63,7 @@ public class Funcionario extends Usuario {
     @Override
     public boolean excluir() throws Exception {
         try {
-            Files.delete(Path.of("D://Biblioteca/UsuarioFuncionario" + getId()));
+            Files.delete(Path.of("D://Biblioteca/UsuarioAluno" + getMatricula()));
             return true;
         }catch (Exception erro){
             throw new Exception(erro.toString());
@@ -71,11 +73,11 @@ public class Funcionario extends Usuario {
     @Override
     public Object ler() throws Exception {
         try {
-            FileInputStream file = new FileInputStream("D://Biblioteca/UsuarioFuncionario"+getId());
+            FileInputStream file = new FileInputStream("D://Biblioteca/UsuarioAluno"+getMatricula());
             ObjectInputStream ler = new ObjectInputStream(file);
-            Funcionario funcionario = (Funcionario) ler.readObject();
+            Estudande aluno = (Estudande) ler.readObject();
             ler.close();
-            return funcionario;
+            return aluno;
 
 
         }catch (Exception erro){
@@ -86,7 +88,7 @@ public class Funcionario extends Usuario {
     @Override
     public void atualizar() throws Exception {
         try {
-            FileOutputStream file = new FileOutputStream("D:\\Biblioteca/UsuarioFuncionario"+getId());
+            FileOutputStream file = new FileOutputStream("D:\\Biblioteca/UsuarioAluno"+getMatricula());
             ObjectOutputStream escreve = new ObjectOutputStream(file);
             escreve.writeObject(this);
             escreve.flush();
@@ -99,10 +101,11 @@ public class Funcionario extends Usuario {
 
     @Override
     public String toString() {
-        return "Funcionario{" +
-                "id='" + id + '\'' +
-                ", departamento='" + departamento + '\'' +
-                ", cargo='" + cargo + '\'' +
+        return "Aluno{" +
+                "matricula='" + matricula + '\'' +
+                ", cursoMatriculado='" + cursoMatriculado + '\'' +
+                ", periodo=" + periodo +
                 "} " + super.toString();
     }
+
 }

@@ -8,10 +8,10 @@ public class Emprestimos implements Serializable, DAO{
     private String dataDoEmprestimo;
     private String horaDoEmprestimo;
     private Livros livro;
-    private Usuarios usuario;
+    private Usuario usuario;
 
 
-    public Emprestimos(String dataDoEmprestimo, String horaDoEmprestimo, Livros livro, Usuarios usuario) {
+    public Emprestimos(String dataDoEmprestimo, String horaDoEmprestimo, Livros livro, Usuario usuario) {
         this.dataDoEmprestimo = dataDoEmprestimo;
         this.horaDoEmprestimo = horaDoEmprestimo;
         this.livro = livro;
@@ -48,11 +48,11 @@ public class Emprestimos implements Serializable, DAO{
         this.livro = livro;
     }
 
-    public Usuarios getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuarios usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 

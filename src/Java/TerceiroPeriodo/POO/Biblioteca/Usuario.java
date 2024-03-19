@@ -2,13 +2,13 @@ package Java.TerceiroPeriodo.POO.Biblioteca;
 
 import java.io.Serializable;
 
-public abstract class Usuarios implements Serializable,DAO {
+public abstract class Usuario implements Serializable,DAO {
     private String nome;
     private int idade;
     private String sexo;
     private String telefone;
 
-    public Usuarios(String nome, String sexo, String telefone, int idade) {
+    public Usuario(String nome, String sexo, String telefone, int idade) {
         this.nome = nome;
         this.idade = idade;
         this.sexo = sexo;

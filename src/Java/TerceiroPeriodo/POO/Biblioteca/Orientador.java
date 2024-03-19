@@ -1,15 +1,15 @@
 package Java.TerceiroPeriodo.POO.Biblioteca;
 
-public class Aluno extends Pessoa{
+public class Orientador extends Pessoa{
     private long id;
     private String email;
 
-    public long getRa() {
+    public long getCod() {
         return id;
     }
 
-    public void setRa(long ra) {
-        this.id = ra;
+    public void setCod(long cod) {
+        this.id = cod;
     }
 
     public String getEmail() {

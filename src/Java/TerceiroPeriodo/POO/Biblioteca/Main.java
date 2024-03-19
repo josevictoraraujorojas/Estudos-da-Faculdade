@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Main {
     static Scanner scanner = new Scanner(System.in);
-    static ArrayList<Usuarios> usuarios = new ArrayList<>();
+    static ArrayList<Usuario> usuarios = new ArrayList<>();
     static ArrayList<Livros> livros = new ArrayList<>();
     static ArrayList<Emprestimos> emprestimos = new ArrayList<>();
     public static void main(String[] args) throws Exception {
@@ -33,7 +33,7 @@ public class Main {
                             """);
                     resposta = scanner.nextLine();
                     if (resposta.equals("1")){
-                        cadastraAluno();
+                        cadastraEstudante();
                     }
                     else if (resposta.equals("2")) {
                         cadastraProfessor();
@@ -78,7 +78,7 @@ public class Main {
         livro.gravar();
         livros.add(livro);
     }
-    public static void cadastraAluno() throws Exception {
+    public static void cadastraEstudante() throws Exception {
         String nome, sexo, telefone, matricula, curso;
         int idade, periodo;
 
@@ -97,9 +97,9 @@ public class Main {
         System.out.println("qual o periodo do aluno");
         periodo = Integer.parseInt(scanner.nextLine());
 
-        Aluno aluno = new Aluno(nome,idade,sexo,telefone,matricula,curso,periodo);
-        aluno.gravar();
-        usuarios.add(aluno);
+        Estudande estudante = new Estudande(nome,idade,sexo,telefone,matricula,curso,periodo);
+        estudante.gravar();
+        usuarios.add(estudante);
     }
     public static void cadastraProfessor() throws Exception {
         String nome, sexo, telefone,id, formacaoAcademica, cursoMinistrado;
@@ -152,7 +152,7 @@ public class Main {
     public static void cadastraEmprestimo() throws Exception {
         String dataDoEmprestimo, horaDoEmprestimo, nomeUsuario, tituloLivro;
         Livros livro;
-        Usuarios usuario;
+        Usuario usuario;
 
         System.out.println("escreva o seu nome de usuario");
         nomeUsuario =scanner.nextLine();
@@ -188,7 +188,7 @@ public class Main {
 
     public static void realizaDevolucao() throws Exception {
         String nomeUsuario,tituloLivro;
-        Usuarios usuario;
+        Usuario usuario;
         Livros livro;
         Emprestimos emprestimo;
         System.out.println("escreva o seu nome de usuario");
@@ -241,8 +241,8 @@ public class Main {
         return false;
     }
 
-    public static Usuarios buscaUsuario(String nome){
-        for (Usuarios atual:usuarios) {
+    public static Usuario buscaUsuario(String nome){
+        for (Usuario atual:usuarios) {
             if (atual.getNome().equals(nome))
                 return atual;
         }
@@ -250,14 +250,14 @@ public class Main {
     }
 
     public static boolean contemUsuario(String nome){
-        for (Usuarios atual:usuarios) {
+        for (Usuario atual:usuarios) {
             if (atual.getNome().equals(nome))
                 return true;
         }
         return false;
     }
 
-    public static boolean contemEmprestimo(Livros livro,Usuarios usuario){
+    public static boolean contemEmprestimo(Livros livro, Usuario usuario){
         for (Emprestimos atual:emprestimos) {
             if (atual.getLivro().equals(livro)&&atual.getUsuario().equals(usuario))
                 return true;
@@ -265,7 +265,7 @@ public class Main {
         return false;
     }
 
-    public static Emprestimos buscaEmprestimo(Livros livro,Usuarios usuario){
+    public static Emprestimos buscaEmprestimo(Livros livro, Usuario usuario){
         for (Emprestimos atual:emprestimos) {
             if (atual.getLivro().equals(livro)&&atual.getUsuario().equals(usuario))
                 return atual;
