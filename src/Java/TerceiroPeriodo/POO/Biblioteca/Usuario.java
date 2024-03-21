@@ -3,12 +3,18 @@ package Java.TerceiroPeriodo.POO.Biblioteca;
 import java.io.Serializable;
 
 public abstract class Usuario implements Serializable,DAO {
+    private long id;
+    private String login;
+    private String senha;
     private String nome;
     private int idade;
     private String sexo;
     private String telefone;
 
-    public Usuario(String nome, String sexo, String telefone, int idade) {
+    public Usuario(long id, String login, String senha, String nome, int idade, String sexo, String telefone) {
+        this.id = id;
+        this.login = login;
+        this.senha = senha;
         this.nome = nome;
         this.idade = idade;
         this.sexo = sexo;
@@ -17,6 +23,30 @@ public abstract class Usuario implements Serializable,DAO {
 
     public void lerLivro(){
         System.out.println("O usuario esta lendo um livro");
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public String getNome() {
@@ -53,8 +83,11 @@ public abstract class Usuario implements Serializable,DAO {
 
     @Override
     public String toString() {
-        return "Usuarios{" +
-                "nome='" + nome + '\'' +
+        return "Usuario{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", senha='" + senha + '\'' +
+                ", nome='" + nome + '\'' +
                 ", idade=" + idade +
                 ", sexo='" + sexo + '\'' +
                 ", telefone='" + telefone + '\'' +

@@ -9,23 +9,14 @@ import java.nio.file.Path;
 
 public class Professor extends Usuario {
 
-    private String id;
     private String formacaoAcademica;
     private String cursoMinistrado;
 
-    public Professor(String nome, int idade, String sexo, String telefone, String id, String formacaoAcademica, String cursoMinistrado) {
-        super(nome, telefone, sexo, idade);
-        this.id = id;
+
+    public Professor(long id, String login, String senha, String nome, int idade, String sexo, String telefone, String formacaoAcademica, String cursoMinistrado) {
+        super(id, login, senha, nome, idade, sexo, telefone);
         this.formacaoAcademica = formacaoAcademica;
         this.cursoMinistrado = cursoMinistrado;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getFormacaoAcademica() {
@@ -102,8 +93,7 @@ public class Professor extends Usuario {
     @Override
     public String toString() {
         return "Professor{" +
-                "id='" + id + '\'' +
-                ", formacaoAcademica='" + formacaoAcademica + '\'' +
+                "formacaoAcademica='" + formacaoAcademica + '\'' +
                 ", cursoMinistrado='" + cursoMinistrado + '\'' +
                 "} " + super.toString();
     }

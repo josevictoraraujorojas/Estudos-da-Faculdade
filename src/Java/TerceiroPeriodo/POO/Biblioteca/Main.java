@@ -32,16 +32,11 @@ public class Main {
                             Digite 3 para funcionario
                             """);
                     resposta = scanner.nextLine();
-                    if (resposta.equals("1")){
-                        cadastraEstudante();
-                    }
-                    else if (resposta.equals("2")) {
-                        cadastraProfessor();
-                    }
-                    else if (resposta.equals("3")) {
-                        cadastraFuncionario();
-                    }else {
-                        System.out.println("resposta invalida");
+                    switch (resposta) {
+                        case "1" -> cadastraEstudante();
+                        case "2" -> cadastraProfessor();
+                        case "3" -> cadastraFuncionario();
+                        default -> System.out.println("resposta invalida");
                     }
                 }
                 case "3" -> cadastraEmprestimo();
@@ -79,9 +74,16 @@ public class Main {
         livros.add(livro);
     }
     public static void cadastraEstudante() throws Exception {
-        String nome, sexo, telefone, matricula, curso;
+        String nome, sexo, telefone, matricula, curso,  login,  senha;
         int idade, periodo;
+        long id;
 
+        System.out.println("qual o id do aluno");
+        id = Long.parseLong(scanner.nextLine());
+        System.out.println("qual o login do aluno");
+        login = scanner.nextLine();
+        System.out.println("qual a senha do aluno");
+        senha = scanner.nextLine();
         System.out.println("qual o nome do aluno");
         nome = scanner.nextLine();
         System.out.println("qual o sexo do aluno");
@@ -97,22 +99,27 @@ public class Main {
         System.out.println("qual o periodo do aluno");
         periodo = Integer.parseInt(scanner.nextLine());
 
-        Estudande estudante = new Estudande(nome,idade,sexo,telefone,matricula,curso,periodo);
+        Estudande estudante = new Estudande(id,login,senha,nome,idade,sexo,telefone,matricula,curso,periodo);
         estudante.gravar();
         usuarios.add(estudante);
     }
     public static void cadastraProfessor() throws Exception {
-        String nome, sexo, telefone,id, formacaoAcademica, cursoMinistrado;
+        String nome, sexo, telefone,login,senha, formacaoAcademica, cursoMinistrado;
         int idade;
+        long id;
 
+        System.out.println("qual o id do profssor");
+        id = Long.parseLong(scanner.nextLine());
+        System.out.println("qual o login do professor");
+        login = scanner.nextLine();
+        System.out.println("qual a senha do prodessor");
+        senha = scanner.nextLine();
         System.out.println("qual o nome do professor");
         nome = scanner.nextLine();
         System.out.println("qual o sexo do professor");
         sexo = scanner.nextLine();
         System.out.println("qual o telefone do professor");
         telefone = scanner.nextLine();
-        System.out.println("qual o id do professor");
-        id = scanner.nextLine();
         System.out.println("qual o formacao academica do professor");
         formacaoAcademica = scanner.nextLine();
         System.out.println("qual o curso ministrado do professor");
@@ -120,22 +127,27 @@ public class Main {
         System.out.println("qual a idade do professor");
         idade = Integer.parseInt(scanner.nextLine());
 
-        Professor professor = new Professor(nome,idade,sexo,telefone,id,formacaoAcademica,cursoMinistrado);
+        Professor professor = new Professor(id,login,senha,nome,idade,sexo,telefone,formacaoAcademica,cursoMinistrado);
         professor.gravar();
         usuarios.add(professor);
     }
     public static void cadastraFuncionario() throws Exception {
-        String nome, sexo, telefone, id,departamento, cargo;
+        String nome,login,senha, sexo, telefone, departamento, cargo;
         int idade;
+        long id;
 
+        System.out.println("qual o id do funcionario");
+        id = Long.parseLong(scanner.nextLine());
+        System.out.println("qual o login do funcionario");
+        login = scanner.nextLine();
+        System.out.println("qual a senha do funcionario");
+        senha = scanner.nextLine();
         System.out.println("qual o nome do funcionario");
         nome = scanner.nextLine();
         System.out.println("qual o sexo do funcionario");
         sexo = scanner.nextLine();
         System.out.println("qual o telefone do funcionario");
         telefone = scanner.nextLine();
-        System.out.println("qual o id do funcionario");
-        id = scanner.nextLine();
         System.out.println("qual o departamento do funcionario");
         departamento = scanner.nextLine();
         System.out.println("qual o cargo do funcionario");
@@ -143,7 +155,7 @@ public class Main {
         System.out.println("qual a idade do funcionario");
         idade = Integer.parseInt(scanner.nextLine());
 
-        Funcionario funcionario =new Funcionario(nome,idade,sexo,telefone,id,departamento,cargo);
+        Funcionario funcionario =new Funcionario(id,login,senha,nome,idade,sexo,telefone,departamento,cargo);
         funcionario.gravar();
 
         usuarios.add(funcionario);

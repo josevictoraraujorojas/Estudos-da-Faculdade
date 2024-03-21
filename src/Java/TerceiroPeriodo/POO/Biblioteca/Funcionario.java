@@ -8,23 +8,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class Funcionario extends Usuario {
-    private String id;
     private String departamento;
     private String cargo;
 
-    public Funcionario(String nome, int idade, String sexo, String telefone, String id, String departamento, String cargo) {
-        super(nome, telefone, sexo, idade);
-        this.id = id;
+    public Funcionario(long id, String login, String senha, String nome, int idade, String sexo, String telefone, String departamento, String cargo) {
+        super(id, login, senha, nome, idade, sexo, telefone);
         this.departamento = departamento;
         this.cargo = cargo;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getDepartamento() {
@@ -100,8 +90,7 @@ public class Funcionario extends Usuario {
     @Override
     public String toString() {
         return "Funcionario{" +
-                "id='" + id + '\'' +
-                ", departamento='" + departamento + '\'' +
+                "departamento='" + departamento + '\'' +
                 ", cargo='" + cargo + '\'' +
                 "} " + super.toString();
     }
