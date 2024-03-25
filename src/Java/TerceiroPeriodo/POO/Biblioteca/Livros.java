@@ -10,7 +10,6 @@ public class Livros extends Obra implements DAO, Serializable{
     private int numeroDePaginas;
     private boolean emprestimo;
 
-
     public Livros(String titulo, String autor, String area, String editora, String ano, String edicao, int numeroDePaginas) {
         super(titulo, autor, area, editora, ano);
         this.edicao = edicao;
@@ -20,11 +19,10 @@ public class Livros extends Obra implements DAO, Serializable{
     public Livros(){
 
     }
-
-    public void abrirLivro(){
+    public void abrir(){
         System.out.println("Livro aberto");
     }
-    public void fecharLivro(){
+    public void fechar(){
         System.out.println("Livro fechado");
     }
 

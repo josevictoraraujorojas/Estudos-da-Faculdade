@@ -5,11 +5,25 @@ public class Fotografia extends Obra{
     String legenda;
     String cameraUtilizada;
 
+    public Fotografia(){
+
+    }
+
     public Fotografia(String titulo, String autor, String area, String editora, String ano, String localDaFoto, String legenda, String cameraUtilizada) {
         super(titulo, autor, area, editora, ano);
         this.localDaFoto = localDaFoto;
         this.legenda = legenda;
         this.cameraUtilizada = cameraUtilizada;
+    }
+
+    @Override
+    public void abrir() {
+        System.out.println("Fotografia esta aberta para visualizacao");
+    }
+
+    @Override
+    public void fechar() {
+        System.out.println("Fotografia nao esta mais disponivel");
     }
 
     public String getLocalDaFoto() {

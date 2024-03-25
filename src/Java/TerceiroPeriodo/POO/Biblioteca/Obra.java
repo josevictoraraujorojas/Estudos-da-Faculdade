@@ -20,6 +20,9 @@ public abstract class Obra implements Serializable {
 
     }
 
+    public abstract void abrir();
+    public abstract void fechar();
+
     public String getTitulo() {
         return titulo;
     }
@@ -59,7 +62,6 @@ public abstract class Obra implements Serializable {
     public void setAno(String ano) {
         this.ano = ano;
     }
-
     @Override
     public String toString() {
         return "Obra{" +

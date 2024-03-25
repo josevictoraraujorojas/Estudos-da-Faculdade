@@ -7,12 +7,25 @@ public class MidiaAudio extends Obra{
     private String Album;
 
     private String letra;
+    public MidiaAudio(){
+
+    }
 
     public MidiaAudio(String titulo, String autor, String area, String editora, String ano, int duracao, String album, String letra) {
         super(titulo, autor, area, editora, ano);
         this.duracao = duracao;
         Album = album;
         this.letra = letra;
+    }
+
+    @Override
+    public void abrir() {
+        System.out.println("Midia em execucao");
+    }
+
+    @Override
+    public void fechar() {
+        System.out.println("Midia foi interrompida");
     }
 
     public int getDuracao() {
