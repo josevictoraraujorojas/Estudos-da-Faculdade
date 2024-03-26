@@ -185,6 +185,12 @@ public class Main {
             return;
         }
 
+
+        if (!livro.isEmprestimo()) {
+            System.out.println("Livro ja esta emprestado");
+            return;
+        }
+
         System.out.println("escreva a data do emprestimo");
         dataDoEmprestimo =scanner.nextLine();
 
