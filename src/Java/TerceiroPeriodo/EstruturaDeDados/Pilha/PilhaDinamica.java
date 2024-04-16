@@ -1,12 +1,10 @@
 package Java.TerceiroPeriodo.EstruturaDeDados.Pilha;
 
-import Java.TerceiroPeriodo.EstruturaDeDados.Pilha.NodoPilha;
-
 public class PilhaDinamica<T>{
     private NodoPilha<T> topo;
     private int tam;
 
-    public PilhaDinamica(NodoPilha<T> topo, int tam) {
+    public PilhaDinamica() {
         this.topo = null;
         this.tam = 0;
     }
@@ -16,6 +14,27 @@ public class PilhaDinamica<T>{
         novo.setProximio(getTopo());
         setTopo(novo);
         setTam(1);
+    }
+    public void inverter() throws Exception {
+        if (vazia()) {
+            throw new Exception("Pilha vazia");
+        }
+        PilhaDinamica<T> auxiliar = new PilhaDinamica();
+        while (!vazia()){
+            auxiliar.empilhar(topoDaPilha());
+            desempilhar();
+        }
+        PilhaDinamica<T> auxiliar2 = new PilhaDinamica();
+        while (!auxiliar.vazia()){
+            auxiliar2.empilhar(auxiliar.topoDaPilha());
+            auxiliar.desempilhar();
+        }
+        while (!auxiliar2.vazia()){
+            empilhar(auxiliar2.topoDaPilha());
+            auxiliar2.desempilhar();
+        }
+
+
     }
     public T desempilhar() throws Exception {
         if (vazia()) {
@@ -28,12 +47,113 @@ public class PilhaDinamica<T>{
 
         return elemento;
     }
+    public static void retiraElementosImpares(PilhaDinamica<Integer> pilhaDinamica) throws Exception {
+        if (pilhaDinamica.vazia()) {
+            throw new Exception("Pilha vazia");
+        }
+
+        PilhaDinamica<Integer> pilhaImpar = new PilhaDinamica<>();
+        PilhaDinamica<Integer> pilhaPar = new PilhaDinamica<>();
+        while (!pilhaDinamica.vazia()){
+            if (pilhaDinamica.topoDaPilha()%2==0){
+                pilhaPar.empilhar(pilhaDinamica.topoDaPilha());
+                pilhaDinamica.desempilhar();
+            }else {
+                pilhaImpar.empilhar(pilhaDinamica.topoDaPilha());
+                pilhaDinamica.desempilhar();
+            }
+        }
+
+        while (!pilhaPar.vazia()){
+            pilhaDinamica.empilhar(pilhaPar.topoDaPilha());
+            pilhaPar.desempilhar();
+        }
+    }
+    public static void empilhaSegundaSobrePrimeira(PilhaDinamica primeira, PilhaDinamica segunda) throws Exception {
+        if (primeira.vazia()&&segunda.vazia()){
+            throw new Exception("Pilha vazia");
+        }
+
+        PilhaDinamica aux = new PilhaDinamica<>();
+        while (!segunda.vazia()){
+            aux.empilhar(segunda.topoDaPilha());
+            segunda.desempilhar();
+        }
+        while (!aux.vazia()){
+            primeira.empilhar(aux.topoDaPilha());
+            aux.desempilhar();
+        }
+    }
+
     public T topoDaPilha() throws Exception {
         if (vazia()){
             throw new Exception("Pilha vazia");
         }
 
         return getTopo().getItem();
+    }
+
+    public int menorValor() throws Exception {
+        if (vazia()){
+            throw new Exception("Pilha vazia");
+        }
+
+        PilhaDinamica<T> aux = new PilhaDinamica<>();
+        int menor= (int) topoDaPilha();
+
+        while (!vazia()){
+            if ((int)topoDaPilha()<menor){
+                menor=(int)topoDaPilha();
+            }
+            aux.empilhar(topoDaPilha());
+            desempilhar();
+        }
+        while (!aux.vazia()){
+            empilhar(aux.topoDaPilha());
+            aux.desempilhar();
+        }
+        return menor;
+    }
+    public int maiorValor() throws Exception {
+        if (vazia()){
+            throw new Exception("Pilha vazia");
+        }
+
+        PilhaDinamica<T> aux = new PilhaDinamica<>();
+        int maior = (int) topoDaPilha();
+
+        while (!vazia()){
+            if ((int)topoDaPilha()> maior){
+                maior =(int)topoDaPilha();
+            }
+            aux.empilhar(topoDaPilha());
+            desempilhar();
+        }
+        while (!aux.vazia()){
+            empilhar(aux.topoDaPilha());
+            aux.desempilhar();
+        }
+        return maior;
+    }
+    public float mediaValor() throws Exception {
+        if (vazia()){
+            throw new Exception("Pilha vazia");
+        }
+
+        PilhaDinamica<T> aux = new PilhaDinamica<>();
+        double maior = 0;
+
+        while (!vazia()){
+            maior +=(int)topoDaPilha();
+
+            aux.empilhar(topoDaPilha());
+            desempilhar();
+        }
+        while (!aux.vazia()){
+            empilhar(aux.topoDaPilha());
+            aux.desempilhar();
+        }
+        return (float) (maior/this.tam);
     }
 
     public void imprimi(){
