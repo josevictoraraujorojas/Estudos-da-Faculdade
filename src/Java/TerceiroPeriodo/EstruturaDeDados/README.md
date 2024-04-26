@@ -120,7 +120,7 @@ public class Retangulo{
 
      }
 
-     public int genero(){
+     public int area(){
 
           return altura*largura;
 
