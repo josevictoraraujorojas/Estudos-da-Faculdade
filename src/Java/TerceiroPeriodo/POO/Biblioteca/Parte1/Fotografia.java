@@ -1,8 +1,8 @@
 package Java.TerceiroPeriodo.POO.Biblioteca.Parte1;
 
-import Java.TerceiroPeriodo.POO.Biblioteca.Parte3.Obra;
 
-public class Fotografia extends Obra {
+public class Fotografia extends Obra
+{
     String localDaFoto;
     String legenda;
     String cameraUtilizada;

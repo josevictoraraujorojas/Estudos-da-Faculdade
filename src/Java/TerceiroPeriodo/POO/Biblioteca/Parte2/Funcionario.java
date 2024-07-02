@@ -11,6 +11,9 @@ public class Funcionario extends Usuario {
     private String departamento;
     private String cargo;
 
+    public Funcionario() {
+    }
+
     public Funcionario(String nome, int idade, String sexo, String telefone, String departamento, String cargo) {
         super(nome, idade, sexo, telefone);
         this.departamento = departamento;
@@ -36,7 +39,7 @@ public class Funcionario extends Usuario {
     @Override
     public void gravar() throws Exception {
         try {
-            FileOutputStream file = new FileOutputStream("D://Biblioteca/Usuario"+getNome());
+            FileOutputStream file = new FileOutputStream("D://Biblioteca/UsuarioFuncionario"+getNome());
             ObjectOutputStream escreve = new ObjectOutputStream(file);
             escreve.writeObject(this);
             escreve.flush();
@@ -58,18 +61,17 @@ public class Funcionario extends Usuario {
         }
     }
 
-    @Override
-    public Object ler() throws Exception {
+
+    public Object ler(String nome) throws Exception {
         try {
-            FileInputStream file = new FileInputStream("D://Biblioteca/UsuarioFuncionario"+getNome());
+            FileInputStream file = new FileInputStream("D://Biblioteca/UsuarioFuncionario"+nome);
             ObjectInputStream ler = new ObjectInputStream(file);
-            Funcionario funcionario = (Funcionario) ler.readObject();
+            Object funcionario = ler.readObject();
             ler.close();
             return funcionario;
 
-
         }catch (Exception erro){
-            throw new Exception(erro.toString());
+            return  null;
         }
     }
 

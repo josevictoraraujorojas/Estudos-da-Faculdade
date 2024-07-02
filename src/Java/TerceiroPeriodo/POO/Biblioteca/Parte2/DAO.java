@@ -5,8 +5,7 @@ public interface DAO {
 
     public boolean excluir() throws Exception;
 
-     public Object ler() throws Exception;
-
     public void atualizar() throws Exception;
 
+    abstract Object ler(String dataDoEmprestimo) throws Exception;
 }

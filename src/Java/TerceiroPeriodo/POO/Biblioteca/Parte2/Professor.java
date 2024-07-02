@@ -12,6 +12,8 @@ public class Professor extends Usuario {
     private String formacaoAcademica;
     private String cursoMinistrado;
 
+    public Professor() {
+    }
 
     public Professor(String nome, int idade, String sexo, String telefone, String formacaoAcademica, String cursoMinistrado) {
         super(nome, idade, sexo, telefone);
@@ -60,18 +62,18 @@ public class Professor extends Usuario {
         }
     }
 
-    @Override
-    public Object ler() throws Exception {
+
+    public Object ler(String nome) throws Exception {
         try {
-            FileInputStream file = new FileInputStream("D://Biblioteca/UsuarioProfessor"+getNome());
+            FileInputStream file = new FileInputStream("D://Biblioteca/UsuarioProfessor"+nome);
             ObjectInputStream ler = new ObjectInputStream(file);
-            Professor professor = (Professor) ler.readObject();
+            Object  professor = ler.readObject();
             ler.close();
             return professor;
 
 
         }catch (Exception erro){
-            throw new Exception(erro.toString());
+            return null;
         }
     }
 

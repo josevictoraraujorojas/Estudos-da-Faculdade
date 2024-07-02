@@ -11,8 +11,8 @@ public class MidiaAudio extends Obra{
 
     }
 
-    public MidiaAudio(String titulo, String autor, String area, String editora, String ano, int duracao, String album, String letra) {
-        super(titulo, autor, area, editora, ano);
+    public MidiaAudio(String titulo, String autor, String area, String editora, String ano, boolean digital, int duracao, String album, String letra) {
+        super(titulo, autor, area, editora, ano, digital);
         this.duracao = duracao;
         Album = album;
         this.letra = letra;

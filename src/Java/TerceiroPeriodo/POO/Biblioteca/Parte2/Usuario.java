@@ -8,6 +8,10 @@ public abstract class Usuario implements Serializable, DAO {
     private String sexo;
     private String telefone;
 
+    public Usuario() {
+        this.nome = nome;
+    }
+
     public Usuario(String nome, int idade, String sexo, String telefone) {
 
         this.nome = nome;

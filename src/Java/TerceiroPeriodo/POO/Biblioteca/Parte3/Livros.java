@@ -10,8 +10,8 @@ public class Livros extends Obra implements DAO, Serializable{
     private int numeroDePaginas;
     private boolean emprestimo;
 
-    public Livros(String titulo, String autor, String area, String editora, String ano, String edicao, int numeroDePaginas) {
-        super(titulo, autor, area, editora, ano);
+    public Livros(String titulo, String autor, String area, String editora, String ano,Boolean digital, String edicao, int numeroDePaginas) {
+        super(titulo, autor, area, editora, ano,digital);
         this.edicao = edicao;
         this.numeroDePaginas = numeroDePaginas;
         this.emprestimo = true;

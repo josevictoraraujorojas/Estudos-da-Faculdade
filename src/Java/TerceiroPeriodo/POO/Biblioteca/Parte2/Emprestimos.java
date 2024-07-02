@@ -1,10 +1,10 @@
 package Java.TerceiroPeriodo.POO.Biblioteca.Parte2;
 
-import Java.TerceiroPeriodo.POO.Biblioteca.Parte3.DAO;
-
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class Emprestimos implements Serializable, DAO {
     private String dataDoEmprestimo;
@@ -12,6 +12,8 @@ public class Emprestimos implements Serializable, DAO {
     private Java.TerceiroPeriodo.POO.Biblioteca.Parte2.Livros livro;
     private Java.TerceiroPeriodo.POO.Biblioteca.Parte2.Usuario usuario;
 
+    public Emprestimos() {
+    }
 
     public Emprestimos(String dataDoEmprestimo, String horaDoEmprestimo, Java.TerceiroPeriodo.POO.Biblioteca.Parte2.Livros livro, Java.TerceiroPeriodo.POO.Biblioteca.Parte2.Usuario usuario) {
         this.dataDoEmprestimo = dataDoEmprestimo;
@@ -21,9 +23,9 @@ public class Emprestimos implements Serializable, DAO {
         this.usuario = usuario;
     }
 
-    public void devolverLivro(){
+    public void devolverLivro() throws Exception {
         this.livro.setEmprestimo(true);
-        System.out.println("O livro foi devolvido");
+        livro.atualizar();
     }
 
     public String getDataDoEmprestimo() {
@@ -61,7 +63,7 @@ public class Emprestimos implements Serializable, DAO {
     @Override
     public void gravar() throws Exception {
         try {
-            FileOutputStream file = new FileOutputStream("D://Biblioteca/Emprestimo"+getDataDoEmprestimo());
+            FileOutputStream file = new FileOutputStream("D:\\Biblioteca\\Emprestimo\\"+getDataDoEmprestimo());
             ObjectOutputStream escreve = new ObjectOutputStream(file);
             escreve.writeObject(this);
             escreve.flush();
@@ -76,32 +78,18 @@ public class Emprestimos implements Serializable, DAO {
     @Override
     public boolean excluir() throws Exception {
         try {
-            Files.delete(Path.of("D://Biblioteca/Emprestimo" + getDataDoEmprestimo()));
+            Files.delete(Path.of("D:\\Biblioteca\\Emprestimo\\" + getDataDoEmprestimo()));
             return true;
         }catch (Exception erro){
-            throw new Exception(erro.toString());
+            return false;
         }
     }
 
-    @Override
-    public Object ler() throws Exception {
-        try {
-            FileInputStream file = new FileInputStream("D://Biblioteca/Emprestimo"+getDataDoEmprestimo());
-            ObjectInputStream ler = new ObjectInputStream(file);
-            Emprestimos emprestimos = (Emprestimos) ler.readObject();
-            ler.close();
-            return emprestimos;
-
-
-        }catch (Exception erro){
-            throw new Exception(erro.toString());
-        }
-    }
 
     @Override
     public void atualizar() throws Exception {
         try {
-            FileOutputStream file = new FileOutputStream("D:\\Biblioteca/Emprestimo"+getDataDoEmprestimo());
+            FileOutputStream file = new FileOutputStream("D:\\Biblioteca\\Emprestimo\\"+getDataDoEmprestimo());
             ObjectOutputStream escreve = new ObjectOutputStream(file);
             escreve.writeObject(this);
             escreve.flush();
@@ -111,6 +99,35 @@ public class Emprestimos implements Serializable, DAO {
             throw new Exception(erro.toString());
         }
     }
+
+    @Override
+    public Object ler(String dataDoEmprestimo) throws Exception {
+        try {
+            FileInputStream file = new FileInputStream("D:\\Biblioteca\\Emprestimo\\"+dataDoEmprestimo);
+            ObjectInputStream ler = new ObjectInputStream(file);
+            Object emprestimos = ler.readObject();
+            ler.close();
+            return emprestimos;
+
+
+        }catch (Exception erro){
+            return null;
+        }
+    }
+
+    public ArrayList listar() throws Exception {
+        try {
+            ArrayList<String> emprestimos = new ArrayList<>();
+            Path caminho = Paths.get("D:\\Biblioteca\\Emprestimo");
+            Files.list(caminho).forEach(arquivo -> emprestimos.add(String.valueOf(arquivo.getFileName())));
+            return emprestimos;
+
+        }catch (Exception erro){
+            return null;
+        }
+    }
+
+
 
     @Override
     public String toString() {

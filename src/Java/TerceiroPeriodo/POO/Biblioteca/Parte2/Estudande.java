@@ -14,6 +14,9 @@ public class Estudande extends Usuario {
 
     private int periodo;
 
+    public Estudande() {
+    }
+
     public Estudande(String nome, int idade, String sexo, String telefone, String matricula, String cursoMatriculado, int periodo) {
         super(nome, idade, sexo, telefone);
         this.matricula = matricula;
@@ -62,18 +65,18 @@ public class Estudande extends Usuario {
         }
     }
 
-    @Override
-    public Object ler() throws Exception {
+
+    public Object ler(String nome) throws Exception {
         try {
-            FileInputStream file = new FileInputStream("D://Biblioteca/UsuarioAluno"+getNome());
+            FileInputStream file = new FileInputStream("D://Biblioteca/UsuarioAluno"+nome);
             ObjectInputStream ler = new ObjectInputStream(file);
-            Estudande aluno = (Estudande) ler.readObject();
+            Object aluno =  ler.readObject();
             ler.close();
             return aluno;
 
 
         }catch (Exception erro){
-            throw new Exception(erro.toString());
+           return null;
         }
     }
 
