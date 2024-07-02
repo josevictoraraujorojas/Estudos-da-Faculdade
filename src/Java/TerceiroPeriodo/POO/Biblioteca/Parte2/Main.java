@@ -1,11 +1,4 @@
 package Java.TerceiroPeriodo.POO.Biblioteca.Parte2;
-
-
-
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -51,7 +44,7 @@ Main {
                         emprestimos.add((Emprestimos) auxiliar.ler(aux));
                     }
                     for (Emprestimos aux:emprestimos) {
-                        System.out.println(aux);;
+                        System.out.println(aux);
                     }
                 }
                 case "6" -> System.out.println("Saindo do programa");
@@ -233,8 +226,6 @@ Main {
 
     public static void realizaDevolucao() throws Exception {
         String nomeUsuario,tituloLivro,dataEmprestimo;
-        Usuario usuario;
-        Java.TerceiroPeriodo.POO.Biblioteca.Parte2.Livros livro;
         Emprestimos emprestimo;
         System.out.println("escreva o seu nome de usuario");
         nomeUsuario =scanner.nextLine();
@@ -243,16 +234,7 @@ Main {
         Professor auxiliar1 = new Professor();
         Funcionario auxiliar2 = new Funcionario();
 
-        if (auxiliar.ler(nomeUsuario)!=null){
-            usuario= (Usuario) auxiliar.ler(nomeUsuario);
-        }
-        else if (auxiliar1.ler(nomeUsuario)!=null) {
-            usuario = (Usuario) auxiliar1.ler(nomeUsuario);
-        }
-        else if (auxiliar2.ler(nomeUsuario)!=null) {
-            usuario = (Usuario) auxiliar2.ler(nomeUsuario);
-        }
-        else {
+        if (auxiliar.ler(nomeUsuario) ==null && auxiliar1.ler(nomeUsuario)==null && auxiliar2.ler(nomeUsuario)==null){
             System.out.println("usuario nao existe");
             return;
         }
@@ -263,9 +245,7 @@ Main {
 
         Livros auxilia3 = new Livros();
 
-        if (auxilia3.ler(tituloLivro)!= null){
-            livro= (Livros) auxilia3.ler(tituloLivro);
-        }else {
+        if (auxilia3.ler(tituloLivro) == null){
             System.out.println("Livro nao existe");
             return;
         }

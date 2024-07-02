@@ -115,7 +115,7 @@ public class Emprestimos implements Serializable, DAO {
         }
     }
 
-    public ArrayList listar() throws Exception {
+    public ArrayList<String> listar() {
         try {
             ArrayList<String> emprestimos = new ArrayList<>();
             Path caminho = Paths.get("D:\\Biblioteca\\Emprestimo");
