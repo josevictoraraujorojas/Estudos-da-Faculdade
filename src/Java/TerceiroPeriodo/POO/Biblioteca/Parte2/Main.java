@@ -46,8 +46,12 @@ Main {
                 case "5" -> {
                     Emprestimos auxiliar = new Emprestimos();
                     ArrayList<String> lista = auxiliar.listar();
+                    ArrayList<Emprestimos> emprestimos = new ArrayList<>();
                     for (String aux:lista) {
-                        System.out.println(aux);
+                        emprestimos.add((Emprestimos) auxiliar.ler(aux));
+                    }
+                    for (Emprestimos aux:emprestimos) {
+                        System.out.println(aux);;
                     }
                 }
                 case "6" -> System.out.println("Saindo do programa");
