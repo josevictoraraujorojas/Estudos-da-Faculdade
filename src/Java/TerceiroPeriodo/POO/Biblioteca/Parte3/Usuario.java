@@ -11,6 +11,9 @@ public abstract class Usuario implements Serializable,DAO {
     private String sexo;
     private String telefone;
 
+    public Usuario() {
+    }
+
     public Usuario(long id, String login, String senha, String nome, int idade, String sexo, String telefone) {
         this.id = id;
         this.login = login;

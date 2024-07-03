@@ -13,6 +13,9 @@ public class Professor extends Usuario {
     private String cursoMinistrado;
 
 
+    public Professor() {
+    }
+
     public Professor(long id, String login, String senha, String nome, int idade, String sexo, String telefone, String formacaoAcademica, String cursoMinistrado) {
         super(id, login, senha, nome, idade, sexo, telefone);
         this.formacaoAcademica = formacaoAcademica;
@@ -38,7 +41,7 @@ public class Professor extends Usuario {
     @Override
     public void gravar() throws Exception {
         try {
-            FileOutputStream file = new FileOutputStream("D://Biblioteca/UsuarioProfessor"+getId());
+            FileOutputStream file = new FileOutputStream("D://Biblioteca/UsuarioProfessor"+getNome());
             ObjectOutputStream escreve = new ObjectOutputStream(file);
             escreve.writeObject(this);
             escreve.flush();
@@ -53,32 +56,32 @@ public class Professor extends Usuario {
     @Override
     public boolean excluir() throws Exception {
         try {
-            Files.delete(Path.of("D://Biblioteca/UsuarioProfessor" + getId()));
+            Files.delete(Path.of("D://Biblioteca/UsuarioProfessor" + getNome()));
             return true;
         }catch (Exception erro){
             throw new Exception(erro.toString());
         }
     }
 
-    @Override
-    public Object ler() throws Exception {
+
+    public Object ler(String nome) throws Exception {
         try {
-            FileInputStream file = new FileInputStream("D://Biblioteca/UsuarioProfessor"+getId());
+            FileInputStream file = new FileInputStream("D://Biblioteca/UsuarioProfessor"+nome);
             ObjectInputStream ler = new ObjectInputStream(file);
-            Professor professor = (Professor) ler.readObject();
+            Object  professor = ler.readObject();
             ler.close();
             return professor;
 
 
         }catch (Exception erro){
-            throw new Exception(erro.toString());
+            return null;
         }
     }
 
     @Override
     public void atualizar() throws Exception {
         try {
-            FileOutputStream file = new FileOutputStream("D:\\Biblioteca/UsuarioProfessor"+getId());
+            FileOutputStream file = new FileOutputStream("D:\\Biblioteca/UsuarioProfessor"+getNome());
             ObjectOutputStream escreve = new ObjectOutputStream(file);
             escreve.writeObject(this);
             escreve.flush();

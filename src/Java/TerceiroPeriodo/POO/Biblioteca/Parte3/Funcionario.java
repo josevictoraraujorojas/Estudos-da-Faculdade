@@ -11,6 +11,9 @@ public class Funcionario extends Usuario {
     private String departamento;
     private String cargo;
 
+    public Funcionario() {
+    }
+
     public Funcionario(long id, String login, String senha, String nome, int idade, String sexo, String telefone, String departamento, String cargo) {
         super(id, login, senha, nome, idade, sexo, telefone);
         this.departamento = departamento;
@@ -36,7 +39,7 @@ public class Funcionario extends Usuario {
     @Override
     public void gravar() throws Exception {
         try {
-            FileOutputStream file = new FileOutputStream("D://Biblioteca/Usuario"+getId());
+            FileOutputStream file = new FileOutputStream("D://Biblioteca/UsuarioFuncionario"+getNome());
             ObjectOutputStream escreve = new ObjectOutputStream(file);
             escreve.writeObject(this);
             escreve.flush();
@@ -51,25 +54,24 @@ public class Funcionario extends Usuario {
     @Override
     public boolean excluir() throws Exception {
         try {
-            Files.delete(Path.of("D://Biblioteca/UsuarioFuncionario" + getId()));
+            Files.delete(Path.of("D://Biblioteca/UsuarioFuncionario" + getNome()));
             return true;
         }catch (Exception erro){
             throw new Exception(erro.toString());
         }
     }
 
-    @Override
-    public Object ler() throws Exception {
+
+    public Object ler(String nome) throws Exception {
         try {
-            FileInputStream file = new FileInputStream("D://Biblioteca/UsuarioFuncionario"+getId());
+            FileInputStream file = new FileInputStream("D://Biblioteca/UsuarioFuncionario"+nome);
             ObjectInputStream ler = new ObjectInputStream(file);
-            Funcionario funcionario = (Funcionario) ler.readObject();
+            Object funcionario = ler.readObject();
             ler.close();
             return funcionario;
 
-
         }catch (Exception erro){
-            throw new Exception(erro.toString());
+            return  null;
         }
     }
 

@@ -10,8 +10,8 @@ public class Livros extends Obra implements DAO, Serializable{
     private int numeroDePaginas;
     private boolean emprestimo;
 
-    public Livros(String titulo, String autor, String area, String editora, String ano,Boolean digital, String edicao, int numeroDePaginas) {
-        super(titulo, autor, area, editora, ano,digital);
+    public Livros(String titulo, String autor, String area, String editora, String ano, String edicao, int numeroDePaginas) {
+        super(titulo, autor, area, editora, ano);
         this.edicao = edicao;
         this.numeroDePaginas = numeroDePaginas;
         this.emprestimo = true;
@@ -84,18 +84,17 @@ public class Livros extends Obra implements DAO, Serializable{
         }
     }
 
-    @Override
-    public Object ler() throws Exception {
+    public Object ler(String titulo) throws Exception {
         try {
-            FileInputStream file = new FileInputStream("D://Biblioteca/Livro"+getTitulo());
+            FileInputStream file = new FileInputStream("D://Biblioteca/Livro"+titulo);
             ObjectInputStream ler = new ObjectInputStream(file);
-            Livros livro = (Livros)ler.readObject();
+            Object livro = ler.readObject();
             ler.close();
             return livro;
 
 
         }catch (Exception erro){
-            throw new Exception(erro.toString());
+            return null;
         }
     }
 

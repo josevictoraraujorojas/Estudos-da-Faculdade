@@ -14,6 +14,9 @@ public class Estudande extends Usuario {
 
     private int periodo;
 
+    public Estudande() {
+    }
+
     public Estudande(long id, String login, String senha, String nome, int idade, String sexo, String telefone, String matricula, String cursoMatriculado, int periodo) {
         super(id, login, senha, nome, idade, sexo, telefone);
         this.matricula = matricula;
@@ -40,7 +43,7 @@ public class Estudande extends Usuario {
     @Override
     public void gravar() throws Exception {
         try {
-            FileOutputStream file = new FileOutputStream("D://Biblioteca/UsuarioAluno"+getId());
+            FileOutputStream file = new FileOutputStream("D://Biblioteca/UsuarioAluno"+getNome());
             ObjectOutputStream escreve = new ObjectOutputStream(file);
             escreve.writeObject(this);
             escreve.flush();
@@ -55,25 +58,25 @@ public class Estudande extends Usuario {
     @Override
     public boolean excluir() throws Exception {
         try {
-            Files.delete(Path.of("D://Biblioteca/UsuarioAluno" + getId()));
+            Files.delete(Path.of("D://Biblioteca/UsuarioAluno" + getNome()));
             return true;
         }catch (Exception erro){
             throw new Exception(erro.toString());
         }
     }
 
-    @Override
-    public Object ler() throws Exception {
+
+    public Object ler(String nome) throws Exception {
         try {
-            FileInputStream file = new FileInputStream("D://Biblioteca/UsuarioAluno"+getId());
+            FileInputStream file = new FileInputStream("D://Biblioteca/UsuarioAluno"+nome);
             ObjectInputStream ler = new ObjectInputStream(file);
-            Estudande aluno = (Estudande) ler.readObject();
+            Object aluno =  ler.readObject();
             ler.close();
             return aluno;
 
 
         }catch (Exception erro){
-            throw new Exception(erro.toString());
+            return null;
         }
     }
 
