@@ -11,17 +11,17 @@ Main {
         while (!resposta.equals("6")) {
             System.out.print("""
                     1 Cadastrar livro
-                    2 Cadastrar usuários
-                    3 Realizar empréstimo
-                    4 Realizar devolução
-                    5 Listar todos os empréstimos
+                    2 Cadastrar usuï¿½rios
+                    3 Realizar emprï¿½stimo
+                    4 Realizar devoluï¿½ï¿½o
+                    5 Listar todos os emprï¿½stimos
                     6 Sair do programa""");
             resposta = scanner.nextLine();
 
             switch (resposta) {
                 case "1" -> cadastraLivro();
                 case "2" -> {
-                    resposta="";
+                    resposta = "";
                     System.out.println("""
                             Digite 1 para aluno
                             Digite 2 para professor
@@ -41,10 +41,10 @@ Main {
                     Emprestimos auxiliar = new Emprestimos();
                     ArrayList<String> lista = auxiliar.listar();
                     ArrayList<Emprestimos> emprestimos = new ArrayList<>();
-                    for (String aux:lista) {
+                    for (String aux : lista) {
                         emprestimos.add((Emprestimos) auxiliar.ler(aux));
                     }
-                    for (Emprestimos aux:emprestimos) {
+                    for (Emprestimos aux : emprestimos) {
                         System.out.println(aux);
                     }
                 }
@@ -53,17 +53,18 @@ Main {
             }
         }
     }
+
     public static void cadastraLivro() throws Exception {
-        String titulo, autor,  area, editora, ano, edicao;
+        String titulo, autor, area, editora, ano, edicao;
         int numeroDePaginas;
 
         System.out.println("Qual o titulo do livro");
-        titulo=scanner.nextLine();
+        titulo = scanner.nextLine();
         Livros auxilaiar = new Livros();
-        if (auxilaiar.ler(titulo)!=null){
+        if (auxilaiar.ler(titulo) != null) {
             System.out.println("livro ja existe");
 
-        }else {
+        } else {
             System.out.println("Qual o autor do livro");
             autor = scanner.nextLine();
             System.out.println("Qual a area do livro");
@@ -80,8 +81,9 @@ Main {
             livro.gravar();
         }
     }
+
     public static void cadastraEstudante() throws Exception {
-        String nome, sexo, telefone, matricula, curso,  login,  senha;
+        String nome, sexo, telefone, matricula, curso, login, senha;
         int idade, periodo;
         long id;
 
@@ -94,7 +96,7 @@ Main {
         System.out.println("qual o nome do aluno");
         nome = scanner.nextLine();
         Estudande auxilaiar = new Estudande();
-        if (auxilaiar.ler(nome)!=null){
+        if (auxilaiar.ler(nome) != null) {
             System.out.println("Estudante ja existe");
             return;
 
@@ -112,11 +114,12 @@ Main {
         System.out.println("qual o periodo do aluno");
         periodo = Integer.parseInt(scanner.nextLine());
 
-        Estudande estudante = new Estudande(id,login,senha,nome,idade,sexo,telefone,matricula,curso,periodo);
+        Estudande estudante = new Estudande(id, login, senha, nome, idade, sexo, telefone, matricula, curso, periodo);
         estudante.gravar();
     }
+
     public static void cadastraProfessor() throws Exception {
-        String nome, sexo, telefone,login,senha, formacaoAcademica, cursoMinistrado;
+        String nome, sexo, telefone, login, senha, formacaoAcademica, cursoMinistrado;
         int idade;
         long id;
 //
@@ -132,7 +135,7 @@ Main {
         nome = scanner.nextLine();
 
         Professor auxiliar = new Professor();
-        if (auxiliar.ler(nome)!=null){
+        if (auxiliar.ler(nome) != null) {
             System.out.println("professor ja existe");
             return;
         }
@@ -147,12 +150,13 @@ Main {
         System.out.println("qual a idade do professor");
         idade = Integer.parseInt(scanner.nextLine());
 
-        Professor professor = new Professor(id,login,senha,nome,idade,sexo,telefone,formacaoAcademica,cursoMinistrado);
+        Professor professor = new Professor(id, login, senha, nome, idade, sexo, telefone, formacaoAcademica, cursoMinistrado);
         professor.gravar();
 
     }
+
     public static void cadastraFuncionario() throws Exception {
-        String nome,login,senha, sexo, telefone, departamento, cargo;
+        String nome, login, senha, sexo, telefone, departamento, cargo;
         int idade;
         long id;
 
@@ -166,7 +170,7 @@ Main {
         nome = scanner.nextLine();
 
         Funcionario auxiliar = new Funcionario();
-        if (auxiliar.ler(nome)!=null){
+        if (auxiliar.ler(nome) != null) {
             System.out.println("funcionario ja existe");
             return;
         }
@@ -182,44 +186,41 @@ Main {
         System.out.println("qual a idade do funcionario");
         idade = Integer.parseInt(scanner.nextLine());
 
-        Funcionario funcionario =new Funcionario(id,login,senha,nome,idade,sexo,telefone,departamento,cargo);
+        Funcionario funcionario = new Funcionario(id, login, senha, nome, idade, sexo, telefone, departamento, cargo);
         funcionario.gravar();
 
     }
 
     public static void cadastraEmprestimo() throws Exception {
         String dataDoEmprestimo, horaDoEmprestimo, nomeUsuario, tituloLivro;
-        Livros livro=null;
+        Livros livro = null;
         Usuario usuario;
 
         System.out.println("escreva o seu nome de usuario");
-        nomeUsuario =scanner.nextLine();
+        nomeUsuario = scanner.nextLine();
         Estudande auxiliar = new Estudande();
         Professor auxiliar1 = new Professor();
         Funcionario auxiliar2 = new Funcionario();
 
-        if (auxiliar.ler(nomeUsuario)!=null){
-            usuario= (Usuario) auxiliar.ler(nomeUsuario);
-        }
-        else if (auxiliar1.ler(nomeUsuario)!=null) {
+        if (auxiliar.ler(nomeUsuario) != null) {
+            usuario = (Usuario) auxiliar.ler(nomeUsuario);
+        } else if (auxiliar1.ler(nomeUsuario) != null) {
             usuario = (Usuario) auxiliar1.ler(nomeUsuario);
-        }
-        else if (auxiliar2.ler(nomeUsuario)!=null) {
+        } else if (auxiliar2.ler(nomeUsuario) != null) {
             usuario = (Usuario) auxiliar2.ler(nomeUsuario);
-        }
-        else {
+        } else {
             System.out.println("usuario nao existe");
             return;
         }
 
 
         System.out.println("escreva o titulo do livro");
-        tituloLivro =scanner.nextLine();
+        tituloLivro = scanner.nextLine();
         Livros auxiliar3 = new Livros();
 
-        if (auxiliar3.ler(tituloLivro)!= null){
-            livro= (Livros) auxiliar3.ler(tituloLivro);
-        }else {
+        if (auxiliar3.ler(tituloLivro) != null) {
+            livro = (Livros) auxiliar3.ler(tituloLivro);
+        } else {
             System.out.println("Livro nao existe");
             return;
         }
@@ -231,11 +232,11 @@ Main {
         }
 
         System.out.println("escreva a data do emprestimo");
-        dataDoEmprestimo =scanner.nextLine();
+        dataDoEmprestimo = scanner.nextLine();
 
         System.out.println("escreva a hora do emprestimo");
-        horaDoEmprestimo =scanner.nextLine();
-        Emprestimos emprestimo =new Emprestimos(dataDoEmprestimo,horaDoEmprestimo,livro,usuario);
+        horaDoEmprestimo = scanner.nextLine();
+        Emprestimos emprestimo = new Emprestimos(dataDoEmprestimo, horaDoEmprestimo, livro, usuario);
         livro.setEmprestimo(false);
         livro.atualizar();
         System.out.println(livro.isEmprestimo());
@@ -244,44 +245,40 @@ Main {
     }
 
     public static void realizaDevolucao() throws Exception {
-        String nomeUsuario,tituloLivro,dataEmprestimo;
+        String nomeUsuario, tituloLivro, dataEmprestimo;
         Emprestimos emprestimo;
+
+        System.out.println("escreva a data do emprestimo");
+        dataEmprestimo = scanner.nextLine();
+        Emprestimos auxiliar4 = new Emprestimos();
+
+        if (auxiliar4.ler(dataEmprestimo) != null) {
+            emprestimo = (Emprestimos) auxiliar4.ler(dataEmprestimo);
+        } else {
+            System.out.println("emprestimo nao existe");
+            return;
+        }
+
         System.out.println("escreva o seu nome de usuario");
-        nomeUsuario =scanner.nextLine();
+        nomeUsuario = scanner.nextLine();
 
-        Estudande auxiliar = new Estudande();
-        Professor auxiliar1 = new Professor();
-        Funcionario auxiliar2 = new Funcionario();
 
-        if (auxiliar.ler(nomeUsuario) ==null && auxiliar1.ler(nomeUsuario)==null && auxiliar2.ler(nomeUsuario)==null){
+        if (!emprestimo.getUsuario().getNome().equals(nomeUsuario)) {
             System.out.println("usuario nao existe");
             return;
         }
 
 
         System.out.println("escreva o titulo do livro");
-        tituloLivro =scanner.nextLine();
+        tituloLivro = scanner.nextLine();
 
-        Livros auxilia3 = new Livros();
-
-        if (auxilia3.ler(tituloLivro) == null){
+        if (!emprestimo.getLivro().getTitulo().equals(tituloLivro)) {
             System.out.println("Livro nao existe");
             return;
         }
 
-        System.out.println("escreva a data do emprestimo");
-        dataEmprestimo =scanner.nextLine();
-        Emprestimos auxiliar4 = new Emprestimos();
-
-        if (auxiliar4.ler(dataEmprestimo)!= null){
-            emprestimo= (Emprestimos) auxiliar4.ler(dataEmprestimo);
-        }else {
-            System.out.println("emprestimo nao existe");
-            return;
-        }
-        
         emprestimo.devolverLivro();
         emprestimo.excluir();
-    }
 
+    }
 }

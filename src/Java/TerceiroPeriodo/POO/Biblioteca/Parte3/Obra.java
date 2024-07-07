@@ -8,6 +8,7 @@ public abstract class Obra implements Serializable {
     protected String genero;
     protected String editora;
     protected String ano;
+    protected boolean digital;
 
     public Obra(String titulo, String autor, String area, String editora, String ano) {
         this.titulo = titulo;
@@ -61,6 +62,14 @@ public abstract class Obra implements Serializable {
 
     public void setAno(String ano) {
         this.ano = ano;
+    }
+
+    public boolean isDigital() {
+        return digital;
+    }
+
+    public void setDigital(boolean digital) {
+        this.digital = digital;
     }
 
     @Override

@@ -225,44 +225,41 @@ Main {
     }
 
     public static void realizaDevolucao() throws Exception {
-        String nomeUsuario,tituloLivro,dataEmprestimo;
+        String nomeUsuario, tituloLivro, dataEmprestimo;
         Emprestimos emprestimo;
+
+        System.out.println("escreva a data do emprestimo");
+        dataEmprestimo = scanner.nextLine();
+        Emprestimos auxiliar4 = new Emprestimos();
+
+        if (auxiliar4.ler(dataEmprestimo) != null) {
+            emprestimo = (Emprestimos) auxiliar4.ler(dataEmprestimo);
+        } else {
+            System.out.println("emprestimo nao existe");
+            return;
+        }
+
         System.out.println("escreva o seu nome de usuario");
-        nomeUsuario =scanner.nextLine();
+        nomeUsuario = scanner.nextLine();
 
-        Estudande auxiliar = new Estudande();
-        Professor auxiliar1 = new Professor();
-        Funcionario auxiliar2 = new Funcionario();
 
-        if (auxiliar.ler(nomeUsuario) ==null && auxiliar1.ler(nomeUsuario)==null && auxiliar2.ler(nomeUsuario)==null){
+        if (!emprestimo.getUsuario().getNome().equals(nomeUsuario)) {
             System.out.println("usuario nao existe");
             return;
         }
 
 
         System.out.println("escreva o titulo do livro");
-        tituloLivro =scanner.nextLine();
+        tituloLivro = scanner.nextLine();
 
-        Livros auxilia3 = new Livros();
-
-        if (auxilia3.ler(tituloLivro) == null){
+        if (!emprestimo.getLivro().getTitulo().equals(tituloLivro)) {
             System.out.println("Livro nao existe");
             return;
         }
 
-        System.out.println("escreva a data do emprestimo");
-        dataEmprestimo =scanner.nextLine();
-        Emprestimos auxiliar4 = new Emprestimos();
-
-        if (auxiliar4.ler(dataEmprestimo)!= null){
-            emprestimo= (Emprestimos) auxiliar4.ler(dataEmprestimo);
-        }else {
-            System.out.println("emprestimo nao existe");
-            return;
-        }
-        
         emprestimo.devolverLivro();
         emprestimo.excluir();
+
     }
 
 }
