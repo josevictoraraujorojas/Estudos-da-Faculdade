@@ -62,4 +62,23 @@ public class MidiaAudio extends Obra{
     }
 
 
+    @Override
+    public void gravar() throws Exception {
+
+    }
+
+    @Override
+    public boolean excluir() throws Exception {
+        return false;
+    }
+
+    @Override
+    public void atualizar() throws Exception {
+
+    }
+
+    @Override
+    public Object ler(String dataDoEmprestimo) throws Exception {
+        return null;
+    }
 }

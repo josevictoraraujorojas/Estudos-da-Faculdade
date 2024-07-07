@@ -10,6 +10,8 @@ public abstract class Usuario implements Serializable,DAO {
     private int idade;
     private String sexo;
     private String telefone;
+    private Emprestimos emprestimos;
+    private Reserva reserva;
 
     public Usuario() {
     }
@@ -82,6 +84,22 @@ public abstract class Usuario implements Serializable,DAO {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public Emprestimos getEmprestimos() {
+        return emprestimos;
+    }
+
+    public void setEmprestimos(Emprestimos emprestimos) {
+        this.emprestimos = emprestimos;
+    }
+
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
     }
 
     @Override

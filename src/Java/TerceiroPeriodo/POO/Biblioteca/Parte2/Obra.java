@@ -2,7 +2,7 @@ package Java.TerceiroPeriodo.POO.Biblioteca.Parte2;
 
 import java.io.Serializable;
 
-public abstract class Obra implements Serializable {
+public abstract class Obra implements Serializable,DAO {
     protected String titulo;
     protected String autor;
     protected String genero;

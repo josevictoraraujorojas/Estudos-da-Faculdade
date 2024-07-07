@@ -24,8 +24,9 @@ public class Emprestimos implements Serializable, DAO{
         this.usuario = usuario;
     }
 
-    public void devolverLivro(){
+    public void devolverLivro() throws Exception {
         this.livro.setEmprestimo(true);
+        livro.atualizar();
         System.out.println("O livro foi devolvido");
     }
 

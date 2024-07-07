@@ -2,7 +2,7 @@ package Java.TerceiroPeriodo.POO.Biblioteca.Parte3;
 
 import java.io.Serializable;
 
-public abstract class Obra implements Serializable {
+public abstract class Obra implements Serializable,DAO {
     protected String titulo;
     protected String autor;
     protected String genero;
@@ -10,12 +10,13 @@ public abstract class Obra implements Serializable {
     protected String ano;
     protected boolean digital;
 
-    public Obra(String titulo, String autor, String area, String editora, String ano) {
+    public Obra(String titulo, String autor, String area, String editora, String ano, boolean digital) {
         this.titulo = titulo;
         this.autor = autor;
         this.genero = area;
         this.editora = editora;
         this.ano = ano;
+        this.digital = digital;
     }
     public Obra(){
 

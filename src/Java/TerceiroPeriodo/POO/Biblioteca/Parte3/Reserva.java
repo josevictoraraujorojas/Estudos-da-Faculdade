@@ -1,6 +1,11 @@
 package Java.TerceiroPeriodo.POO.Biblioteca.Parte3;
 
-public class Reserva {
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+public class Reserva implements DAO {
 
     private String dataDaReserva;
     private String horaDaReserva;
@@ -54,5 +59,50 @@ public class Reserva {
                 ", livro=" + livro +
                 ", usuario=" + usuario +
                 '}';
+    }
+
+    @Override
+    public void gravar() throws Exception {
+        try {
+            FileOutputStream file = new FileOutputStream("D:\\Biblioteca\\Emprestimo\\"+getDataDaReserva());
+            ObjectOutputStream escreve = new ObjectOutputStream(file);
+            escreve.writeObject(this);
+            escreve.flush();
+            escreve.close();
+
+
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
+    }
+
+    @Override
+    public boolean excluir() throws Exception {
+
+        try {
+            Files.delete(Path.of("D:\\Biblioteca\\Emprestimo\\" + getDataDaReserva()));
+            return true;
+        }catch (Exception erro){
+            return false;
+        }
+    }
+
+    @Override
+    public void atualizar() throws Exception {
+        try {
+            FileOutputStream file = new FileOutputStream("D:\\Biblioteca\\Emprestimo\\"+getDataDaReserva());
+            ObjectOutputStream escreve = new ObjectOutputStream(file);
+            escreve.writeObject(this);
+            escreve.flush();
+            escreve.close();
+
+        }catch (Exception erro){
+            throw new Exception(erro.toString());
+        }
+    }
+
+    @Override
+    public Object ler(String dataDoEmprestimo) throws Exception {
+        return null;
     }
 }

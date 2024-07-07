@@ -43,7 +43,7 @@ public class Estudande extends Usuario {
     @Override
     public void gravar() throws Exception {
         try {
-            FileOutputStream file = new FileOutputStream("D://Biblioteca/UsuarioAluno"+getNome());
+            FileOutputStream file = new FileOutputStream("D://Biblioteca/UsuarioAluno"+getLogin());
             ObjectOutputStream escreve = new ObjectOutputStream(file);
             escreve.writeObject(this);
             escreve.flush();
@@ -58,7 +58,7 @@ public class Estudande extends Usuario {
     @Override
     public boolean excluir() throws Exception {
         try {
-            Files.delete(Path.of("D://Biblioteca/UsuarioAluno" + getNome()));
+            Files.delete(Path.of("D://Biblioteca/UsuarioAluno" + getLogin()));
             return true;
         }catch (Exception erro){
             throw new Exception(erro.toString());
@@ -66,9 +66,9 @@ public class Estudande extends Usuario {
     }
 
 
-    public Object ler(String nome) throws Exception {
+    public Object ler(String login) throws Exception {
         try {
-            FileInputStream file = new FileInputStream("D://Biblioteca/UsuarioAluno"+nome);
+            FileInputStream file = new FileInputStream("D://Biblioteca/UsuarioAluno"+login);
             ObjectInputStream ler = new ObjectInputStream(file);
             Object aluno =  ler.readObject();
             ler.close();
@@ -83,7 +83,7 @@ public class Estudande extends Usuario {
     @Override
     public void atualizar() throws Exception {
         try {
-            FileOutputStream file = new FileOutputStream("D:\\Biblioteca/UsuarioAluno"+getId());
+            FileOutputStream file = new FileOutputStream("D:\\Biblioteca/UsuarioAluno"+getLogin());
             ObjectOutputStream escreve = new ObjectOutputStream(file);
             escreve.writeObject(this);
             escreve.flush();

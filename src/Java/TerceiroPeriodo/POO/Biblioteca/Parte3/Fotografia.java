@@ -1,4 +1,4 @@
-package Java.TerceiroPeriodo.POO.Biblioteca.Parte2;
+package Java.TerceiroPeriodo.POO.Biblioteca.Parte3;
 
 public class Fotografia extends Obra {
     String localDaFoto;
@@ -9,8 +9,8 @@ public class Fotografia extends Obra {
 
     }
 
-    public Fotografia(String titulo, String autor, String area, String editora, String ano, String localDaFoto, String legenda, String cameraUtilizada) {
-        super(titulo, autor, area, editora, ano);
+    public Fotografia(String titulo, String autor, String area, String editora,Boolean digital ,String ano, String localDaFoto, String legenda, String cameraUtilizada) {
+        super(titulo, autor, area, editora,ano,digital);
         this.localDaFoto = localDaFoto;
         this.legenda = legenda;
         this.cameraUtilizada = cameraUtilizada;
