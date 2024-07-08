@@ -1,4 +1,5 @@
 package Java.TerceiroPeriodo.POO.Biblioteca.Parte3;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,6 +8,7 @@ Main {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
+        criaPastas();
         String resposta="";
         while (!resposta.equals("3")) {
             System.out.println("""
@@ -18,7 +20,7 @@ Main {
                 case "1"->{
                    Usuario usuario = login();
                     String resposta1="";
-                   while (!resposta1.equals("10")){
+                   while (!resposta1.equals("11")){
                     if (!(usuario instanceof Funcionario)) {
                         System.out.println("nao funcionario");
                         break;
@@ -27,16 +29,16 @@ Main {
                         Funcionario usuarioLogado = (Funcionario) usuario;
                         System.out.println("""
                                 1 Cadastrar livro
-                                2 Cadastrar usuários
+                                2 Cadastrar usu?rios
                                 3 Excluir livro
-                                4 Excluir usuários
-                                5 Realizar empréstimo
-                                6 Realizar devolução
+                                4 Excluir usu?rios
+                                5 Realizar empr?stimo
+                                6 Realizar devolu??o
                                 7 Realizar reservas
                                 8 Listar todas as obras
                                 9 listar minhas obras
-                                9 Listar todos os seus empréstimos e reservas
-                                10 sair do programa
+                                10 Listar todos os seus empr?stimos e reservas
+                                11 sair do programa
                                             """);
                         resposta1 = scanner.nextLine();
                         switch (resposta1){
@@ -73,6 +75,18 @@ Main {
                             case "7"->{
                                 cadastrarReserva(usuarioLogado);
                             }
+                            case "8"->{
+                                listarObras();
+                            }
+                            case "9"->{
+                                listarMinhasObras(usuarioLogado);
+                            }
+                            case "10"->{
+                                listarEmprestimoEReservas();
+                            }
+                            default -> {
+                                System.out.println("resposta invalida");
+                            }
                         }
                     }
                     }
@@ -101,6 +115,77 @@ Main {
         }
 
 
+    }
+    public static void listarEmprestimoEReservas() throws Exception {
+        System.out.println("Emprestimos:");
+        Emprestimos auxiliar = new Emprestimos();
+        ArrayList<String> lista = auxiliar.listar();
+        ArrayList<Emprestimos> emprestimos = new ArrayList<>();
+        for (String aux:lista) {
+            emprestimos.add((Emprestimos) auxiliar.ler(aux));
+        }
+        for (Emprestimos aux:emprestimos) {
+            System.out.println(aux);
+        }
+
+        System.out.println("Reservas:");
+        Reserva auxiliar1 = new Reserva();
+        ArrayList<String> lista1 = auxiliar1.listar();
+        ArrayList<Reserva> reservas = new ArrayList<>();
+        for (String aux1:lista1) {
+            reservas.add((Reserva) auxiliar1.ler(aux1));
+        }
+        for (Reserva aux1:reservas) {
+            System.out.println(aux1);
+        }
+
+
+    }
+
+    public static void listarObras() throws Exception {
+        Livros auxiliar = new Livros();
+        ArrayList<String> lista = auxiliar.listar();
+        ArrayList<Livros> emprestimos = new ArrayList<>();
+        for (String aux:lista) {
+            int indice = aux.indexOf('+')+1;
+            emprestimos.add((Livros) auxiliar.ler(aux.substring(indice)));
+        }
+        for (Livros aux:emprestimos) {
+            System.out.println(aux);
+        }
+    }
+    public static void listarMinhasObras(Funcionario usuario) throws Exception {
+        ArrayList<Emprestimos>auxiliar= usuario.getEmprestimos();
+
+        for (Emprestimos atual : auxiliar) {
+            System.out.println(atual.getLivro());
+        }
+
+    }
+
+    public static void criaPastas(){
+        String diretorio = "C:\\";
+        String nomePasta = "BibliotecaParte3";
+        File pasta = new File(diretorio, nomePasta);
+        if (!pasta.exists()) {
+            pasta.mkdirs();
+        }
+        String diretorio2 = "C://BibliotecaParte3";
+        String nomePasta2 = "Emprestimo";
+        File pasta2 = new File(diretorio2, nomePasta2);
+        if (!pasta2.exists()) {
+            pasta2.mkdirs();
+        }
+        String nomePasta3 = "Obra";
+        File pasta3 = new File(diretorio2, nomePasta3);
+        if (!pasta3.exists()) {
+            pasta3.mkdirs();
+        }
+        String nomePasta4 = "Reserva";
+        File pasta4 = new File(diretorio2, nomePasta4);
+        if (!pasta4.exists()) {
+            pasta4.mkdirs();
+        }
     }
     public static Usuario login() throws Exception {
         String login,senha;
@@ -182,20 +267,20 @@ Main {
         int idade, periodo;
         long id;
 
-        System.out.println("qual o id do aluno");
-        id = Long.parseLong(scanner.nextLine());
         System.out.println("qual o login do aluno");
         login = scanner.nextLine();
-        System.out.println("qual a senha do aluno");
-        senha = scanner.nextLine();
-        System.out.println("qual o nome do aluno");
-        nome = scanner.nextLine();
         Estudande auxilaiar = new Estudande();
-        if (auxilaiar.ler(nome) != null) {
+        if (auxilaiar.ler(login) != null) {
             System.out.println("Estudante ja existe");
             return;
 
         }
+        System.out.println("qual o id do aluno");
+        id = Long.parseLong(scanner.nextLine());
+        System.out.println("qual a senha do aluno");
+        senha = scanner.nextLine();
+        System.out.println("qual o nome do aluno");
+        nome = scanner.nextLine();
         System.out.println("qual o sexo do aluno");
         sexo = scanner.nextLine();
         System.out.println("qual o telefone do aluno");
@@ -220,20 +305,20 @@ Main {
 //
 
 
-        System.out.println("qual o id do profssor");
-        id = Long.parseLong(scanner.nextLine());
         System.out.println("qual o login do professor");
         login = scanner.nextLine();
+        Professor auxiliar = new Professor();
+        if (auxiliar.ler(login) != null) {
+            System.out.println("professor ja existe");
+            return;
+        }
+        System.out.println("qual o id do profssor");
+        id = Long.parseLong(scanner.nextLine());
         System.out.println("qual a senha do prodessor");
         senha = scanner.nextLine();
         System.out.println("qual o nome do professor");
         nome = scanner.nextLine();
 
-        Professor auxiliar = new Professor();
-        if (auxiliar.ler(nome) != null) {
-            System.out.println("professor ja existe");
-            return;
-        }
         System.out.println("qual o sexo do professor");
         sexo = scanner.nextLine();
         System.out.println("qual o telefone do professor");
@@ -255,20 +340,20 @@ Main {
         int idade;
         long id;
 
-        System.out.println("qual o id do funcionario");
-        id = Long.parseLong(scanner.nextLine());
         System.out.println("qual o login do funcionario");
         login = scanner.nextLine();
+        Funcionario auxiliar = new Funcionario();
+        if (auxiliar.ler(login) != null) {
+            System.out.println("funcionario ja existe");
+            return;
+        }
+        System.out.println("qual o id do funcionario");
+        id = Long.parseLong(scanner.nextLine());
         System.out.println("qual a senha do funcionario");
         senha = scanner.nextLine();
         System.out.println("qual o nome do funcionario");
         nome = scanner.nextLine();
 
-        Funcionario auxiliar = new Funcionario();
-        if (auxiliar.ler(nome) != null) {
-            System.out.println("funcionario ja existe");
-            return;
-        }
 
         System.out.println("qual o sexo do funcionario");
         sexo = scanner.nextLine();
@@ -350,32 +435,56 @@ Main {
         livro.setEmprestimo(false);
         livro.atualizar();
         emprestimo.gravar();
-        usuario.setEmprestimos(emprestimo);
+        ArrayList<Emprestimos> auxiliar = usuario.getEmprestimos();
+        auxiliar.add(emprestimo);
+        usuario.setEmprestimos(auxiliar);
         usuario.atualizar();
     }
 
     public static void realizaDevolucao(Funcionario usuario) throws Exception {
-        usuario.getEmprestimos().devolverLivro();
-        usuario.getEmprestimos().excluir();
+        boolean verificaEmprestimo = false;
+        ArrayList<Emprestimos>auxiliar= usuario.getEmprestimos();
+        System.out.println("Qual o titulo do livro");
+        String tituloLivro = scanner.nextLine();
+        Livros auxiliar3 = new Livros();
+
+        if (auxiliar3.ler(tituloLivro) == null) {
+            System.out.println("Livro nao existe");
+            return;
+        }
+
+        for (Emprestimos atual : auxiliar) {
+            if (atual.getLivro().getTitulo().equals(tituloLivro)){
+                atual.devolverLivro();
+                auxiliar.remove(atual);
+                atual.excluir();
+                verificaEmprestimo=true;
+                break;
+            }
+        }
+        if (!verificaEmprestimo){
+            System.out.println("livro nao emprestado");
+        }
+        usuario.setEmprestimos(auxiliar);
     }
 
     public static void cadastrarReserva(Funcionario usuario) throws Exception {
         String dataDoEmprestimo, horaDoEmprestimo, tituloLivro;
-        Livros livro = null;
+        Livros livro;
 
         System.out.println("escreva o titulo do livro");
         tituloLivro = scanner.nextLine();
         Livros auxiliar3 = new Livros();
 
         if (auxiliar3.ler(tituloLivro) != null) {
-            livro = (Livros) auxiliar3.ler(tituloLivro);
+            livro = auxiliar3.ler(tituloLivro);
         } else {
             System.out.println("Livro nao existe");
             return;
         }
 
 
-        if (!livro.isEmprestimo()) {
+        if (!livro.isReserva()) {
             System.out.println("Livro ja esta reservado");
             return;
         }
@@ -387,10 +496,13 @@ Main {
         horaDoEmprestimo = scanner.nextLine();
 
         Reserva reserva = new Reserva(dataDoEmprestimo, horaDoEmprestimo, livro, usuario);
-        livro.setEmprestimo(false);
+
+        livro.setReserva(false);
         livro.atualizar();
         reserva.gravar();
-        usuario.setReserva(reserva);
+        ArrayList<Reserva> auxiliar = usuario.getReserva();
+        auxiliar.add(reserva);
+        usuario.setReserva(auxiliar);
         usuario.atualizar();
     }
 }

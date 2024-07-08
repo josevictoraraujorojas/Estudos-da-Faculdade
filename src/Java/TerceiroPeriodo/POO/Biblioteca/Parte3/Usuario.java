@@ -1,6 +1,7 @@
 package Java.TerceiroPeriodo.POO.Biblioteca.Parte3;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public abstract class Usuario implements Serializable,DAO {
     private long id;
@@ -10,13 +11,15 @@ public abstract class Usuario implements Serializable,DAO {
     private int idade;
     private String sexo;
     private String telefone;
-    private Emprestimos emprestimos;
-    private Reserva reserva;
+    private ArrayList<Emprestimos> emprestimos;
+    private ArrayList<Reserva> reserva;
 
     public Usuario() {
     }
 
     public Usuario(long id, String login, String senha, String nome, int idade, String sexo, String telefone) {
+        emprestimos = new ArrayList<>();
+        reserva = new ArrayList<>();
         this.id = id;
         this.login = login;
         this.senha = senha;
@@ -86,19 +89,19 @@ public abstract class Usuario implements Serializable,DAO {
         this.telefone = telefone;
     }
 
-    public Emprestimos getEmprestimos() {
+    public ArrayList<Emprestimos> getEmprestimos() {
         return emprestimos;
     }
 
-    public void setEmprestimos(Emprestimos emprestimos) {
+    public void setEmprestimos(ArrayList<Emprestimos> emprestimos) {
         this.emprestimos = emprestimos;
     }
 
-    public Reserva getReserva() {
+    public ArrayList<Reserva> getReserva() {
         return reserva;
     }
 
-    public void setReserva(Reserva reserva) {
+    public void setReserva(ArrayList<Reserva> reserva) {
         this.reserva = reserva;
     }
 

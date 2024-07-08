@@ -63,7 +63,7 @@ public class Emprestimos implements Serializable, DAO {
     @Override
     public void gravar() throws Exception {
         try {
-            FileOutputStream file = new FileOutputStream("D:\\Biblioteca\\Emprestimo\\"+getDataDoEmprestimo());
+            FileOutputStream file = new FileOutputStream("C://BibliotecaParte2\\Emprestimo\\"+getDataDoEmprestimo());
             ObjectOutputStream escreve = new ObjectOutputStream(file);
             escreve.writeObject(this);
             escreve.flush();
@@ -78,7 +78,7 @@ public class Emprestimos implements Serializable, DAO {
     @Override
     public boolean excluir() throws Exception {
         try {
-            Files.delete(Path.of("D:\\Biblioteca\\Emprestimo\\" + getDataDoEmprestimo()));
+            Files.delete(Path.of("C://BibliotecaParte2\\Emprestimo\\" + getDataDoEmprestimo()));
             return true;
         }catch (Exception erro){
             return false;
@@ -89,7 +89,7 @@ public class Emprestimos implements Serializable, DAO {
     @Override
     public void atualizar() throws Exception {
         try {
-            FileOutputStream file = new FileOutputStream("D:\\Biblioteca\\Emprestimo\\"+getDataDoEmprestimo());
+            FileOutputStream file = new FileOutputStream("C://BibliotecaParte2\\Emprestimo\\"+getDataDoEmprestimo());
             ObjectOutputStream escreve = new ObjectOutputStream(file);
             escreve.writeObject(this);
             escreve.flush();
@@ -103,7 +103,7 @@ public class Emprestimos implements Serializable, DAO {
     @Override
     public Object ler(String dataDoEmprestimo) throws Exception {
         try {
-            FileInputStream file = new FileInputStream("D:\\Biblioteca\\Emprestimo\\"+dataDoEmprestimo);
+            FileInputStream file = new FileInputStream("C://BibliotecaParte2\\Emprestimo\\"+dataDoEmprestimo);
             ObjectInputStream ler = new ObjectInputStream(file);
             Object emprestimos = ler.readObject();
             ler.close();
@@ -118,7 +118,7 @@ public class Emprestimos implements Serializable, DAO {
     public ArrayList<String> listar() {
         try {
             ArrayList<String> emprestimos = new ArrayList<>();
-            Path caminho = Paths.get("D:\\Biblioteca\\Emprestimo");
+            Path caminho = Paths.get("C://BibliotecaParte2\\Emprestimo");
             Files.list(caminho).forEach(arquivo -> emprestimos.add(String.valueOf(arquivo.getFileName())));
             return emprestimos;
 

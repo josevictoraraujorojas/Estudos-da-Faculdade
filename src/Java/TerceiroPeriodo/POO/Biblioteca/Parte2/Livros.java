@@ -62,7 +62,7 @@ public class Livros extends Obra implements DAO, Serializable{
     @Override
     public void gravar() throws Exception {
         try {
-            FileOutputStream file = new FileOutputStream("D://Biblioteca/Livro"+getTitulo());
+            FileOutputStream file = new FileOutputStream("C://BibliotecaParte2/Livro"+getTitulo());
             ObjectOutputStream escreve = new ObjectOutputStream(file);
             escreve.writeObject(this);
             escreve.flush();
@@ -77,7 +77,7 @@ public class Livros extends Obra implements DAO, Serializable{
     @Override
     public boolean excluir() throws Exception {
         try {
-            Files.delete(Path.of("D://Biblioteca/Livro" + getTitulo()));
+            Files.delete(Path.of("C://BibliotecaParte2/Livro" + getTitulo()));
             return true;
         }catch (Exception erro){
             throw new Exception(erro.toString());
@@ -86,7 +86,7 @@ public class Livros extends Obra implements DAO, Serializable{
 
     public Object ler(String titulo) throws Exception {
         try {
-            FileInputStream file = new FileInputStream("D://Biblioteca/Livro"+titulo);
+            FileInputStream file = new FileInputStream("C://BibliotecaParte2/Livro"+titulo);
             ObjectInputStream ler = new ObjectInputStream(file);
             Object livro = ler.readObject();
             ler.close();
@@ -101,7 +101,7 @@ public class Livros extends Obra implements DAO, Serializable{
     @Override
     public void atualizar() throws Exception {
         try {
-            FileOutputStream file = new FileOutputStream("D:\\Biblioteca/Livro"+getTitulo());
+            FileOutputStream file = new FileOutputStream("C:\\BibliotecaParte2/Livro"+getTitulo());
             ObjectOutputStream escreve = new ObjectOutputStream(file);
             escreve.writeObject(this);
             escreve.flush();

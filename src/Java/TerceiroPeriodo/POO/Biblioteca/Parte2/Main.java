@@ -1,4 +1,5 @@
 package Java.TerceiroPeriodo.POO.Biblioteca.Parte2;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -6,7 +7,20 @@ public class
 Main {
     static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) throws Exception {
-        String resposta = "";
+        String diretorio = "C:\\";
+        String nomePasta = "BibliotecaParte2";
+        File pasta = new File(diretorio, nomePasta);
+        if (!pasta.exists()) {
+            pasta.mkdirs();
+        }
+        String diretorio2 = "C://BibliotecaParte2";
+        String nomePasta2 = "Emprestimo";
+        File pasta2 = new File(diretorio2, nomePasta2);
+        if (!pasta2.exists()) {
+            pasta2.mkdirs();
+        }
+
+            String resposta = "";
         while (!resposta.equals("6")) {
             System.out.print("""
                     1 Cadastrar livro

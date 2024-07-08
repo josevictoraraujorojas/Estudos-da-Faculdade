@@ -3,6 +3,8 @@ package Java.TerceiroPeriodo.POO.Biblioteca.Parte3;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class Livros extends Obra implements DAO, Serializable{
 
@@ -61,18 +63,9 @@ public class Livros extends Obra implements DAO, Serializable{
     }
 
     @Override
-    public String toString() {
-        return "Livros{" +
-                "edicao='" + edicao + '\'' +
-                ", numeroDePaginas=" + numeroDePaginas +
-                ", emprestimo=" + emprestimo +
-                "} " + super.toString();
-    }
-
-    @Override
     public void gravar() throws Exception {
         try {
-            FileOutputStream file = new FileOutputStream("D://Biblioteca//obra//Livro"+getTitulo());
+            FileOutputStream file = new FileOutputStream("C:\\BibliotecaParte3\\Obra\\Livro+"+getTitulo());
             ObjectOutputStream escreve = new ObjectOutputStream(file);
             escreve.writeObject(this);
             escreve.flush();
@@ -87,20 +80,20 @@ public class Livros extends Obra implements DAO, Serializable{
     @Override
     public boolean excluir() throws Exception {
         try {
-            Files.delete(Path.of("D://Biblioteca//Obra//Livro" + getTitulo()));
+            Files.delete(Path.of("C:\\BibliotecaParte3\\Obra\\Livro+" + getTitulo()));
             return true;
         }catch (Exception erro){
             throw new Exception(erro.toString());
         }
     }
 
-    public Object ler(String titulo) throws Exception {
+    public Livros ler(String titulo) throws Exception {
         try {
-            FileInputStream file = new FileInputStream("D://Biblioteca//Obra//Livro"+titulo);
+            FileInputStream file = new FileInputStream("C:\\BibliotecaParte3\\Obra\\Livro+"+titulo);
             ObjectInputStream ler = new ObjectInputStream(file);
             Object livro = ler.readObject();
             ler.close();
-            return livro;
+            return (Livros) livro;
 
 
         }catch (Exception erro){
@@ -111,7 +104,7 @@ public class Livros extends Obra implements DAO, Serializable{
     @Override
     public void atualizar() throws Exception {
         try {
-            FileOutputStream file = new FileOutputStream("D://Biblioteca//Obra//Livro"+getTitulo());
+            FileOutputStream file = new FileOutputStream("C:\\BibliotecaParte3\\Obra\\Livro+"+getTitulo());
             ObjectOutputStream escreve = new ObjectOutputStream(file);
             escreve.writeObject(this);
             escreve.flush();
@@ -120,5 +113,27 @@ public class Livros extends Obra implements DAO, Serializable{
         }catch (Exception erro){
             throw new Exception(erro.toString());
         }
+    }
+
+    public ArrayList<String> listar() {
+        try {
+            ArrayList<String> livros = new ArrayList<>();
+            Path caminho = Paths.get("C:\\BibliotecaParte3\\Obra");
+            Files.list(caminho).forEach(arquivo -> livros.add(String.valueOf(arquivo.getFileName())));
+            return livros;
+
+        }catch (Exception erro){
+            return null;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Livros{" +
+                "edicao='" + edicao + '\'' +
+                ", numeroDePaginas=" + numeroDePaginas +
+                ", emprestimo=" + emprestimo +
+                ", reserva=" + reserva +
+                '}';
     }
 }
