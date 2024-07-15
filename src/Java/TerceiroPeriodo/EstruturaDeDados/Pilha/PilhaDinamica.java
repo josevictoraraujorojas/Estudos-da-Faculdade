@@ -15,27 +15,6 @@ public class PilhaDinamica<T>{
         setTopo(novo);
         setTam(1);
     }
-    public void inverter() throws Exception {
-        if (vazia()) {
-            throw new Exception("Pilha vazia");
-        }
-        PilhaDinamica<T> auxiliar = new PilhaDinamica();
-        while (!vazia()){
-            auxiliar.empilhar(topoDaPilha());
-            desempilhar();
-        }
-        PilhaDinamica<T> auxiliar2 = new PilhaDinamica();
-        while (!auxiliar.vazia()){
-            auxiliar2.empilhar(auxiliar.topoDaPilha());
-            auxiliar.desempilhar();
-        }
-        while (!auxiliar2.vazia()){
-            empilhar(auxiliar2.topoDaPilha());
-            auxiliar2.desempilhar();
-        }
-
-
-    }
     public T desempilhar() throws Exception {
         if (vazia()) {
             throw new Exception("Pilha vazia");
@@ -46,6 +25,25 @@ public class PilhaDinamica<T>{
         setTam(-1);
 
         return elemento;
+    }
+    public void inverter() throws Exception {
+        if (vazia()) {
+            throw new Exception("Pilha vazia");
+        }
+        PilhaDinamica<T> auxiliar = new PilhaDinamica();
+        while (!vazia()){
+            auxiliar.empilhar(this.topoDaPilha());
+            this.desempilhar();
+        }
+        PilhaDinamica<T> auxiliar2 = new PilhaDinamica();
+        while (!auxiliar.vazia()){
+            auxiliar2.empilhar(auxiliar.topoDaPilha());
+            auxiliar.desempilhar();
+        }
+        while (!auxiliar2.vazia()){
+            empilhar(auxiliar2.topoDaPilha());
+            auxiliar2.desempilhar();
+        }
     }
     public static void retiraElementosImpares(PilhaDinamica<Integer> pilhaDinamica) throws Exception {
         if (pilhaDinamica.vazia()) {
