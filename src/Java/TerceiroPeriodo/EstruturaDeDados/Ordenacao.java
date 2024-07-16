@@ -12,9 +12,9 @@ public class Ordenacao {
 
         vetor[0]= 5;
         vetor[1] = 4;
-        vetor[2] = 3;
+        vetor[2] = 0;
         vetor[3] = 2;
-        vetor[4] = 1;
+        vetor[4] = 5;
         System.out.println(Arrays.toString(vetor));
 
         for(int k = 0; k <= vetor.length-1; k++){
