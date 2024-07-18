@@ -3,7 +3,7 @@ package Java.TerceiroPeriodo.POO.Biblioteca.Parte4;
 import javax.swing.*;
 import java.awt.*;
 
-public class JpanelCadastroProfessor extends JPanel{
+public class GuiEditarProfessor extends JFrame {
     JLabel textoNome;
     JTextField nome;
     JLabel textoSenha;
@@ -18,12 +18,12 @@ public class JpanelCadastroProfessor extends JPanel{
     JTextField idade;
     JLabel textoFormacaoAcademica;
     JTextField formacaoAcademica;
-    JButton cadastrar;
+    JButton editar;
+    JButton excluir;
 
-    public JpanelCadastroProfessor() {
+    public GuiEditarProfessor() {
         setLayout(new GridBagLayout());
         setBackground(Color.WHITE);
-        setBorder(BorderFactory.createLineBorder(Color.BLACK));
         Font fonte = new Font("Arial", Font.BOLD, 20);
 
         GridBagConstraints textoNomeC = new GridBagConstraints();
@@ -61,8 +61,11 @@ public class JpanelCadastroProfessor extends JPanel{
         GridBagConstraints formacaoAcademicaC = new GridBagConstraints();
         formacaoAcademicaC.gridwidth=GridBagConstraints.REMAINDER;
 
-        GridBagConstraints cadastrarC = new GridBagConstraints();
-        cadastrarC.gridwidth=GridBagConstraints.REMAINDER;
+        GridBagConstraints editarC = new GridBagConstraints();
+
+
+        GridBagConstraints excluirC = new GridBagConstraints();
+        excluirC.gridwidth=GridBagConstraints.REMAINDER;
 
         textoNome = new JLabel("Nome:");
         textoNome.setFont(fonte);
@@ -123,9 +126,14 @@ public class JpanelCadastroProfessor extends JPanel{
         formacaoAcademica.setFont(fonte);
         add(formacaoAcademica,formacaoAcademicaC);
 
-        cadastrar = new JButton("Cadastrar");
-        cadastrar.setFont(fonte);
-        cadastrar.setBackground(Color.GREEN);
-        add(cadastrar,cadastrarC);
+        editar = new JButton("Editar");
+        editar.setFont(fonte);
+        editar.setBackground(Color.YELLOW);
+        add(editar,editarC);
+
+        excluir = new JButton("Excluir");
+        excluir.setFont(fonte);
+        excluir.setBackground(Color.RED);
+        add(excluir,excluirC);
     }
 }

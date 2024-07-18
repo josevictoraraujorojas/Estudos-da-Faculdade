@@ -18,6 +18,7 @@ public class JpanelCadastroFuncionario extends JPanel{
     JTextField idade;
     JLabel textoCargo;
     JTextField cargo;
+    JButton cadastrar;
 
     public JpanelCadastroFuncionario() {
         setLayout(new GridBagLayout());
@@ -59,6 +60,9 @@ public class JpanelCadastroFuncionario extends JPanel{
 
         GridBagConstraints cargoC = new GridBagConstraints();
         cargoC.gridwidth=GridBagConstraints.REMAINDER;
+
+        GridBagConstraints cadastrarC = new GridBagConstraints();
+        cadastrarC.gridwidth=GridBagConstraints.REMAINDER;
 
         textoNome = new JLabel("Nome:");
         textoNome.setFont(fonte);
@@ -103,7 +107,7 @@ public class JpanelCadastroFuncionario extends JPanel{
         idade.setFont(fonte);
         add(idade,idadeC);
 
-        textoDepartamento = new JLabel("Cursos Ministrados:");
+        textoDepartamento = new JLabel("Departamento:");
         textoDepartamento.setFont(fonte);
         add(textoDepartamento,textoDepartamentoC);
 
@@ -111,12 +115,17 @@ public class JpanelCadastroFuncionario extends JPanel{
         departamento.setFont(fonte);
         add(departamento,departamentoC);
 
-        textoCargo = new JLabel("Formacao academica:");
+        textoCargo = new JLabel("Cargo:");
         textoCargo.setFont(fonte);
         add(textoCargo, textoCargoC);
 
         cargo = new JTextField(10);
         cargo.setFont(fonte);
         add(cargo,cargoC);
+
+        cadastrar = new JButton("Cadastrar");
+        cadastrar.setFont(fonte);
+        cadastrar.setBackground(Color.GREEN);
+        add(cadastrar,cadastrarC);
     }
 }

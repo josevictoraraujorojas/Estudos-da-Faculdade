@@ -3,7 +3,7 @@ package Java.TerceiroPeriodo.POO.Biblioteca.Parte4;
 import javax.swing.*;
 import java.awt.*;
 
-public class JpanelCadastroProfessor extends JPanel{
+public class GuiEditarFuncionario extends JFrame{
     JLabel textoNome;
     JTextField nome;
     JLabel textoSenha;
@@ -12,18 +12,18 @@ public class JpanelCadastroProfessor extends JPanel{
     JComboBox sexo;
     JLabel textoTelefone;
     JTextField telefone;
-    JLabel textoCursoMinistrados;
-    JTextField cursoMinistrados;
+    JLabel textoDepartamento;
+    JTextField departamento;
     JLabel textoIdade;
     JTextField idade;
-    JLabel textoFormacaoAcademica;
-    JTextField formacaoAcademica;
-    JButton cadastrar;
+    JLabel textoCargo;
+    JTextField cargo;
+    JButton editar;
+    JButton excluir;
 
-    public JpanelCadastroProfessor() {
+    public GuiEditarFuncionario() {
         setLayout(new GridBagLayout());
         setBackground(Color.WHITE);
-        setBorder(BorderFactory.createLineBorder(Color.BLACK));
         Font fonte = new Font("Arial", Font.BOLD, 20);
 
         GridBagConstraints textoNomeC = new GridBagConstraints();
@@ -46,23 +46,26 @@ public class JpanelCadastroProfessor extends JPanel{
         GridBagConstraints telefoneC = new GridBagConstraints();
         telefoneC.gridwidth=GridBagConstraints.REMAINDER;
 
-        GridBagConstraints textoCursoMinistradosC = new GridBagConstraints();
+        GridBagConstraints textoDepartamentoC = new GridBagConstraints();
 
-        GridBagConstraints cursoMinistradosC = new GridBagConstraints();
-        cursoMinistradosC.gridwidth=GridBagConstraints.REMAINDER;
+        GridBagConstraints departamentoC = new GridBagConstraints();
+        departamentoC.gridwidth=GridBagConstraints.REMAINDER;
 
         GridBagConstraints textoIdadeC = new GridBagConstraints();
 
         GridBagConstraints idadeC = new GridBagConstraints();
         idadeC.gridwidth=GridBagConstraints.REMAINDER;
 
-        GridBagConstraints textoFormacaoAcademicaC = new GridBagConstraints();
+        GridBagConstraints textoCargoC = new GridBagConstraints();
 
-        GridBagConstraints formacaoAcademicaC = new GridBagConstraints();
-        formacaoAcademicaC.gridwidth=GridBagConstraints.REMAINDER;
+        GridBagConstraints cargoC = new GridBagConstraints();
+        cargoC.gridwidth=GridBagConstraints.REMAINDER;
 
-        GridBagConstraints cadastrarC = new GridBagConstraints();
-        cadastrarC.gridwidth=GridBagConstraints.REMAINDER;
+        GridBagConstraints editarC = new GridBagConstraints();
+
+
+        GridBagConstraints excluirC = new GridBagConstraints();
+        excluirC.gridwidth=GridBagConstraints.REMAINDER;
 
         textoNome = new JLabel("Nome:");
         textoNome.setFont(fonte);
@@ -107,25 +110,30 @@ public class JpanelCadastroProfessor extends JPanel{
         idade.setFont(fonte);
         add(idade,idadeC);
 
-        textoCursoMinistrados = new JLabel("Cursos Ministrados:");
-        textoCursoMinistrados.setFont(fonte);
-        add(textoCursoMinistrados,textoCursoMinistradosC);
+        textoDepartamento = new JLabel("Departamento:");
+        textoDepartamento.setFont(fonte);
+        add(textoDepartamento,textoDepartamentoC);
 
-        cursoMinistrados = new JTextField(10);
-        cursoMinistrados.setFont(fonte);
-        add(cursoMinistrados,cursoMinistradosC);
+        departamento = new JTextField(10);
+        departamento.setFont(fonte);
+        add(departamento,departamentoC);
 
-        textoFormacaoAcademica = new JLabel("Formacao academica:");
-        textoFormacaoAcademica.setFont(fonte);
-        add(textoFormacaoAcademica, textoFormacaoAcademicaC);
+        textoCargo = new JLabel("Cargo:");
+        textoCargo.setFont(fonte);
+        add(textoCargo, textoCargoC);
 
-        formacaoAcademica = new JTextField(10);
-        formacaoAcademica.setFont(fonte);
-        add(formacaoAcademica,formacaoAcademicaC);
+        cargo = new JTextField(10);
+        cargo.setFont(fonte);
+        add(cargo,cargoC);
 
-        cadastrar = new JButton("Cadastrar");
-        cadastrar.setFont(fonte);
-        cadastrar.setBackground(Color.GREEN);
-        add(cadastrar,cadastrarC);
+        editar = new JButton("Editar");
+        editar.setFont(fonte);
+        editar.setBackground(Color.YELLOW);
+        add(editar,editarC);
+
+        excluir = new JButton("Excluir");
+        excluir.setFont(fonte);
+        excluir.setBackground(Color.RED);
+        add(excluir,excluirC);
     }
 }

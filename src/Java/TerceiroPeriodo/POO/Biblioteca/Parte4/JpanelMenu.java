@@ -2,6 +2,8 @@ package Java.TerceiroPeriodo.POO.Biblioteca.Parte4;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class JpanelMenu extends JPanel {
@@ -9,10 +11,8 @@ public class JpanelMenu extends JPanel {
     JButton biblioteca;
     JButton minhasObras;
     JButton meusEmprestimosEReservas;
-    JButton cadastrarLivro;
-    JButton cadastrarUsuario;
-    JButton excluirLivro;
-    JButton excluirUsuario;
+    JButton livros;
+    JButton usuarios;
 
 
     public JpanelMenu() {
@@ -44,29 +44,18 @@ public class JpanelMenu extends JPanel {
         meusEmprestimosEReservasC.fill = GridBagConstraints.BOTH;
         meusEmprestimosEReservasC.gridwidth=GridBagConstraints.REMAINDER;
 
-        GridBagConstraints cadastrarLivroC = new GridBagConstraints();
-        cadastrarLivroC.weightx=1;
-        cadastrarLivroC.weighty=1;
-        cadastrarLivroC.fill = GridBagConstraints.BOTH;
-        cadastrarLivroC.gridwidth=GridBagConstraints.REMAINDER;
+        GridBagConstraints livrosC = new GridBagConstraints();
+        livrosC.weightx=1;
+        livrosC.weighty=1;
+        livrosC.fill = GridBagConstraints.BOTH;
+        livrosC.gridwidth=GridBagConstraints.REMAINDER;
 
-        GridBagConstraints cadastrarUsuarioC = new GridBagConstraints();
-        cadastrarUsuarioC.weightx=1;
-        cadastrarUsuarioC.weighty=1;
-        cadastrarUsuarioC.fill = GridBagConstraints.BOTH;
-        cadastrarUsuarioC.gridwidth=GridBagConstraints.REMAINDER;
+        GridBagConstraints usuariosC = new GridBagConstraints();
+        usuariosC.weightx=1;
+        usuariosC.weighty=1;
+        usuariosC.fill = GridBagConstraints.BOTH;
+        usuariosC.gridwidth=GridBagConstraints.REMAINDER;
 
-        GridBagConstraints excluirLivroC = new GridBagConstraints();
-        excluirLivroC.weightx=1;
-        excluirLivroC.weighty=1;
-        excluirLivroC.fill = GridBagConstraints.BOTH;
-        excluirLivroC.gridwidth=GridBagConstraints.REMAINDER;
-
-        GridBagConstraints excluirUsuarioC = new GridBagConstraints();
-        excluirUsuarioC.weightx=1;
-        excluirUsuarioC.weighty=1;
-        excluirUsuarioC.fill = GridBagConstraints.BOTH;
-        excluirUsuarioC.gridwidth=GridBagConstraints.REMAINDER;
 
 
         menu = new JPanel();
@@ -84,17 +73,23 @@ public class JpanelMenu extends JPanel {
         meusEmprestimosEReservas  = new JButton("Meus Emprestimos");
         menu.add(meusEmprestimosEReservas,meusEmprestimosEReservasC);
 
-        cadastrarLivro = new JButton("Cadastrar Livro");
-        menu.add(cadastrarLivro,cadastrarLivroC);
+        livros = new JButton("Gerenciar Livros");
+        menu.add(livros, livrosC);
 
-        cadastrarUsuario = new JButton("Cadastrar Usuario");
-        menu.add(cadastrarUsuario,cadastrarUsuarioC);
+        JpanelUsuarios cadastro = new  JpanelUsuarios();
+        cadastro.setVisible(false);
+        add(cadastro,new GridBagConstraints());
 
-        excluirLivro = new JButton("Excluir Livro");
-        menu.add(excluirLivro,excluirLivroC);
+        usuarios = new JButton("Gerenciar Usuario");
+        menu.add(usuarios,usuariosC);
+        usuarios.addActionListener(new ActionListener() {
 
-        excluirUsuario = new JButton("Excluir Usuario");
-        menu.add(excluirUsuario,excluirUsuarioC);
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cadastro.setVisible(true);
+            }
+        });
+
 
     }
 }

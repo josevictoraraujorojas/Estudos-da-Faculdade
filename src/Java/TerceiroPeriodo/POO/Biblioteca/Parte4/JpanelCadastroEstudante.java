@@ -18,6 +18,7 @@ public class JpanelCadastroEstudante extends JPanel {
     JTextField idade;
     JLabel textoPeriodo;
     JTextField periodo;
+    JButton cadastrar;
 
     public JpanelCadastroEstudante() {
 
@@ -60,6 +61,9 @@ public class JpanelCadastroEstudante extends JPanel {
 
         GridBagConstraints periodoC = new GridBagConstraints();
         periodoC.gridwidth=GridBagConstraints.REMAINDER;
+
+        GridBagConstraints cadastrarC = new GridBagConstraints();
+        cadastrarC.gridwidth=GridBagConstraints.REMAINDER;
 
         textoNome = new JLabel("Nome:");
         textoNome.setFont(fonte);
@@ -119,5 +123,10 @@ public class JpanelCadastroEstudante extends JPanel {
         periodo = new JTextField(10);
         periodo.setFont(fonte);
         add(periodo,periodoC);
+
+        cadastrar = new JButton("Cadastrar");
+        cadastrar.setFont(fonte);
+        cadastrar.setBackground(Color.GREEN);
+        add(cadastrar,cadastrarC);
     }
 }
