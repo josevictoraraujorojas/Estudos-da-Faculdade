@@ -3,7 +3,7 @@ package Java.TerceiroPeriodo.POO.Biblioteca.Parte4;
 import javax.swing.*;
 import java.awt.*;
 
-public class JpanelCadastroLivro extends JPanel {
+public class GuiEditarLivro extends JFrame {
     JLabel textoTitulo;
     JTextField titulo;
     JLabel textoAutor;
@@ -18,12 +18,12 @@ public class JpanelCadastroLivro extends JPanel {
     JTextField edicao;
     JLabel textoNumeroPaginas;
     JTextField numeroPaginas;
-    JButton cadastrar;
+    JButton editar;
+    JButton excluir;
 
-    public JpanelCadastroLivro() {
+    public GuiEditarLivro() {
         setLayout(new GridBagLayout());
         setBackground(Color.WHITE);
-        setBorder(BorderFactory.createLineBorder(Color.BLACK));
         Font fonte = new Font("Arial", Font.BOLD, 20);
 
         GridBagConstraints textoTituloc = new GridBagConstraints();
@@ -61,8 +61,11 @@ public class JpanelCadastroLivro extends JPanel {
         GridBagConstraints numeroPaginasc = new GridBagConstraints();
         numeroPaginasc.gridwidth = GridBagConstraints.REMAINDER;
 
-        GridBagConstraints cadastrarc = new GridBagConstraints();
-        cadastrarc.gridwidth = GridBagConstraints.REMAINDER;
+        GridBagConstraints editarC = new GridBagConstraints();
+
+
+        GridBagConstraints excluirC = new GridBagConstraints();
+        excluirC.gridwidth = GridBagConstraints.REMAINDER;
 
         textoTitulo = new JLabel("Titulo");
         textoTitulo.setFont(fonte);
@@ -98,7 +101,7 @@ public class JpanelCadastroLivro extends JPanel {
 
         textoAno = new JLabel("Ano");
         textoAno.setFont(fonte);
-        add(textoAno,textoAnoc);
+        add(textoAno, textoAnoc);
 
         ano = new JTextField(10);
         ano.setFont(fonte);
@@ -106,7 +109,7 @@ public class JpanelCadastroLivro extends JPanel {
 
         textoEdicao = new JLabel("Edicao");
         textoEdicao.setFont(fonte);
-        add(textoEdicao,textoEdicaoc);
+        add(textoEdicao, textoEdicaoc);
 
         edicao = new JTextField(10);
         edicao.setFont(fonte);
@@ -114,18 +117,20 @@ public class JpanelCadastroLivro extends JPanel {
 
         textoNumeroPaginas = new JLabel("Numero Paginas");
         textoNumeroPaginas.setFont(fonte);
-        add(textoNumeroPaginas,textoNumeroPaginasc);
+        add(textoNumeroPaginas, textoNumeroPaginasc);
 
         numeroPaginas = new JTextField(10);
         numeroPaginas.setFont(fonte);
         add(numeroPaginas, numeroPaginasc);
 
-        cadastrar = new JButton("Cadastrar");
-        cadastrar.setFont(fonte);
-        cadastrar.setBackground(Color.GREEN);
-        add(cadastrar,cadastrarc);
+        editar = new JButton("Editar");
+        editar.setFont(fonte);
+        editar.setBackground(Color.YELLOW);
+        add(editar, editarC);
 
+        excluir = new JButton("Excluir");
+        excluir.setFont(fonte);
+        excluir.setBackground(Color.RED);
+        add(excluir, excluirC);
     }
-
-
 }

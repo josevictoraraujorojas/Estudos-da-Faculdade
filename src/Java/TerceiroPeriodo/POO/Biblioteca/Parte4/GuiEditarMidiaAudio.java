@@ -3,7 +3,7 @@ package Java.TerceiroPeriodo.POO.Biblioteca.Parte4;
 import javax.swing.*;
 import java.awt.*;
 
-public class JpanelCadastroLivro extends JPanel {
+public class GuiEditarMidiaAudio extends JFrame {
     JLabel textoTitulo;
     JTextField titulo;
     JLabel textoAutor;
@@ -14,16 +14,17 @@ public class JpanelCadastroLivro extends JPanel {
     JTextField editora;
     JLabel textoAno;
     JTextField ano;
-    JLabel textoEdicao;
-    JTextField edicao;
-    JLabel textoNumeroPaginas;
-    JTextField numeroPaginas;
-    JButton cadastrar;
+    JLabel textoDuracao;
+    JTextField duaracao;
+    JLabel textoAlbum;
+    JTextField album;;
+    JButton editar;
+    JButton excluir;
 
-    public JpanelCadastroLivro() {
+   public GuiEditarMidiaAudio() {
         setLayout(new GridBagLayout());
         setBackground(Color.WHITE);
-        setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
         Font fonte = new Font("Arial", Font.BOLD, 20);
 
         GridBagConstraints textoTituloc = new GridBagConstraints();
@@ -51,18 +52,21 @@ public class JpanelCadastroLivro extends JPanel {
         GridBagConstraints anoc = new GridBagConstraints();
         anoc.gridwidth = GridBagConstraints.REMAINDER;
 
-        GridBagConstraints textoEdicaoc = new GridBagConstraints();
+        GridBagConstraints textoAlbumc = new GridBagConstraints();
 
-        GridBagConstraints edicaoc = new GridBagConstraints();
-        edicaoc.gridwidth = GridBagConstraints.REMAINDER;
+        GridBagConstraints albumc = new GridBagConstraints();
+        albumc.gridwidth = GridBagConstraints.REMAINDER;
 
-        GridBagConstraints textoNumeroPaginasc = new GridBagConstraints();
+        GridBagConstraints textoObrac = new GridBagConstraints();
 
-        GridBagConstraints numeroPaginasc = new GridBagConstraints();
-        numeroPaginasc.gridwidth = GridBagConstraints.REMAINDER;
+        GridBagConstraints obrac = new GridBagConstraints();
+        obrac.gridwidth = GridBagConstraints.REMAINDER;
 
-        GridBagConstraints cadastrarc = new GridBagConstraints();
-        cadastrarc.gridwidth = GridBagConstraints.REMAINDER;
+       GridBagConstraints editarC = new GridBagConstraints();
+
+
+       GridBagConstraints excluirC = new GridBagConstraints();
+       excluirC.gridwidth = GridBagConstraints.REMAINDER;
 
         textoTitulo = new JLabel("Titulo");
         textoTitulo.setFont(fonte);
@@ -104,28 +108,32 @@ public class JpanelCadastroLivro extends JPanel {
         ano.setFont(fonte);
         add(ano, anoc);
 
-        textoEdicao = new JLabel("Edicao");
-        textoEdicao.setFont(fonte);
-        add(textoEdicao,textoEdicaoc);
+        textoDuracao = new JLabel("Duracao");
+        textoDuracao.setFont(fonte);
+        add(textoDuracao, textoAlbumc);
 
-        edicao = new JTextField(10);
-        edicao.setFont(fonte);
-        add(edicao, edicaoc);
+        duaracao = new JTextField(10);
+        duaracao.setFont(fonte);
+        add(duaracao, albumc);
 
-        textoNumeroPaginas = new JLabel("Numero Paginas");
-        textoNumeroPaginas.setFont(fonte);
-        add(textoNumeroPaginas,textoNumeroPaginasc);
+        textoAlbum = new JLabel("Album");
+        textoAlbum.setFont(fonte);
+        add(textoAlbum, textoObrac);
 
-        numeroPaginas = new JTextField(10);
-        numeroPaginas.setFont(fonte);
-        add(numeroPaginas, numeroPaginasc);
+        album = new JTextField(10);
+        album.setFont(fonte);
+        add(album, obrac);
 
-        cadastrar = new JButton("Cadastrar");
-        cadastrar.setFont(fonte);
-        cadastrar.setBackground(Color.GREEN);
-        add(cadastrar,cadastrarc);
+       editar = new JButton("Editar");
+       editar.setFont(fonte);
+       editar.setBackground(Color.YELLOW);
+       add(editar, editarC);
+
+       excluir = new JButton("Excluir");
+       excluir.setFont(fonte);
+       excluir.setBackground(Color.RED);
+       add(excluir, excluirC);
 
     }
-
 
 }

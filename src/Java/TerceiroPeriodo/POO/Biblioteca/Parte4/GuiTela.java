@@ -7,7 +7,7 @@ public class GuiTela extends JFrame{
 
 
     public GuiTela(){
-        super("biblioteca");
+        super("bibliotecas");
         setLayout(new GridBagLayout());
 
         GridBagConstraints gbc = new GridBagConstraints();

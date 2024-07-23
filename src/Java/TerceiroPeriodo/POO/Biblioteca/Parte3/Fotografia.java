@@ -3,17 +3,17 @@ package Java.TerceiroPeriodo.POO.Biblioteca.Parte3;
 public class Fotografia extends Obra {
     String localDaFoto;
     String legenda;
-    String cameraUtilizada;
+
 
     public Fotografia(){
 
     }
 
-    public Fotografia(String titulo, String autor, String area, String editora,Boolean digital ,String ano, String localDaFoto, String legenda, String cameraUtilizada) {
+    public Fotografia(String titulo, String autor, String area, String editora,Boolean digital ,String ano, String localDaFoto, String legenda) {
         super(titulo, autor, area, editora,ano,digital);
         this.localDaFoto = localDaFoto;
         this.legenda = legenda;
-        this.cameraUtilizada = cameraUtilizada;
+
     }
 
     @Override
@@ -42,13 +42,6 @@ public class Fotografia extends Obra {
         this.legenda = legenda;
     }
 
-    public String getCameraUtilizada() {
-        return cameraUtilizada;
-    }
-
-    public void setCameraUtilizada(String cameraUtilizada) {
-        this.cameraUtilizada = cameraUtilizada;
-    }
 
 
     @Override
@@ -56,7 +49,6 @@ public class Fotografia extends Obra {
         return "Fotografia{" +
                 "localDaFoto='" + localDaFoto + '\'' +
                 ", legenda='" + legenda + '\'' +
-                ", cameraUtilizada='" + cameraUtilizada + '\'' +
                 "} " + super.toString();
     }
 

@@ -3,7 +3,7 @@ package Java.TerceiroPeriodo.POO.Biblioteca.Parte4;
 import javax.swing.*;
 import java.awt.*;
 
-public class JpanelCadastroLivro extends JPanel {
+public class JpanelCadastroFotografia extends JPanel{
     JLabel textoTitulo;
     JTextField titulo;
     JLabel textoAutor;
@@ -14,13 +14,13 @@ public class JpanelCadastroLivro extends JPanel {
     JTextField editora;
     JLabel textoAno;
     JTextField ano;
-    JLabel textoEdicao;
-    JTextField edicao;
-    JLabel textoNumeroPaginas;
-    JTextField numeroPaginas;
+    JLabel textoLocalDaFoto;
+    JTextField localDaFoto;
+    JLabel textoLegenda;
+    JTextField legenda;
     JButton cadastrar;
 
-    public JpanelCadastroLivro() {
+    public JpanelCadastroFotografia() {
         setLayout(new GridBagLayout());
         setBackground(Color.WHITE);
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -51,15 +51,15 @@ public class JpanelCadastroLivro extends JPanel {
         GridBagConstraints anoc = new GridBagConstraints();
         anoc.gridwidth = GridBagConstraints.REMAINDER;
 
-        GridBagConstraints textoEdicaoc = new GridBagConstraints();
+        GridBagConstraints textoLocalDaFotoc = new GridBagConstraints();
 
-        GridBagConstraints edicaoc = new GridBagConstraints();
-        edicaoc.gridwidth = GridBagConstraints.REMAINDER;
+        GridBagConstraints localDaFotoc = new GridBagConstraints();
+        localDaFotoc.gridwidth = GridBagConstraints.REMAINDER;
 
-        GridBagConstraints textoNumeroPaginasc = new GridBagConstraints();
+        GridBagConstraints textoLegendac = new GridBagConstraints();
 
-        GridBagConstraints numeroPaginasc = new GridBagConstraints();
-        numeroPaginasc.gridwidth = GridBagConstraints.REMAINDER;
+        GridBagConstraints legendac = new GridBagConstraints();
+        legendac.gridwidth = GridBagConstraints.REMAINDER;
 
         GridBagConstraints cadastrarc = new GridBagConstraints();
         cadastrarc.gridwidth = GridBagConstraints.REMAINDER;
@@ -104,21 +104,21 @@ public class JpanelCadastroLivro extends JPanel {
         ano.setFont(fonte);
         add(ano, anoc);
 
-        textoEdicao = new JLabel("Edicao");
-        textoEdicao.setFont(fonte);
-        add(textoEdicao,textoEdicaoc);
+        textoLocalDaFoto = new JLabel("Local da foto");
+        textoLocalDaFoto.setFont(fonte);
+        add(textoLocalDaFoto, textoLocalDaFotoc);
 
-        edicao = new JTextField(10);
-        edicao.setFont(fonte);
-        add(edicao, edicaoc);
+        localDaFoto = new JTextField(10);
+        localDaFoto.setFont(fonte);
+        add(localDaFoto, localDaFotoc);
 
-        textoNumeroPaginas = new JLabel("Numero Paginas");
-        textoNumeroPaginas.setFont(fonte);
-        add(textoNumeroPaginas,textoNumeroPaginasc);
+        textoLegenda = new JLabel("Legenda");
+        textoLegenda.setFont(fonte);
+        add(textoLegenda, textoLegendac);
 
-        numeroPaginas = new JTextField(10);
-        numeroPaginas.setFont(fonte);
-        add(numeroPaginas, numeroPaginasc);
+        legenda = new JTextField(10);
+        legenda.setFont(fonte);
+        add(legenda, legendac);
 
         cadastrar = new JButton("Cadastrar");
         cadastrar.setFont(fonte);
@@ -126,6 +126,4 @@ public class JpanelCadastroLivro extends JPanel {
         add(cadastrar,cadastrarc);
 
     }
-
-
 }
