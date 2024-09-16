@@ -2,19 +2,19 @@ package Java.Periodo4;
 
 public class ArvoreBinaria {
     public class Nodo{
-        int item;
+        Object item;
         Nodo esquerda;
         Nodo direita;
 
-        public Nodo(int item) {
+        public Nodo(Object item) {
             this.item = item;
         }
 
-        public int getItem() {
+        public Object getItem() {
             return item;
         }
 
-        public void setItem(int item) {
+        public void setItem(Object item) {
             this.item = item;
         }
 
@@ -39,18 +39,18 @@ public class ArvoreBinaria {
         this.raiz = null;
     }
 
-    public void inserir(int item) {
+    public void inserir(Object item) {
         this.raiz = insere(item, raiz);
     }
 
-    private Nodo insere(int item, Nodo p) {
+    private Nodo insere(Object item, Nodo p) {
         if (p == null) {
             // Cria um novo Nodo e o retorna
             return new Nodo(item);
-        } else if (item < p.item) {
+        } else if ((int)item <(int) p.item) {
             // Insere na subárvore esquerda
             p.esquerda = insere(item, p.esquerda);
-        } else if (item > p.item) {
+        } else if ((int)item >(int) p.item) {
             // Insere na subárvore direita
             p.direita = insere(item, p.direita);
         }
@@ -61,13 +61,42 @@ public class ArvoreBinaria {
     public void imprimiArvoreOrdem(){
         imprimiArvoreOrdemRecursao(this.raiz);
     }
-    public void imprimiArvoreOrdemRecursao(Nodo p) {
+    private void imprimiArvoreOrdemRecursao(Nodo p) {
         if (p == null) {
             return;
         }
         imprimiArvoreOrdemRecursao(p.esquerda); // Visita a subárvore esquerda
         System.out.println(p.item); // Imprime o item do nó atual
         imprimiArvoreOrdemRecursao(p.direita); // Visita a subárvore direita
+    }
+    public void imprimiArvorePosfixa(){
+        imprimiArvorePosfixaRecursao(this.raiz);
+    }
+    private void imprimiArvorePosfixaRecursao(Nodo p) {
+        if (p == null) {
+            return;
+        }
+        imprimiArvorePosfixaRecursao(p.esquerda); // Visita a subárvore esquerda
+        imprimiArvorePosfixaRecursao(p.direita); // Visita a subárvore direita
+        System.out.println(p.item); // Imprime o item do nó atual
+    }
+
+    public Object busca(Object item){
+        return  buscaRecursao(item, this.raiz);
+    }
+    private Object buscaRecursao(Object item, Nodo p) {
+        if (p == null) {
+            return null; // Item não encontrado
+        } else if ((int)item <(int) p.item) {
+            // Item é menor, buscar na subárvore esquerda
+            return buscaRecursao(item, p.esquerda);
+        } else if ((int)item >(int) p.item) {
+            // Item é maior, buscar na subárvore direita
+            return buscaRecursao(item, p.direita);
+        } else {
+            // Item encontrado
+            return p.item;
+        }
     }
 
     public Nodo getRaiz() {

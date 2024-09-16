@@ -10,7 +10,10 @@ public class Main {
         arvore.inserir(2);
         arvore.inserir(10);
         arvore.inserir(14);
+//        arvore.imprimiArvoreOrdem();
+//        System.out.println(arvore.busca(14));
+        arvore.imprimiArvorePosfixa();
 
-        arvore.imprimiArvoreOrdem();
+
     }
 }
