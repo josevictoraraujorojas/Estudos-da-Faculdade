@@ -58,41 +58,85 @@ public class ArvoreBinaria {
         return p;
     }
 
-    public void imprimiArvoreOrdem(){
-        imprimiArvoreOrdemRecursao(this.raiz);
+    public  void retirar(Object item) {
+        this.raiz = retirar(item, raiz);
     }
-    private void imprimiArvoreOrdemRecursao(Nodo p) {
+    private Nodo retirar(Object item, Nodo p) {
+        if (p == null) {
+            return null; // Nó não encontrado
+        } else if ((int) item < (int) p.item) {
+            // O item está na subárvore esquerda
+            p.esquerda = retirar(item, p.esquerda);
+        } else if ((int) item > (int) p.item) {
+            // O item está na subárvore direita
+            p.direita = retirar(item, p.direita);
+        } else {
+            // O item é igual ao item do nó atual (nó a ser removido encontrado)
+            if (p.esquerda == null && p.direita == null) {
+                // Caso 1: Nó sem filhos
+                return null;
+            } else if (p.esquerda == null) {
+                // Caso 2: Nó com um filho à direita
+                return p.direita;
+            } else if (p.direita == null) {
+                // Caso 2: Nó com um filho à esquerda
+                return p.esquerda;
+            } else {
+                // Caso 3: Nó com dois filhos
+                Nodo antecessor = encontrarAntecessor(p,p.esquerda);
+            }
+        }
+        return p;
+    }
+
+    private Nodo encontrarAntecessor(Nodo q, Nodo r) {
+        // O antecessor é o maior valor na subárvore à esquerda
+
+        if(r.direita!=null){
+            r.direita=encontrarAntecessor(q, r.direita);
+        }else {
+            q.item=r.item;
+            r=r.esquerda;
+        }
+        return r;
+    }
+
+
+    public void imprimiArvoreOrdem(){
+        imprimiArvoreOrdem(this.raiz);
+    }
+    private void imprimiArvoreOrdem(Nodo p) {
         if (p == null) {
             return;
         }
-        imprimiArvoreOrdemRecursao(p.esquerda); // Visita a subárvore esquerda
+        imprimiArvoreOrdem(p.esquerda); // Visita a subárvore esquerda
         System.out.println(p.item); // Imprime o item do nó atual
-        imprimiArvoreOrdemRecursao(p.direita); // Visita a subárvore direita
+        imprimiArvoreOrdem(p.direita); // Visita a subárvore direita
     }
     public void imprimiArvorePosfixa(){
-        imprimiArvorePosfixaRecursao(this.raiz);
+        imprimiArvorePosfixa(this.raiz);
     }
-    private void imprimiArvorePosfixaRecursao(Nodo p) {
+    private void imprimiArvorePosfixa(Nodo p) {
         if (p == null) {
             return;
         }
-        imprimiArvorePosfixaRecursao(p.esquerda); // Visita a subárvore esquerda
-        imprimiArvorePosfixaRecursao(p.direita); // Visita a subárvore direita
+        imprimiArvorePosfixa(p.esquerda); // Visita a subárvore esquerda
+        imprimiArvorePosfixa(p.direita); // Visita a subárvore direita
         System.out.println(p.item); // Imprime o item do nó atual
     }
 
     public Object busca(Object item){
-        return  buscaRecursao(item, this.raiz);
+        return  busca(item, this.raiz);
     }
-    private Object buscaRecursao(Object item, Nodo p) {
+    private Object busca(Object item, Nodo p) {
         if (p == null) {
             return null; // Item não encontrado
         } else if ((int)item <(int) p.item) {
             // Item é menor, buscar na subárvore esquerda
-            return buscaRecursao(item, p.esquerda);
+            return busca(item, p.esquerda);
         } else if ((int)item >(int) p.item) {
             // Item é maior, buscar na subárvore direita
-            return buscaRecursao(item, p.direita);
+            return busca(item, p.direita);
         } else {
             // Item encontrado
             return p.item;
