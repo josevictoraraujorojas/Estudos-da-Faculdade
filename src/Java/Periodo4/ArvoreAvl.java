@@ -53,7 +53,7 @@ public class ArvoreAvl {
         }
     }
     private Nodo raiz;
-    public ArvoreBinaria() {
+    public ArvoreAvl() {
         this.raiz = null;
     }
 
