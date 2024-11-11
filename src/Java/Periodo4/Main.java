@@ -2,7 +2,7 @@ package Java.Periodo4;
 
 public class Main {
     public static void main(String[] args) {
-        ArvoreBinaria arvore = new ArvoreBinaria();
+        ArvoreAvl arvore = new ArvoreAvl();
         arvore.inserir(10);
         arvore.inserir(9);
         arvore.inserir(8);
